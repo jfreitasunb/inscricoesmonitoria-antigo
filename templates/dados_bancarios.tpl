@@ -36,7 +36,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="agenciabancaria">Agência</label>  
   <div class="col-md-4">
-  <input id="agenciabancaria" name="agenciabancaria" type="text" placeholder="Somente números" class="form-control input-md" required="required">
+  <input id="agenciabancaria" name="agenciabancaria" type="text" placeholder="" class="form-control input-md" required="required">
     
   </div>
 </div>
@@ -55,42 +55,6 @@
   <label class="col-md-4 control-label" for="cidade">Cidade</label>  
   <div class="col-md-4">
   <input id="cidade" name="cidade" type="text" placeholder="" class="form-control input-md" required="">
-    
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="cep">CEP</label>  
-  <div class="col-md-4">
-  <input id="cep" name="cep" type="text" placeholder="" class="form-control input-md" required="">
-    
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="estado">Estado</label>  
-  <div class="col-md-4">
-  <input id="estado" name="estado" type="text" placeholder="" class="form-control input-md" required="">
-    
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="telefone">Telefone</label>  
-  <div class="col-md-4">
-  <input id="telefone" name="telefone" type="text" placeholder="(DD)#######" class="form-control input-md" required="">
-    
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="celular">Celular</label>  
-  <div class="col-md-4">
-  <input id="celular" name="celular" type="text" placeholder="(DD)#######" class="form-control input-md" required="">
     
   </div>
 </div>
