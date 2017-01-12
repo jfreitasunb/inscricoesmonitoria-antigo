@@ -95,68 +95,11 @@
   </div>
 </div>
 
-<!-- Multiple Radios (inline) -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Training">Would you like to attend our Networking Reception on September 3, 2015?</label>
-  <div class="col-md-4"> 
-    <label class="radio-inline" for="Training-0">
-      <input type="radio" name="Training" id="Training-0" value="yes" checked="checked">
-      Yes
-    </label> 
-    <label class="radio-inline" for="Training-1">
-      <input type="radio" name="Training" id="Training-1" value="no">
-      No
-    </label>
-  </div>
-</div>
-
-<!-- Multiple Radios (inline) -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Networking_Reception">Would you like to attend our Technical Product Update Session on September 4, 2015?</label>
-  <div class="col-md-4"> 
-    <label class="radio-inline" for="Networking_Reception-0">
-      <input type="radio" name="Networking_Reception" id="Networking_Reception-0" value="meet_yes" checked="checked">
-      Yes
-    </label> 
-    <label class="radio-inline" for="Networking_Reception-1">
-      <input type="radio" name="Networking_Reception" id="Networking_Reception-1" value="meet_no">
-      No
-    </label>
-  </div>
-</div>
-
-<!-- Select Basic -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="selectbasic">Select Basic</label>
-  <div class="col-md-4">
-    <select id="selectbasic" name="selectbasic" class="form-control input-md">
-      <option>Option one</option>
-      <option>Option two</option>
-    </select>
-  </div>
-</div>
-
-
-<!-- Multiple Radios (inline) -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="Dinner">Would you like to attend our Networking Dinner on September 4, 2015?</label>
-  <div class="col-md-4"> 
-    <label class="radio-inline" for="Dinner-0">
-      <input type="radio" name="Dinner" id="Dinner-0" value="dinner_yes" checked="checked">
-      Yes
-    </label> 
-    <label class="radio-inline" for="Dinner-1">
-      <input type="radio" name="Dinner" id="Dinner-1" value="dinner_no">
-      No
-    </label>
-  </div>
-</div>
-
 <!-- Button -->
 <div class="form-group">
   <label class="col-md-4 control-label" for="submit"></label>
   <div class="col-md-4">
-    <button id="submit" name="submit" class="btn btn-primary">SUBMIT</button>
+    <button id="submit" name="submit" class="btn btn-primary">Enviar</button>
   </div>
 </div>
 
