@@ -43,63 +43,54 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="email">Email</label>  
+  <label class="col-md-4 control-label" for="endereco">Endereço</label>  
   <div class="col-md-4">
-  <input id="email" name="email" type="text" placeholder="email" class="form-control input-md" required="">
+  <input id="endereco" name="endereco" type="text" placeholder="" class="form-control input-md" required="">
     
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="add1">Address 1</label>  
+  <label class="col-md-4 control-label" for="cidade">Cidade</label>  
   <div class="col-md-4">
-  <input id="add1" name="add1" type="text" placeholder="" class="form-control input-md" required="">
+  <input id="cidade" name="cidade" type="text" placeholder="" class="form-control input-md" required="">
     
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="add2">Address 2</label>  
+  <label class="col-md-4 control-label" for="cep">CEP</label>  
   <div class="col-md-4">
-  <input id="add2" name="add2" type="text" placeholder="" class="form-control input-md">
+  <input id="cep" name="cep" type="text" placeholder="" class="form-control input-md" required="">
     
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="city">City</label>  
+  <label class="col-md-4 control-label" for="estado">Estado</label>  
   <div class="col-md-4">
-  <input id="city" name="city" type="text" placeholder="city" class="form-control input-md" required="">
+  <input id="estado" name="estado" type="text" placeholder="" class="form-control input-md" required="">
     
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="zip">Zip Code</label>  
+  <label class="col-md-4 control-label" for="telefone">Telefone</label>  
   <div class="col-md-4">
-  <input id="zip" name="zip" type="text" placeholder="Zip Code" class="form-control input-md" required="">
+  <input id="telefone" name="telefone" type="text" placeholder="(DD)#######" class="form-control input-md" required="">
     
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="ctry">Country</label>  
+  <label class="col-md-4 control-label" for="celular">Celular</label>  
   <div class="col-md-4">
-  <input id="ctry" name="ctry" type="text" placeholder="Country" class="form-control input-md" required="">
-    
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="phone">Text InputPhone</label>  
-  <div class="col-md-4">
-  <input id="phone" name="phone" type="text" placeholder="Phone#" class="form-control input-md" required="">
+  <input id="celular" name="celular" type="text" placeholder="(DD)#######" class="form-control input-md" required="">
     
   </div>
 </div>
