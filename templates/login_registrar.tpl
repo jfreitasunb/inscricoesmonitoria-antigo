@@ -4,8 +4,8 @@
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/css_monitoria.css" rel="stylesheet">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/css_monitoria.css" rel="stylesheet">
   
 </head>
 <body>
@@ -33,10 +33,6 @@
                   </div>
                   <div class="form-group">
                     <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
-                  </div>
-                  <div class="form-group text-center">
-                    <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-                    <label for="remember"> Remember Me</label>
                   </div>
                   <div class="form-group">
                     <div class="row">
@@ -86,8 +82,8 @@
 
 </body>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="jquery/jquery-3.1.1.min.js"></script>
+    <script src="../jquery/jquery-3.1.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/monitoria.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/monitoria.js"></script>
 </html>
