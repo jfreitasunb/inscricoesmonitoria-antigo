@@ -13,31 +13,30 @@
 <fieldset>
 
 <!-- Form Name -->
-<legend>Form Name</legend>
+<legend>Dados Pessoais</legend>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="fn">First name</label>  
+  <label class="col-md-4 control-label" for="numerorg">RG</label>  
   <div class="col-md-4">
-  <input id="fn" name="fn" type="text" placeholder="first name" class="form-control input-md" required="">
+  <input id="numerorg" name="numerorg" type="text" class="form-control input-md" required="required">
+  </div>
+</div>
+
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="emissorrg">Órgão Emissor</label>  
+  <div class="col-md-4">
+  <input id="emissorrg" name="emissorrg" type="text" class="form-control input-md" required="required">
     
   </div>
 </div>
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="ln">Last name</label>  
+  <label class="col-md-4 control-label" for="cpf">CPF</label>  
   <div class="col-md-4">
-  <input id="ln" name="ln" type="text" placeholder="last name" class="form-control input-md" required="">
-    
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="cmpny">Company</label>  
-  <div class="col-md-4">
-  <input id="cmpny" name="cmpny" type="text" placeholder="company" class="form-control input-md" required="">
+  <input id="cpf" name="cpf" type="text" placeholder="Somente números" class="form-control input-md" required="required">
     
   </div>
 </div>
