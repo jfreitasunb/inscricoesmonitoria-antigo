@@ -98,7 +98,7 @@
   </div>
 
 
-<div class="form-group">
+<div class="form-group col-xs-4 form-horizontal">
   <label class="col-md-4 control-label" for="tipomonitoria">Tipo de Monitoria</label>
   <div class="col-md-4">
   <div class="radio">
@@ -122,7 +122,7 @@
   </div>
 </div>
 
-  <label class="col-md-4 control-label" for="horariomonitoria">Horários possíveis</label>
+  <label class="col-md-4 control-label col-xs-4" for="horariomonitoria">Horários possíveis</label>
   <div class="col-md-4">
   <div class="checkbox">
     <label for="horariomonitoria-0">
