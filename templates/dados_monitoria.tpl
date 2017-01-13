@@ -109,27 +109,29 @@
       </div>
   </div>
 
-  <label class="col-xs-4 control-label form-horizontal" for="horariomonitoria">Horários possíveis</label>
-  <div class="col-md-4">
-  <div class="checkbox">
-    <label for="horariomonitoria-0">
-      <input type="checkbox" name="horariomonitoria" id="horariomonitoria-0" value="12-14">
-      12 às 14h
-    </label>
+  <div class="form-group col-xs-4 form-horizontal">
+    <label class="control-label form-horizontal" for="horariomonitoria">Horários possíveis</label>
+    <div class="checkbox">
+      <label for="horariomonitoria-0">
+        <input type="checkbox" name="horariomonitoria" id="horariomonitoria-0" value="12-14">
+        12 às 14h
+      </label>
+    </div>
+    <div class="checkbox">
+      <label for="horariomonitoria-1">
+        <input type="checkbox" name="horariomonitoria" id="horariomonitoria-1" value="18-19">
+        18 às 19h
+      </label>
+    </div>
+    <div class="checkbox">
+      <label for="horariomonitoria-2">
+        <input type="checkbox" name="horariomonitoria" id="horariomonitoria-2" value="aula">
+        Horário normal de aula (somente para Cálculo 1)
+      </label>
+    </div>
   </div>
-  <div class="checkbox">
-    <label for="horariomonitoria-1">
-      <input type="checkbox" name="horariomonitoria" id="horariomonitoria-1" value="18-19">
-      18 às 19h
-    </label>
-  </div>
-  <div class="checkbox">
-    <label for="horariomonitoria-2">
-      <input type="checkbox" name="horariomonitoria" id="horariomonitoria-2" value="aula">
-      Horário normal de aula (somente para Cálculo 1)
-    </label>
-  </div>
-  <div class="checkbox">
+
+  <div class="checkbox col-xs-4 form-horizontal">
     <label for="horariomonitoria-3">
       <input type="checkbox" name="horariomonitoria" id="horariomonitoria-3" value="agree">
       Declaro conhecer os critérios de participação do Programa de Monitoria de Graduação, estabelecidos pela Resolução CEPE n 008/90 de 26.10.1990, e ser conhecedor que a participação no Programa de Monitoria não estabelece nenhum vínculo empregatício.
