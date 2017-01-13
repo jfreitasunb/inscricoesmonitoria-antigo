@@ -145,7 +145,7 @@
   </fieldset>
 </div>
 
-  <button type="submit" class="btn btn-default">Submit</button>
+  <button type="submit" class="btn btn-register">Enviar</button>
 </form>
 
 </body>
