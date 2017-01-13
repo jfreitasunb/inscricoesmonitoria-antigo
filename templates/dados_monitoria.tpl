@@ -138,7 +138,7 @@
   <fieldset class="scheduler-border">
     <div class="checkbox form-horizontal">
       <label for="horariomonitoria-3">
-        <input type="checkbox" name="horariomonitoria" id="horariomonitoria-3" value="agree">
+        <input type="checkbox" name="horariomonitoria" id="horariomonitoria-3" value="agree" required="required">
         Declaro conhecer os critérios de participação do Programa de Monitoria de Graduação, estabelecidos pela Resolução CEPE n 008/90 de 26.10.1990, e ser conhecedor que a participação no Programa de Monitoria não estabelece nenhum vínculo empregatício.
       </label>
     </div>
