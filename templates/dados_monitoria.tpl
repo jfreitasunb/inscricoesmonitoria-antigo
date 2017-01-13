@@ -145,7 +145,13 @@
   </fieldset>
 </div>
 
-  <button type="submit" class="btn btn-register">Enviar</button>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Registrar">
+      </div>
+    </div>
+  </div>
 </form>
 
 </body>
