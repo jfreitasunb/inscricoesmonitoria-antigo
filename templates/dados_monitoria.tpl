@@ -20,8 +20,6 @@
       <option value="2">Option two</option>
     </select>
   </div>
-  </div>
-
 
   <div class="form-group col-xs-4">
     <label for="email">Menção:</label>
@@ -30,7 +28,6 @@
       <option value="2">Option two</option>
     </select>
   </div>
-  </div>
 
   <div class="form-group col-xs-4">
     <label for="email">Ano/Semestre:</label>
@@ -38,7 +35,6 @@
       <option value="1">Option one</option>
       <option value="2">Option two</option>
     </select>
-  </div>
   </div>
 
   <div class="form-group col-xs-4">
@@ -48,8 +44,6 @@
       <option value="2">Option two</option>
     </select>
   </div>
-  </div>
-
 
   <div class="form-group col-xs-4">
     <label for="email">Menção:</label>
@@ -58,7 +52,6 @@
       <option value="2">Option two</option>
     </select>
   </div>
-  </div>
 
   <div class="form-group col-xs-4">
     <label for="email">Ano/Semestre:</label>
@@ -66,7 +59,6 @@
       <option value="1">Option one</option>
       <option value="2">Option two</option>
     </select>
-  </div>
   </div>
 
 <div class="form-group col-xs-4">
@@ -76,8 +68,6 @@
       <option value="2">Option two</option>
     </select>
   </div>
-  </div>
-
 
   <div class="form-group col-xs-4">
     <label for="email">Menção:</label>
@@ -85,7 +75,6 @@
       <option value="1">Option one</option>
       <option value="2">Option two</option>
     </select>
-  </div>
   </div>
 
   <div class="form-group col-xs-4">
@@ -95,32 +84,30 @@
       <option value="2">Option two</option>
     </select>
   </div>
-  </div>
 
-
-<div class="form-group col-xs-4 form-horizontal">
-  <label class="col-md-4 control-label" for="tipomonitoria">Tipo de Monitoria</label>
-  <div class="col-md-4">
-  <div class="radio">
-    <label for="somentevoluntaria">
-      <input type="radio" name="somentevoluntaria" id="somentevoluntaria" value="somentevoluntaria" checked="checked">
-      Somente voluntária
-    </label>
+  <div class="form-group col-xs-4 form-horizontal">
+    <label class="col-md-4 control-label" for="tipomonitoria">Tipo de Monitoria</label>
+    <div class="col-md-4">
+      <div class="radio">
+        <label for="somentevoluntaria">
+          <input type="radio" name="somentevoluntaria" id="somentevoluntaria" value="somentevoluntaria" checked="checked">
+          Somente voluntária
+        </label>
+      </div>
+      <div class="radio">
+        <label for="somenteremunerada">
+          <input type="radio" name="somenteremunerada" id="somenteremunerada" value="somenteremunerada">
+          Somente remunerada
+        </label>
+      </div>
+      <div class="radio">
+        <label for="indiferente">
+          <input type="radio" name="indiferente" id="indiferente" value="indiferente">
+          Indiferente
+        </label>
+      </div>
+    </div>
   </div>
-  <div class="radio">
-    <label for="somenteremunerada">
-      <input type="radio" name="somenteremunerada" id="somenteremunerada" value="somenteremunerada">
-      Somente remunerada
-    </label>
-  </div>
-  <div class="radio">
-    <label for="indiferente">
-      <input type="radio" name="indiferente" id="indiferente" value="indiferente">
-      Indiferente
-    </label>
-  </div>
-  </div>
-</div>
 
   <label class="col-md-4 control-label col-xs-4" for="horariomonitoria">Horários possíveis</label>
   <div class="col-md-4">
@@ -147,7 +134,6 @@
       <input type="checkbox" name="horariomonitoria" id="horariomonitoria-3" value="agree">
       Declaro conhecer os critérios de participação do Programa de Monitoria de Graduação, estabelecidos pela Resolução CEPE n 008/90 de 26.10.1990, e ser conhecedor que a participação no Programa de Monitoria não estabelece nenhum vínculo empregatício.
     </label>
-  </div>
   </div>
 </div>
 
