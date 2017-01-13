@@ -12,77 +12,79 @@
 <!-- Form Name -->
 <legend>Dados Bancários</legend>
 
-<form class="form-inline">
-  <div class="form-group col-xs-4">
-    <label for="email">Disciplina:</label>
-    <select id="selectbasic" name="selectbasic" class="form-group">
-      <option value="1">Option one</option>
-      <option value="2">Option two</option>
-    </select>
-  </div>
+<form class="form-group">
+  <div class="form-inline">
+    <div class="form-group col-xs-4">
+      <label for="email">Disciplina:</label>
+      <select id="selectbasic" name="selectbasic" class="form-group">
+        <option value="1">Option one</option>
+        <option value="2">Option two</option>
+      </select>
+    </div>
 
-  <div class="form-group col-xs-4">
-    <label for="email">Menção:</label>
-    <select id="selectbasic" name="selectbasic" class="form-group">
-      <option value="1">Option one</option>
-      <option value="2">Option two</option>
-    </select>
-  </div>
+    <div class="form-group col-xs-4">
+      <label for="email">Menção:</label>
+      <select id="selectbasic" name="selectbasic" class="form-group">
+        <option value="1">Option one</option>
+        <option value="2">Option two</option>
+      </select>
+    </div>
 
-  <div class="form-group col-xs-4">
-    <label for="email">Ano/Semestre:</label>
-    <select id="selectbasic" name="selectbasic" class="form-group">
-      <option value="1">Option one</option>
-      <option value="2">Option two</option>
-    </select>
-  </div>
+    <div class="form-group col-xs-4">
+      <label for="email">Ano/Semestre:</label>
+      <select id="selectbasic" name="selectbasic" class="form-group">
+        <option value="1">Option one</option>
+        <option value="2">Option two</option>
+      </select>
+    </div>
 
-  <div class="form-group col-xs-4">
-    <label for="email">Disciplina:</label>
-    <select id="selectbasic" name="selectbasic" class="form-group">
-      <option value="1">Option one</option>
-      <option value="2">Option two</option>
-    </select>
-  </div>
+    <div class="form-group col-xs-4">
+      <label for="email">Disciplina:</label>
+      <select id="selectbasic" name="selectbasic" class="form-group">
+        <option value="1">Option one</option>
+        <option value="2">Option two</option>
+      </select>
+    </div>
 
-  <div class="form-group col-xs-4">
-    <label for="email">Menção:</label>
-    <select id="selectbasic" name="selectbasic" class="form-group">
-      <option value="1">Option one</option>
-      <option value="2">Option two</option>
-    </select>
-  </div>
+    <div class="form-group col-xs-4">
+      <label for="email">Menção:</label>
+      <select id="selectbasic" name="selectbasic" class="form-group">
+        <option value="1">Option one</option>
+        <option value="2">Option two</option>
+      </select>
+    </div>
 
-  <div class="form-group col-xs-4">
-    <label for="email">Ano/Semestre:</label>
-    <select id="selectbasic" name="selectbasic" class="form-group">
-      <option value="1">Option one</option>
-      <option value="2">Option two</option>
-    </select>
-  </div>
+    <div class="form-group col-xs-4">
+      <label for="email">Ano/Semestre:</label>
+      <select id="selectbasic" name="selectbasic" class="form-group">
+        <option value="1">Option one</option>
+        <option value="2">Option two</option>
+      </select>
+    </div>
 
-<div class="form-group col-xs-4">
-    <label for="email">Disciplina:</label>
-    <select id="selectbasic" name="selectbasic" class="form-group">
-      <option value="1">Option one</option>
-      <option value="2">Option two</option>
-    </select>
-  </div>
+    <div class="form-group col-xs-4">
+      <label for="email">Disciplina:</label>
+      <select id="selectbasic" name="selectbasic" class="form-group">
+        <option value="1">Option one</option>
+        <option value="2">Option two</option>
+      </select>
+    </div>
 
-  <div class="form-group col-xs-4">
-    <label for="email">Menção:</label>
-    <select id="selectbasic" name="selectbasic" class="form-group">
-      <option value="1">Option one</option>
-      <option value="2">Option two</option>
-    </select>
-  </div>
+    <div class="form-group col-xs-4">
+      <label for="email">Menção:</label>
+      <select id="selectbasic" name="selectbasic" class="form-group">
+        <option value="1">Option one</option>
+        <option value="2">Option two</option>
+      </select>
+    </div>
 
-  <div class="form-group col-xs-4">
-    <label for="email">Ano/Semestre:</label>
-    <select id="selectbasic" name="selectbasic" class="form-group">
-      <option value="1">Option one</option>
-      <option value="2">Option two</option>
-    </select>
+    <div class="form-group col-xs-4">
+      <label for="email">Ano/Semestre:</label>
+      <select id="selectbasic" name="selectbasic" class="form-group">
+        <option value="1">Option one</option>
+        <option value="2">Option two</option>
+      </select>
+    </div>
   </div>
 
   <div class="form-group col-xs-4 form-horizontal">
@@ -107,7 +109,7 @@
       </div>
   </div>
 
-  <label class="col-md-4 control-label col-xs-4" for="horariomonitoria">Horários possíveis</label>
+  <label class="col-xs-4 control-label form-horizontal" for="horariomonitoria">Horários possíveis</label>
   <div class="col-md-4">
   <div class="checkbox">
     <label for="horariomonitoria-0">
