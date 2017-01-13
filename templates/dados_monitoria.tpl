@@ -86,8 +86,7 @@
   </div>
 
   <div class="form-group col-xs-4 form-horizontal">
-    <label class="col-md-4 control-label" for="tipomonitoria">Tipo de Monitoria</label>
-    <div class="col-md-4">
+    <label class="control-label" for="tipomonitoria">Tipo de Monitoria</label>
       <div class="radio">
         <label for="somentevoluntaria">
           <input type="radio" name="somentevoluntaria" id="somentevoluntaria" value="somentevoluntaria" checked="checked">
@@ -106,7 +105,6 @@
           Indiferente
         </label>
       </div>
-    </div>
   </div>
 
   <label class="col-md-4 control-label col-xs-4" for="horariomonitoria">Horários possíveis</label>
