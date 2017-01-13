@@ -98,6 +98,30 @@
   </div>
 
 
+<div class="form-group">
+  <label class="col-md-4 control-label" for="tipomonitoria">Tipo de Monitoria</label>
+  <div class="col-md-4">
+  <div class="radio">
+    <label for="somentevoluntaria">
+      <input type="radio" name="somentevoluntaria" id="somentevoluntaria" value="somentevoluntaria" checked="checked">
+      Somente voluntária
+    </label>
+  </div>
+  <div class="radio">
+    <label for="somenteremunerada">
+      <input type="radio" name="somenteremunerada" id="somenteremunerada" value="somenteremunerada">
+      Somente remunerada
+    </label>
+  </div>
+  <div class="radio">
+    <label for="indiferente">
+      <input type="radio" name="indiferente" id="indiferente" value="indiferente">
+      Indiferente
+    </label>
+  </div>
+  </div>
+</div>
+
 
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
