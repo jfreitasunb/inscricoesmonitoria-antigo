@@ -114,24 +114,20 @@
     
     <fieldset class="scheduler-border">
       <legend class="scheduler-border">Horários possíveis</legend>
+      <!-- BEGIN horarios_disponiveis -->
       <div class="checkbox">
-        <label for="horariomonitoria-0">
-          <input type="checkbox" name="horariomonitoria" id="horariomonitoria-0" value="12-14">
-          12 às 14h
+        <label for="checkbox_hora_monitoria">
+        <!-- BEGIN nome_hora_monitoria -->
+        <!-- BEGIN id_hora -->
+        <!-- BEGIN horario_monitoria -->
+          <input type="checkbox" name="{nome_hora_monitoria}" id="checkbox_hora_monitoria" value="{id_hora}">
+          {horario_monitoria}
+        <!-- END nome_hora_monitoria -->
+        <!-- END id_hora -->
+        <!-- END horario_monitoria -->
         </label>
       </div>
-      <div class="checkbox">
-        <label for="horariomonitoria-1">
-          <input type="checkbox" name="horariomonitoria" id="horariomonitoria-1" value="18-19">
-          18 às 19h
-        </label>
-      </div>
-      <div class="checkbox">
-        <label for="horariomonitoria-2">
-          <input type="checkbox" name="horariomonitoria" id="horariomonitoria-2" value="aula">
-          Horário normal de aula (somente para Cálculo 1)
-        </label>
-      </div>
+      <!-- END horarios_disponiveis -->
     </fieldset>  
   </div>
 
