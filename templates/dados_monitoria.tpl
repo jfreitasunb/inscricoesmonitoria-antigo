@@ -14,77 +14,50 @@
   <fieldset class="scheduler-border">
     <legend class="scheduler-border">Monitorias disponíveis</legend>
       <div class="form-inline">
-        <div class="form-group col-xs-4">
+      <!-- BEGIN numero_escolhas -->
+        <div class="form-group col-xs-3">
           <label for="email">Disciplina:</label>
-          <select id="selectbasic" name="selectbasic" class="form-group">
-            <option value="1">Option one</option>
-            <option value="2">Option two</option>
+          <!-- BEGIN escolha_aluno -->
+          <select id="id_disciplina" name="{escolha_aluno}" class="form-group">
+          <!-- BEGIN escolhas_possiveis -->
+          <!-- BEGIN monitorias_disponiveis -->
+            {monitorias_disponiveis}
+          <!-- END monitorias_disponiveis -->
+          <!-- END escolhas_possiveis -->
           </select>
+          <!-- BEGIN escolha_aluno -->
         </div>
 
-        <div class="form-group col-xs-4">
+        <div class="form-group col-xs-3">
+        <!-- BEGIN mencao_aluno -->
           <label for="email">Menção:</label>
-          <select id="selectbasic" name="selectbasic" class="form-group">
+          <select id="id_mencao" name="{mencao_aluno}" class="form-group">
             <option value="1">Option one</option>
             <option value="2">Option two</option>
           </select>
+        <!-- END mencao_aluno -->
         </div>
 
-        <div class="form-group col-xs-4">
-          <label for="email">Ano/Semestre:</label>
-          <select id="selectbasic" name="selectbasic" class="form-group">
+        <div class="form-group col-xs-3">
+          <label for="email">Ano:</label>
+          <!-- BEGIN ano_cursado -->
+          <select id="id_ano" name="{ano_cursado}" class="form-group">
             <option value="1">Option one</option>
             <option value="2">Option two</option>
           </select>
+          <!-- END ano_cursado -->
         </div>
 
-        <div class="form-group col-xs-4">
-          <label for="email">Disciplina:</label>
-          <select id="selectbasic" name="selectbasic" class="form-group">
+        <div class="form-group col-xs-3">
+          <label for="email">Semestre:</label>
+          <!-- BEGIN semestre_cursado -->
+          <select id="id_semestre" name="{semestre_cursado}" class="form-group">
             <option value="1">Option one</option>
             <option value="2">Option two</option>
           </select>
+          <!-- END semestre_cursado -->
         </div>
-
-        <div class="form-group col-xs-4">
-          <label for="email">Menção:</label>
-          <select id="selectbasic" name="selectbasic" class="form-group">
-            <option value="1">Option one</option>
-            <option value="2">Option two</option>
-          </select>
-        </div>
-
-        <div class="form-group col-xs-4">
-          <label for="email">Ano/Semestre:</label>
-          <select id="selectbasic" name="selectbasic" class="form-group">
-            <option value="1">Option one</option>
-            <option value="2">Option two</option>
-          </select>
-        </div>
-
-        <div class="form-group col-xs-4">
-          <label for="email">Disciplina:</label>
-          <select id="selectbasic" name="selectbasic" class="form-group">
-            <option value="1">Option one</option>
-            <option value="2">Option two</option>
-          </select>
-        </div>
-
-        <div class="form-group col-xs-4">
-          <label for="email">Menção:</label>
-          <select id="selectbasic" name="selectbasic" class="form-group">
-            <option value="1">Option one</option>
-            <option value="2">Option two</option>
-          </select>
-        </div>
-
-        <div class="form-group col-xs-4">
-          <label for="email">Ano/Semestre:</label>
-          <select id="selectbasic" name="selectbasic" class="form-group">
-            <option value="1">Option one</option>
-            <option value="2">Option two</option>
-          </select>
-        </div>
+        <!-- END numero_escolhas -->        
       </div>
   </fieldset>
 
