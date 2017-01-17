@@ -16,7 +16,21 @@ function conecta(){
     return $PDO;
 }
 
-function carrega_monitoria($id_monitoria,$nome_disciplina,$monitoria_escolhas = array(),$monitoria_horarios = array()){
+function pega_disciplinas_monitoria(){
+    $PDO = conecta();
+
+    $query_retorna_reservas = "SELECT id_monitoria,nome_disciplina FROM discipinas_disponivies";
+    $stmt = $PDO->prepare( $query_retorna_reservas );
+    // $stmt->bindParam( ':id_aluno', $id_aluno );
+    // $stmt->bindParam( ':id_agenda', $id_agenda );
+    $result = $stmt->execute();
+    $rows = [];
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $rows;
+}
+
+function carrega_monitoria(){
 
     GLOBAL $ROOT_PATH;
 
@@ -24,10 +38,13 @@ function carrega_monitoria($id_monitoria,$nome_disciplina,$monitoria_escolhas = 
 
     $tpl->loadTemplatefile("dados_monitoria.tpl");
 
-    $tpl -> setCurrentBlock("escolhas_possiveis");
-    $tpl->setVariable('monitorias_disponiveis', '<option value="'.$id_monitoria.'">'.$nome_disciplina.'</option>');
-    $tpl -> parseCurrentBlock("escolhas_possiveis");
-        
+    $monitoria_ativas = pega_disciplinas_monitoria();
+
+    foreach ($monitoria_ativas as $key) {
+        $tpl -> setCurrentBlock("escolhas_possiveis");
+        $tpl->setVariable('monitorias_disponiveis', '<option value="'.$key['id_monitoria'].'">'.$key['nome_disciplina'].'</option>');
+        $tpl -> parseCurrentBlock("escolhas_possiveis");
+    }
         
     for ($l=date('Y'); $l > date('Y') - 5; $l--) { 
         $tpl -> setCurrentBlock("anos_possiveis");
