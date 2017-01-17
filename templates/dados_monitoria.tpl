@@ -115,8 +115,8 @@
 
   <fieldset class="scheduler-border">
     <div class="checkbox form-horizontal">
-      <label for="concordatemos">
-        <input type="checkbox" name="concordatermos" id="concordatemos" value="agree">
+      <label for="concordatermos">
+        <input type="checkbox" name="concordatermos" id="concordatermos" value="agree">
         Declaro conhecer os critérios de participação do Programa de Monitoria de Graduação, estabelecidos pela Resolução CEPE n 008/90 de 26.10.1990, e ser conhecedor que a participação no Programa de Monitoria não estabelece nenhum vínculo empregatício.
       </label>
     </div>
