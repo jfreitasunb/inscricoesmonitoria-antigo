@@ -10,7 +10,7 @@
 </head>
 <body>
 <!-- Form Name -->
-<form class="form-group">
+<form action="teste.php" method="POST" class="form-group">
   <fieldset class="scheduler-border">
     <legend class="scheduler-border">Monitorias disponíveis</legend>
       <div class="form-inline">
@@ -32,8 +32,12 @@
         <!-- BEGIN mencao_aluno -->
           <label for="email">Menção:</label>
           <select id="id_mencao" name="{mencao_aluno}" class="form-group">
-            <option value="1">Option one</option>
-            <option value="2">Option two</option>
+            <option value="SR">SR</option>
+            <option value="II">II</option>
+            <option value="MI">MI</option>
+            <option value="MM">MM</option>
+            <option value="MS">MS</option>
+            <option value="SS">SS</option>
           </select>
         <!-- END mencao_aluno -->
         </div>
@@ -42,8 +46,11 @@
           <label for="email">Ano:</label>
           <!-- BEGIN ano_cursado -->
           <select id="id_ano" name="{ano_cursado}" class="form-group">
-            <option value="1">Option one</option>
-            <option value="2">Option two</option>
+            <!-- BEGIN anos_possiveis -->
+            <!-- BEGIN ano_cursou_disciplina -->
+            {ano_cursou_disciplina}
+            <!-- END ano_cursou_disciplina -->
+            <!-- END anos_possiveis -->
           </select>
           <!-- END ano_cursado -->
         </div>
@@ -52,8 +59,8 @@
           <label for="email">Semestre:</label>
           <!-- BEGIN semestre_cursado -->
           <select id="id_semestre" name="{semestre_cursado}" class="form-group">
-            <option value="1">Option one</option>
-            <option value="2">Option two</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
           </select>
           <!-- END semestre_cursado -->
         </div>
@@ -61,63 +68,64 @@
       </div>
   </fieldset>
 
-  <div class="form-horizontal">
     <fieldset class="scheduler-border">
-      <legend class="scheduler-border">Tipo de Monitoria</legend>
-        <div class="radio">
-          <label for="somentevoluntaria">
-            <input type="radio" name="somentevoluntaria" id="somentevoluntaria" value="somentevoluntaria" checked="checked">
-            Somente voluntária
-          </label>
-        </div>
-        <div class="radio">
-          <label for="somenteremunerada">
-            <input type="radio" name="somenteremunerada" id="somenteremunerada" value="somenteremunerada">
-            Somente remunerada
-          </label>
-        </div>
-        <div class="radio">
-          <label for="indiferente">
-            <input type="radio" name="indiferente" id="indiferente" value="indiferente">
-            Indiferente
-          </label>
-        </div>
-        </div>
+      <div class="form-horizontal">
+        <legend class="scheduler-border">Tipo de Monitoria</legend>
+          <div class="radio">
+            <label for="somentevoluntaria">
+              <input type="radio" name="tipomonitoria" id="somentevoluntaria" value="somentevoluntaria" checked="checked">
+              Somente voluntária
+            </label>
+          </div>
+          <div class="radio">
+            <label for="somenteremunerada">
+              <input type="radio" name="tipomonitoria" id="somenteremunerada" value="somenteremunerada">
+              Somente remunerada
+            </label>
+          </div>
+          <div class="radio">
+            <label for="indiferente">
+              <input type="radio" name="tipomonitoria" id="indiferente" value="indiferente">
+              Indiferente
+            </label>
+          </div>
+      </div>
     </fieldset>
     
     <fieldset class="scheduler-border">
-      <legend class="scheduler-border">Horários possíveis</legend>
-      <!-- BEGIN horarios_disponiveis -->
-      <div class="checkbox">
-        <label for="checkbox_hora_monitoria">
-        <!-- BEGIN nome_hora_monitoria -->
-        <!-- BEGIN id_hora -->
-        <!-- BEGIN horario_monitoria -->
-          <input type="checkbox" name="{nome_hora_monitoria}" id="checkbox_hora_monitoria" value="{id_hora}">
-          {horario_monitoria}
-        <!-- END nome_hora_monitoria -->
-        <!-- END id_hora -->
-        <!-- END horario_monitoria -->
-        </label>
-      </div>
-      <!-- END horarios_disponiveis -->
+      <div class="form-horizontal">
+        <legend class="scheduler-border">Horários possíveis</legend>
+        <!-- BEGIN horarios_disponiveis -->
+        <div class="checkbox">
+          <label for="checkbox_hora_monitoria">
+          <!-- BEGIN nome_hora_monitoria -->
+          <!-- BEGIN id_hora -->
+          <!-- BEGIN horario_monitoria -->
+            <input type="checkbox" name="{nome_hora_monitoria}" id="checkbox_hora_monitoria" value="{id_hora}">
+            {horario_monitoria}
+          <!-- END nome_hora_monitoria -->
+          <!-- END id_hora -->
+          <!-- END horario_monitoria -->
+          </label>
+        </div>
+        <!-- END horarios_disponiveis -->
+        </div>
     </fieldset>  
-  </div>
+  
 
   <fieldset class="scheduler-border">
     <div class="checkbox form-horizontal">
-      <label for="concordancia">
-        <input type="checkbox" name="concordancia" id="concordancia" value="agree" required="required">
+      <label for="horariomonitoria-3">
+        <input type="checkbox" name="horariomonitoria" id="horariomonitoria-3" value="agree">
         Declaro conhecer os critérios de participação do Programa de Monitoria de Graduação, estabelecidos pela Resolução CEPE n 008/90 de 26.10.1990, e ser conhecedor que a participação no Programa de Monitoria não estabelece nenhum vínculo empregatício.
       </label>
     </div>
   </fieldset>
-</div>
 
   <div class="form-group">
     <div class="row">
       <div class="col-xs-6 col-xs-offset-3">
-        <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Registrar">
+        <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Enviar">
       </div>
     </div>
   </div>
