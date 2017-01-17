@@ -1,15 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="../css/bootstrap.min.css" rel="stylesheet">
-  <link href="../css/css_monitoria.css" rel="stylesheet">
-  
-</head>
-<body>
-<!-- Form Name -->
 <form action="teste.php" method="POST" class="form-group">
   <fieldset class="scheduler-border">
     <legend class="scheduler-border">Monitorias disponíveis</legend>
@@ -122,19 +110,5 @@
     </div>
   </fieldset>
 
-  <div class="form-group">
-    <div class="row">
-      <div class="col-xs-6 col-xs-offset-3">
-        <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Enviar">
-      </div>
-    </div>
-  </div>
+  <button type="submit" class="btn btn-default">Enviar</button>
 </form>
-
-</body>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="../jquery/jquery-3.1.1.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/monitoria.js"></script>
-</html>
