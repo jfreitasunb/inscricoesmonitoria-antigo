@@ -6,13 +6,14 @@ require_once 'db/db_config.php';
 function conecta(){
     try
     {
-        $PDO = new PDO( 'mysql:host=' . MYSQL_HOST . ';dbname=' . MYSQL_DB_NAME, MYSQL_USER, MYSQL_PASSWORD, array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8') );
+        $PDO = new PDO( "pgsql:host=".PGSQL_HOST.";dbname=".PGSQL_DB_NAME.";user=".PGSQL_USER.";password=".PGSQL_PASSWORD);
 
     }
     catch ( PDOException $e )
     {
-        echo 'Erro ao conectar com o MySQL: ' . $e->getMessage();
+        echo 'Erro ao conectar com o Postgres: ' . $e->getMessage();
     }
+
     return $PDO;
 }
 
@@ -20,8 +21,8 @@ function pega_disciplinas_monitoria(){
     
     GLOBAL $PDO;
 
-    $query_retorna_reservas = "SELECT id_monitoria,nome_disciplina FROM discipinas_disponivies";
-    $stmt = $PDO->prepare( $query_retorna_reservas );
+    $query_retorna_disciplinas = "SELECT id_monitoria,nome_disciplina FROM disciplinas_disponivies";
+    $stmt = $PDO->prepare( $query_retorna_disciplinas );
     // $stmt->bindParam( ':id_aluno', $id_aluno );
     // $stmt->bindParam( ':id_agenda', $id_agenda );
     $result = $stmt->execute();
@@ -31,12 +32,14 @@ function pega_disciplinas_monitoria(){
     return $rows;
 }
 
+
+
 function pega_horario_monitoria(){
     
     GLOBAL $PDO;
 
-    $query_retorna_reservas = "SELECT id_horario,horario_monitoria FROM horario_monitoria";
-    $stmt = $PDO->prepare( $query_retorna_reservas );
+    $query_retorna_horarios_monitoria = "SELECT id_horario,horario_monitoria FROM horario_monitoria";
+    $stmt = $PDO->prepare( $query_retorna_horarios_monitoria );
     // $stmt->bindParam( ':id_aluno', $id_aluno );
     // $stmt->bindParam( ':id_agenda', $id_agenda );
     $result = $stmt->execute();

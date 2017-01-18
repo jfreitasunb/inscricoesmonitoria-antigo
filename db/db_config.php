@@ -1,6 +1,6 @@
 <?php
-define( 'MYSQL_HOST', 'localhost' );
-define( 'MYSQL_USER', 'monitoria' );
-define( 'MYSQL_PASSWORD', 'estudos' );
-define( 'MYSQL_DB_NAME', 'inscricoesmonitoria' );
+define( 'PSQL_HOST', 'localhost' );
+define( 'PSQL_USER', 'monitoria' );
+define( 'PSQL_PASSWORD', 'estudos' );
+define( 'PSQL_DB_NAME', 'inscricoesmonitoria' );
 ?>
