@@ -1,5 +1,5 @@
 <?php
-require_once "config/init.php";
+require_once "../config/init.php";
 $disciplinas_escolhidas = $_POST;
 // print_r($disciplinas_escolhidas);
 
