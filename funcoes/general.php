@@ -1,7 +1,5 @@
 <?php
-require_once 'HTML/Template/Sigma.php';
-require_once 'config/caminhos.php';
-require_once 'db/db_config.php';
+require_once "config/init.php";
 
 function conecta(){
     try

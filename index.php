@@ -1,7 +1,5 @@
 <?php
-require_once "HTML/Template/Sigma.php";
-require_once "funcoes/funcoes.php";
-require_once "config/caminhos.php";
+require_once "config/init.php";
 
 $PDO = conecta();
 
