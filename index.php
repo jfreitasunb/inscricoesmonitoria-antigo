@@ -28,7 +28,7 @@ $monitoria_horarios['nome_hora_monitoria'] = 'nome_hora_monitoria_';
 $monitoria_horarios['id_hora'] = 'id_hora_';
 $monitoria_horarios['horario_monitoria'] =  '12 às 14';
 
-$tpl = carrega_monitoria();
+$tpl = preenche_template_monitoria();
 // $tpl_main -> parse('escolher_disciplina_monitoria');
 $tpl_main -> setVariable('escolher_disciplina_monitoria',$tpl->get());
 $tpl_main->show();

@@ -27,10 +27,7 @@ function pega_disciplinas_monitoria(){
     $rows = [];
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-print_r($rows);
     return $rows;
-
-
 }
 
 
@@ -50,7 +47,7 @@ function pega_horario_monitoria(){
     return $rows;
 }
 
-function carrega_monitoria(){
+function preenche_template_monitoria(){
 
     GLOBAL $ROOT_PATH;
 
