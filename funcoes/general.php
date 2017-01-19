@@ -29,7 +29,10 @@ function pega_disciplinas_monitoria(){
     $rows = [];
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+print_r($rows);
     return $rows;
+
+
 }
 
 
