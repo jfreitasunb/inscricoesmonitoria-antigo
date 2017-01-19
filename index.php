@@ -17,7 +17,7 @@ require_once "config/init.php";
         
     // }
 
-$tpl_main = new HTML_Template_Sigma($ROOT_PATH);
+$tpl_main = new HTML_Template_Sigma($PATH_TEMPLATES);
 
 $tpl_main->loadTemplatefile("cabecalho_rodape.tpl");
 

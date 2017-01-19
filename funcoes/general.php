@@ -1,10 +1,11 @@
 <?php
-require_once "../config/init.php";
 
 function conecta(){
     try
     {
         $PDO = new PDO( "pgsql:host=".PGSQL_HOST.";dbname=".PGSQL_DB_NAME.";user=".PGSQL_USER.";password=".PGSQL_PASSWORD);
+        $PDO->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
+        $PDO->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
     }
     catch ( PDOException $e )
@@ -49,10 +50,10 @@ function pega_horario_monitoria(){
 
 function preenche_template_monitoria(){
 
-    GLOBAL $ROOT_PATH;
+    GLOBAL $PATH_TEMPLATES;
     GLOBAL $numero_escolhas_possiveis;
 
-    $tpl = new HTML_Template_Sigma($ROOT_PATH);
+    $tpl = new HTML_Template_Sigma($PATH_TEMPLATES);
 
     $tpl->loadTemplatefile("dados_monitoria.tpl");
 

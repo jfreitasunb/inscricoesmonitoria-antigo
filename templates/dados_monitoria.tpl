@@ -1,4 +1,5 @@
 <form action="actions/processa_monitoria.php" method="POST" class="form-group">
+<input type="hidden" name="id_candidato" value="1" placeholder="">
   <fieldset class="scheduler-border">
     <legend class="scheduler-border">Monitorias disponíveis</legend>
       <div class="form-inline">
@@ -104,7 +105,7 @@
   <fieldset class="scheduler-border">
     <div class="checkbox form-horizontal">
       <label for="concordatermos">
-        <input type="checkbox" name="concordatermos" id="concordatermos" value="agree">
+        <input type="checkbox" name="concordatermos" id="concordatermos" value="1">
         Declaro conhecer os critérios de participação do Programa de Monitoria de Graduação, estabelecidos pela Resolução CEPE n 008/90 de 26.10.1990, e ser conhecedor que a participação no Programa de Monitoria não estabelece nenhum vínculo empregatício.
       </label>
     </div>
@@ -113,7 +114,8 @@
   <div class="form-group">
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3">
-        <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Registrar">
+        <input type="submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Enviar">
+
       </div>
     </div>
   </div>
