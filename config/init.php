@@ -5,4 +5,5 @@ require_once "funcoes/users.php";
 require_once "config/caminhos.php";
 require_once 'db/db_config.php';
 $PDO = conecta();
+$numero_escolhas_possiveis = 4;
 ?>

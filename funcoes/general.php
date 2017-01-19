@@ -50,6 +50,7 @@ function pega_horario_monitoria(){
 function preenche_template_monitoria(){
 
     GLOBAL $ROOT_PATH;
+    GLOBAL $numero_escolhas_possiveis;
 
     $tpl = new HTML_Template_Sigma($ROOT_PATH);
 
@@ -59,7 +60,7 @@ function preenche_template_monitoria(){
 
     
 
-    for ($i=0; $i < 4; $i++) { 
+    for ($i=0; $i < $numero_escolhas_possiveis; $i++) { 
 
         $tpl -> setCurrentBlock("escolhas_possiveis");
             $tpl->setVariable('monitorias_disponiveis', '<option selected="selected" value="0">Selecione a disciplina</option>');
