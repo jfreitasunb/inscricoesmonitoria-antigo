@@ -1,7 +1,6 @@
 <?php
 require_once "config/init.php";
 
-$PDO = conecta();
 
     // $query_retorna_reservas = "SELECT id_monitoria,nome_disciplina FROM discipinas_disponivies";
     // $stmt = $PDO->prepare( $query_retorna_reservas );
