@@ -17,4 +17,13 @@ foreach ($disciplinas_escolhidas as $key => &$value) {
     
 $result = $stmt->execute();
 
+if ($result) {
+    echo "<script type='text/javascript'>alert('submitted successfully!')</script>";
+    header("location:../index.php");
+    exit();
+}else{
+    echo "Houve um problema com a sua solicitação. Por favor tente mais tarde.";
+}
+
+
 ?>
