@@ -6,7 +6,7 @@ $disciplinas_escolhidas = $_POST;
 
 // var_dump($_FILES);
 
-$errors = valida_escolhas_aluno($disciplinas_escolhidas);
+$erros_validacao = valida_escolhas_aluno($disciplinas_escolhidas);
 
 $id_candidato = 2;
 $ano_monitoria = '2017';
