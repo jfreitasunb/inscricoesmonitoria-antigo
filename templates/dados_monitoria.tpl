@@ -1,5 +1,4 @@
 <form action="actions/processa_monitoria.php" method="POST" class="form-group">
-<input type="hidden" name="id_candidato" value="1" placeholder="">
   <fieldset class="scheduler-border">
     <legend class="scheduler-border">Monitorias disponíveis</legend>
       <div class="form-inline">
@@ -21,6 +20,7 @@
         <!-- BEGIN mencao_aluno -->
           <label for="email">Menção:</label>
           <select id="id_mencao" name="{mencao_aluno}" class="form-group">
+            <option selected="selected" value="mencao_vazia">Menção</option>
             <option value="SR">SR</option>
             <option value="II">II</option>
             <option value="MI">MI</option>
@@ -35,6 +35,7 @@
           <label for="email">Ano:</label>
           <!-- BEGIN ano_cursado -->
           <select id="id_ano" name="{ano_cursado}" class="form-group">
+            <option selected="selected" value="ano_vazio">Ano</option>
             <!-- BEGIN anos_possiveis -->
             <!-- BEGIN ano_cursou_disciplina -->
             {ano_cursou_disciplina}
@@ -48,6 +49,7 @@
           <label for="email">Semestre:</label>
           <!-- BEGIN semestre_cursado -->
           <select id="id_semestre" name="{semestre_cursado}" class="form-group">
+            <option selected="selected" value="semestre_vazio">Semestre</option>
             <option value="1">1</option>
             <option value="2">2</option>
           </select>
