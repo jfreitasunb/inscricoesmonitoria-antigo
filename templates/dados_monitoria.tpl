@@ -115,7 +115,7 @@
                     <div class="form-control btn btn-register">
                         <span class="glyphicon glyphicon-folder-open"></span>
                         <span class="image-preview-input-title">Browse</span>
-                        <input type="file" accept="image/png, image/jpeg,image/jpg, image/gif" name="input-file-preview"/> <!-- rename it -->
+                        <input type="file" accept="application/pdf, image/png, image/jpeg, image/jpg, image/gif" name="input-file-preview"/> <!-- rename it -->
                     </div>
                 </span>
             </div>
