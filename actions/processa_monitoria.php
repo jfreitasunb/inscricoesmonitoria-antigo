@@ -4,49 +4,41 @@ $disciplinas_escolhidas = $_POST;
  
 var_dump($disciplinas_escolhidas);
 
-// $errors = valida_escolhas_aluno($disciplinas_escolhidas);
+$errors = valida_escolhas_aluno($disciplinas_escolhidas);
 
-$conta_presenca = array_count_values($disciplinas_escolhidas);
+$id_candidato = 1;
+$ano_monitoria = '2017';
+$semestre_monitoria = '1';
 
-    if ($conta_presenca['disciplina_vazia'] === $numero_escolhas_possiveis) {
-        $errors[] = "Você deve escolher pelo menos uma disciplina para a monitoria.";
+// if (empty($errors)){
+//     grava_escolhas_monitor($id_candidato, $ano_monitoria, $semestre_monitoria,$disciplinas_escolhidas);
+// }else{
+//     print_r($errors);
+// }
+
+
+$escolha_candidato = array_filter(array_keys($disciplinas_escolhidas),
+        function($key) {
+            return substr($key, 0, 14) === 'escolha_aluno_';
+        }
+    );
+
+print_r($escolha_candidato);
+
+
+$campos = 'id_candidato, escolha_aluno, mencao_aluno, ano_cursado, semestre_cursado, tipomonitoria, nome_hora_monitoria, concordatermos';
+
+$bind_valores = ':id_candidato, :escolha_aluno, :mencao_aluno, :ano_cursado, :semestre_cursado, :tipomonitoria, :nome_hora_monitoria, :concordatermos';
+
+    for ($i=0; $i < $numero_escolhas_possiveis; $i++) { 
+        if ($disciplinas_escolhidas['escolha_aluno_'.$i] !== 'disciplina_vazia') {
+            $query_insere_escolha_aluno = "INSERT INTO escolhas_candidatos ($campos) VALUES($bind_valores)";
+            $stmt -> bindParam(':'.$key, $value);   
+            echo $query_insere_escolha_aluno;
+            // $stmt = $PDO->prepare( $query_insere_escolha_aluno );
+            // $result = $stmt->execute();
+        }
     }
-
-
-
-// for ($i=0; $i < $numero_escolhas_possiveis; $i++) { 
-//     if ($disciplinas_escolhidas['escolha_aluno_'.$i] !== 'disciplina_vazia' AND $disciplinas_escolhidas['mencao_aluno_'.$i] === 'mencao_vazia') {
-//         $errors[] = "Você não selecionou a Menção que obteve na disciplina ".$disciplinas_escolhidas['escolha_aluno_'.$i].".";
-//     }else if ($disciplinas_escolhidas['escolha_aluno_'.$i] !== 'disciplina_vazia' AND $disciplinas_escolhidas['ano_cursado_'.$i] === 'ano_vazio') {
-//         $errors[] = "Você não selecionou o Ano que cursou disciplina ".$disciplinas_escolhidas['escolha_aluno_'.$i].".";
-//     }else if ($disciplinas_escolhidas['escolha_aluno_'.$i] !== 'disciplina_vazia' AND $disciplinas_escolhidas['semestre_cursado_'.$i] === 'semestre_vazio') {
-//         $errors[] = "Você não selecionou o Semestre que cursou disciplina ".$disciplinas_escolhidas['escolha_aluno_'.$i].".";
-//     }
-// }
-
-// $value = preg_grep('/^nome_hora_monitoria_/', array_keys($disciplinas_escolhidas));
-
-//  // var_dump($value);
-
-
-// $escolheu_hora = array_filter(array_keys($disciplinas_escolhidas),
-//     function($key) {
-//         return substr($key, 0, 20) === 'nome_hora_monitoria_';
-//     }
-// );
-
-
-
-// if (empty($escolheu_hora)) {
-//     $errors[] = "Você deve escolher pelo menos um horário para a monitoria.";
-// }
-
-// if (empty($disciplinas_escolhidas['concordatermos'])) {
-//     $errors[] = "Você deve concordar com os termos da monitoria.";
-// }
-
-print_r($errors);
-
 
  //Usar para processar o cadastro do candidato. 
 

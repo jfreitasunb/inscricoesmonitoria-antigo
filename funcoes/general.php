@@ -110,10 +110,13 @@ function valida_escolhas_aluno($disciplinas_escolhidas){
 
     GLOBAL $numero_escolhas_possiveis;
     GLOBAL $numero_horarios_possiveis;
+    GLOBAL $errors;
 
     $conta_presenca = array_count_values($disciplinas_escolhidas);
 
-    if ($conta_presenca['disciplina_vazia'] === $numero_escolhas_possiveis) {
+    print_r($conta_presenca);
+
+    if (array_key_exists('disciplina_vazia', $conta_presenca) AND $conta_presenca['disciplina_vazia'] === $numero_escolhas_possiveis) {
         $errors[] = "Você deve escolher pelo menos uma disciplina para a monitoria.";
     }
 
