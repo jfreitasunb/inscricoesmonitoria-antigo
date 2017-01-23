@@ -1,4 +1,4 @@
-<form action="actions/processa_monitoria.php" method="POST" class="form-group">
+<form action="actions/processa_monitoria.php" method="POST" class="form-group" enctype="multipart/form-data">
   <fieldset class="scheduler-border">
   <input type="hidden" name="historico" value="1">
     <legend class="scheduler-border">Monitorias disponíveis</legend>
@@ -104,18 +104,18 @@
         </div>
     </fieldset>  
 
-    <div class="input-group image-preview">
-                <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
+    <div class="form-group">
+                <input type="text" class="form-control image-preview-filename"> <!-- don't give a name === doesn't send on POST/GET -->
                 <span class="input-group-btn">
                     <!-- image-preview-clear button -->
-                    <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                    <button type="button" class="form-control btn btn-register" style="display:none;">
                         <span class="glyphicon glyphicon-remove"></span> Clear
                     </button>
                     <!-- image-preview-input -->
-                    <div class="btn btn-default image-preview-input">
+                    <div class="form-control btn btn-register">
                         <span class="glyphicon glyphicon-folder-open"></span>
                         <span class="image-preview-input-title">Browse</span>
-                        <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
+                        <input type="file" accept="image/png, image/jpeg,image/jpg, image/gif" name="input-file-preview"/> <!-- rename it -->
                     </div>
                 </span>
             </div>
