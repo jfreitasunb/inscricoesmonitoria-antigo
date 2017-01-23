@@ -64,7 +64,7 @@ function preenche_template_monitoria(){
     for ($i=0; $i < $numero_escolhas_possiveis; $i++) { 
 
         $tpl -> setCurrentBlock("escolhas_possiveis");
-            $tpl->setVariable('monitorias_disponiveis', '<option selected="selected" value="0">Selecione a disciplina</option>');
+            $tpl->setVariable('monitorias_disponiveis', '<option selected="selected" value="disciplina_vazia">Selecione a disciplina</option>');
             $tpl -> parseCurrentBlock("escolhas_possiveis");
 
         foreach ($monitoria_ativas as $key) {
