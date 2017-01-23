@@ -2,8 +2,7 @@
 function upload_historico($id_candidato){
 
     GLOBAL $ROOT_PATH;
-
-    $erros_upload = array();
+    GLOBAL $errors;
 
     $_UP['pasta'] = $ROOT_PATH."uploads/";
     // Tamanho máximo do arquivo (em Bytes)
@@ -17,7 +16,7 @@ function upload_historico($id_candidato){
 
     if ($_FILES['arquivo']['name']!=""){
         if ($_FILES['arquivo']['error'] != 0) {
-            $erros_upload[] = "Não foi possível enviar seu arquivo.";
+            $errors[] = "Não foi possível enviar seu arquivo.";
             exit();
         }
 
@@ -25,13 +24,13 @@ function upload_historico($id_candidato){
         $extensao=strtolower(end($extensao_00));
         
         if (array_search($extensao, $_UP['extensoes']) === false) {
-            $erros_upload[]= "Por favor, envie arquivos com as seguintes extens&otilde;es: tex";
+            $errors[]= "Por favor, envie arquivos com as seguintes extens&otilde;es: tex";
             exit();
         }
 
 
         if ($_UP['tamanho'] < $_FILES['arquivo']['size']){
-            $erros_upload[] = "O arquivo enviado &eacute; muito grande, envie arquivos de at&eacute; 2Mb.";
+            $errors[] = "O arquivo enviado &eacute; muito grande, envie arquivos de at&eacute; 2Mb.";
             exit();
         }else {
             if ($_UP['renomeia'] == true) {
@@ -41,11 +40,11 @@ function upload_historico($id_candidato){
             }
             
             if (!move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'].$nome_final.".".$extensao)){
-                $erros_upload[] = "N&atilde;o foi poss&iacute;vel enviar o arquivo, tente novamente";
+                $errors[] = "N&atilde;o foi poss&iacute;vel enviar o arquivo, tente novamente";
             }
         }
 
-        return $erros_upload;
+        return $errors;
     }
 
 
