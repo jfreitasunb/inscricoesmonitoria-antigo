@@ -17,28 +17,54 @@ $semestre_monitoria = '1';
 // }
 
 
-$escolha_candidato = array_filter(array_keys($disciplinas_escolhidas),
-        function($key) {
-            return substr($key, 0, 14) === 'escolha_aluno_';
-        }
-    );
+$campos = 'id_candidato, escolha_aluno, mencao_aluno, ano_cursado, semestre_cursado, ano_monitoria_ativa, semestre_monitoria_ativa';
 
-print_r($escolha_candidato);
+$bind_valores = ':id_candidato, :escolha_aluno, :mencao_aluno, :ano_cursado, :semestre_cursado, :ano_monitoria_ativa, :semestre_monitoria_ativa';
+
+$campos2 = 'id_candidato, escolha_aluno, mencao_aluno, ano_cursado, semestre_cursado, tipomonitoria, nome_hora_monitoria, concordatermos, ano_monitoria_ativa, semestre_monitoria_ativa';
+
+$bind_valores2 = ':id_candidato, :escolha_aluno, :mencao_aluno, :ano_cursado, :semestre_cursado, :tipomonitoria, :nome_hora_monitoria, :concordatermos, :ano_monitoria_ativa, :semestre_monitoria_ativa';
+
+$ano_monitoria_ativa = $ano_monitoria;
+$semestre_monitoria_ativa = $semestre_monitoria;
+
+$escolheu_hora = horarios_escolhidos_candidato($disciplinas_escolhidas);
 
 
-$campos = 'id_candidato, escolha_aluno, mencao_aluno, ano_cursado, semestre_cursado, tipomonitoria, nome_hora_monitoria, concordatermos';
 
-$bind_valores = ':id_candidato, :escolha_aluno, :mencao_aluno, :ano_cursado, :semestre_cursado, :tipomonitoria, :nome_hora_monitoria, :concordatermos';
+foreach ($escolheu_hora as $key) {
+    $hora_escolhida .=$disciplinas_escolhidas[$key];
+}
 
-    for ($i=0; $i < $numero_escolhas_possiveis; $i++) { 
-        if ($disciplinas_escolhidas['escolha_aluno_'.$i] !== 'disciplina_vazia') {
-            $query_insere_escolha_aluno = "INSERT INTO escolhas_candidatos ($campos) VALUES($bind_valores)";
-            $stmt -> bindParam(':'.$key, $value);   
-            echo $query_insere_escolha_aluno;
+$campos_finais = 'id_candidato, tipomonitoria, hora_escolhida, concordatermos, historico, ano_monitoria_ativa, semestre_monitoria_ativa, finaliza_escolhas';
+
+$bind_valores_finais = ':id_candidato, :tipomonitoria, :hora_escolhida, :concordatermos, :historico, :ano_monitoria_ativa, :semestre_monitoria_ativa, :finaliza_escolhas';
+
+$query_insere_escolha_aluno = "INSERT INTO escolhas_candidatos ($campos) VALUES($bind_valores)";
+$stmt = $PDO->prepare( $query_insere_escolha_aluno );
+$stmt -> bindParam(':id_candidato', $id_candidato);
+$stmt -> bindParam(':tipo_monitoria', $disciplinas_escolhidas['tipo_monitoria']);
+$stmt -> bindParam(':hora_escolhida', $hora_escolhida);
+$stmt -> bindParam(':concordatermos', $disciplinas_escolhidas['concordatermos']);
+$stmt -> bindParam(':historico', $disciplinas_escolhidas['historico']);
+$stmt -> bindParam(':ano_monitoria_ativa', $ano_monitoria_ativa);
+$stmt -> bindParam(':semestre_monitoria_ativa', $semestre_monitoria_ativa);
+$stmt -> bindParam(':finaliza_escolhas', 'TRUE');
+$result = $stmt->execute();
+
+            
+            // $query_insere_escolha_aluno = "INSERT INTO escolhas_candidatos ($campos) VALUES($bind_valores)";
+            
             // $stmt = $PDO->prepare( $query_insere_escolha_aluno );
+            // $stmt -> bindParam(':id_candidato', $id_candidato);
+            // $stmt -> bindParam(':escolha_aluno', $disciplinas_escolhidas['escolha_aluno_'.$i]);
+            // $stmt -> bindParam(':mencao_aluno', $disciplinas_escolhidas['mencao_aluno_'.$i]);
+            // $stmt -> bindParam(':ano_cursado', $disciplinas_escolhidas['ano_cursado_'.$i]);
+            // $stmt -> bindParam(':semestre_cursado', $disciplinas_escolhidas['semestre_cursado_'.$i]);
+            // $stmt -> bindParam(':ano_monitoria_ativa', $ano_monitoria_ativa);
+            // $stmt -> bindParam(':semestre_monitoria_ativa', $semestre_monitoria_ativa);
             // $result = $stmt->execute();
-        }
-    }
+     
 
  //Usar para processar o cadastro do candidato. 
 

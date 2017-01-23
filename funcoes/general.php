@@ -106,6 +106,16 @@ function preenche_template_monitoria(){
     return $tpl;
 }
 
+function horarios_escolhidos_candidato($disciplinas_escolhidas){
+    $escolhas = array_filter(array_keys($disciplinas_escolhidas),
+        function($key) {
+            return substr($key, 0, 20) === 'nome_hora_monitoria_';
+        }
+    );
+
+    return $escolhas;
+}
+
 function valida_escolhas_aluno($disciplinas_escolhidas){
 
     GLOBAL $numero_escolhas_possiveis;
@@ -113,8 +123,6 @@ function valida_escolhas_aluno($disciplinas_escolhidas){
     GLOBAL $errors;
 
     $conta_presenca = array_count_values($disciplinas_escolhidas);
-
-    print_r($conta_presenca);
 
     if (array_key_exists('disciplina_vazia', $conta_presenca) AND $conta_presenca['disciplina_vazia'] === $numero_escolhas_possiveis) {
         $errors[] = "Você deve escolher pelo menos uma disciplina para a monitoria.";
@@ -130,11 +138,7 @@ function valida_escolhas_aluno($disciplinas_escolhidas){
         }
     }
 
-    $escolheu_hora = array_filter(array_keys($disciplinas_escolhidas),
-        function($key) {
-            return substr($key, 0, 20) === 'nome_hora_monitoria_';
-        }
-    );
+    $escolheu_hora = horarios_escolhidos_candidato($disciplinas_escolhidas);
 
     if (empty($escolheu_hora)) {
         $errors[] = "Você deve escolher pelo menos um horário para a monitoria.";

@@ -1,5 +1,6 @@
 <form action="actions/processa_monitoria.php" method="POST" class="form-group">
   <fieldset class="scheduler-border">
+  <input type="hidden" name="historico" value="1">
     <legend class="scheduler-border">Monitorias disponíveis</legend>
       <div class="form-inline">
       <!-- BEGIN numero_escolhas -->
@@ -64,19 +65,19 @@
         <legend class="scheduler-border">Tipo de Monitoria</legend>
           <div class="radio">
             <label for="somentevoluntaria">
-              <input type="radio" name="tipomonitoria" id="somentevoluntaria" value="somentevoluntaria" checked="checked">
+              <input type="radio" name="tipo_monitoria" id="somentevoluntaria" value="somentevoluntaria" checked="checked">
               Somente voluntária
             </label>
           </div>
           <div class="radio">
             <label for="somenteremunerada">
-              <input type="radio" name="tipomonitoria" id="somenteremunerada" value="somenteremunerada">
+              <input type="radio" name="tipo_monitoria" id="somenteremunerada" value="somenteremunerada">
               Somente remunerada
             </label>
           </div>
           <div class="radio">
             <label for="indiferente">
-              <input type="radio" name="tipomonitoria" id="indiferente" value="indiferente">
+              <input type="radio" name="tipo_monitoria" id="indiferente" value="indiferente">
               Indiferente
             </label>
           </div>
@@ -117,7 +118,6 @@
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3">
         <input type="submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Enviar">
-
       </div>
     </div>
   </div>
