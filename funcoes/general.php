@@ -120,34 +120,34 @@ function valida_escolhas_aluno($disciplinas_escolhidas){
 
     GLOBAL $numero_escolhas_possiveis;
     GLOBAL $numero_horarios_possiveis;
-    $erros_validacao = array();
+    GLOBAL $errors;
 
     $conta_presenca = array_count_values($disciplinas_escolhidas);
 
     if (array_key_exists('disciplina_vazia', $conta_presenca) AND $conta_presenca['disciplina_vazia'] === $numero_escolhas_possiveis) {
-        $erros_validacao[] = "Você deve escolher pelo menos uma disciplina para a monitoria.";
+        $errors[] = "Você deve escolher pelo menos uma disciplina para a monitoria.";
     }
 
     for ($i=0; $i < $numero_escolhas_possiveis; $i++) { 
         if ($disciplinas_escolhidas['escolha_aluno_'.$i] !== 'disciplina_vazia' AND $disciplinas_escolhidas['mencao_aluno_'.$i] === 'mencao_vazia') {
-            $erros_validacao[] = "Você não selecionou a Menção que obteve na disciplina ".$disciplinas_escolhidas['escolha_aluno_'.$i].".";
+            $errors[] = "Você não selecionou a Menção que obteve na disciplina ".$disciplinas_escolhidas['escolha_aluno_'.$i].".";
         }else if ($disciplinas_escolhidas['escolha_aluno_'.$i] !== 'disciplina_vazia' AND $disciplinas_escolhidas['ano_cursado_'.$i] === 'ano_vazio') {
-            $erros_validacao[] = "Você não selecionou o Ano que cursou disciplina ".$disciplinas_escolhidas['escolha_aluno_'.$i].".";
+            $errors[] = "Você não selecionou o Ano que cursou disciplina ".$disciplinas_escolhidas['escolha_aluno_'.$i].".";
         }else if ($disciplinas_escolhidas['escolha_aluno_'.$i] !== 'disciplina_vazia' AND $disciplinas_escolhidas['semestre_cursado_'.$i] === 'semestre_vazio') {
-            $erros_validacao[] = "Você não selecionou o Semestre que cursou disciplina ".$disciplinas_escolhidas['escolha_aluno_'.$i].".";
+            $errors[] = "Você não selecionou o Semestre que cursou disciplina ".$disciplinas_escolhidas['escolha_aluno_'.$i].".";
         }
     }
 
     $escolheu_hora = horarios_escolhidos_candidato($disciplinas_escolhidas);
 
     if (empty($escolheu_hora)) {
-        $erros_validacao[] = "Você deve escolher pelo menos um horário para a monitoria.";
+        $errors[] = "Você deve escolher pelo menos um horário para a monitoria.";
     }
 
     if (empty($disciplinas_escolhidas['concordatermos'])) {
-        $erros_validacao[] = "Você deve concordar com os termos da monitoria.";
+        $errors[] = "Você deve concordar com os termos da monitoria.";
     }
 
-    return $erros_validacao;
+    return $errors;
 }
 ?>
