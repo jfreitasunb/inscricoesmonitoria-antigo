@@ -1,6 +1,5 @@
 <form action="actions/processa_monitoria.php" method="POST" class="form-group" enctype="multipart/form-data">
   <fieldset class="scheduler-border">
-  <input type="hidden" name="historico" value="1">
     <legend class="scheduler-border">Monitorias disponíveis</legend>
       <div class="form-inline">
       <!-- BEGIN numero_escolhas -->
