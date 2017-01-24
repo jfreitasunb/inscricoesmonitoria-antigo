@@ -15,6 +15,10 @@ $dados_usuario_novo = prepara_dados();
 // echo $dados_usuario_novo['password'];
 $errors = grava_usuario_novo($dados_usuario_novo);
 
+$nome = "Eu";
+$email = "jota@gmail.com";
+envia_email_conta($nome,$email)
+
 print_r($errors);
 
 

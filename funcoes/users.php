@@ -1,4 +1,58 @@
 <?php
+function envia_email_conta($nome,$email){
+    require_once "../lib/PHPMailer/PHPMailerAutoload.php";
+    $mail = new PHPMailer();
+
+    $email_host = "127.0.0.1";//endereco do servidor smtp
+    $email_from = "posgrad@mat.unb.br";
+
+    $mail->isSMTP();
+    $link_ativacao = "http:localhost:8080/monitoriamat/activate.php"
+
+    $texto="<div>
+    Prezado(a) ".$nome.",</div>
+<div>
+    Sua conta foi criada com sucesso.</div>
+<div>
+    Antes de fazer o login você precisa ativar sua conta entrando no link:<a href='".$link_ativacao."'>".$link_ativacao."</a> 
+<div>
+    Coordenação de Graduação do MAT-UnB.</div>
+";
+    $texto=wordwrap($texto,70);
+
+    $texto = mb_convert_encoding($texto,'ISO-8859-1','UTF-8');
+
+    $subject = "Inscricões na Monitoria do MAT/UnB: ativação de conta";
+
+    $subject = mb_convert_encoding($subject,'ISO-8859-1','UTF-8');
+
+    $reply_to = mb_convert_encoding("Graduação MAT/UnB",'ISO-8859-1','UTF-8');
+
+    $mail = new PHPMailer(); // defaults to using php "mail()"
+
+    $mail->isSMTP();                                      // Set mailer to use SMTP
+    $mail->Host = $email_host;
+
+    $mail->Charset = 'UTF-8';
+
+    $mail->AddReplyTo($email_from,$reply_to);
+
+    $mail->SetFrom($email_from);
+
+    $mail->AddAddress($email, $nome);
+
+    $mail->Subject    = $subject;
+
+    $mail->MsgHTML($texto);
+
+    if(!$mail->Send()) {
+        $devolve="problema no envio de mensagens";
+    } else {
+        $devolve="mensagem enviada";
+    }
+
+    return $devolve;
+}
 function prepara_dados(){
     
     $login = trim($_POST['username']);
