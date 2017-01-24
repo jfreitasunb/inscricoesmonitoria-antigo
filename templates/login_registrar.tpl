@@ -34,13 +34,13 @@
                     <div class="row">
                       <div class="col-lg-12">
                         <div class="text-center">
-                          <a href="http://phpoll.com/recover" tabindex="5" class="forgot-password">Esqueceu a senha?</a>
+                          <a href="#" tabindex="5" class="forgot-password">Esqueceu a senha?</a>
                         </div>
                       </div>
                     </div>
                   </div>
                 </form>
-                <form id="register-form" action="http://phpoll.com/register/process" method="post" role="form" style="display: none;">
+                <form id="register-form" action="actions/processa_nova_conta.php" method="post" role="form" style="display: none;">
                   <div class="form-group">
                     <input type="text" name="nome" id="nome" tabindex="1" class="form-control" placeholder="Nome" value="">
                   </div>
