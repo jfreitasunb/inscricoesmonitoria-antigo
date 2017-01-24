@@ -1,4 +1,20 @@
 <?php
+function email_exists($email){
+
+    GLOBAL $PDO;
+
+    $query_seleciona_email = "SELECT * FROM users WHERE email=:email AND is_active=FALSE";
+
+    $stmt = $PDO->prepare( $query_seleciona_email );
+
+    $stmt -> bindParam(':email', $email);
+
+    $result = $stmt->execute();
+
+    $rowCount = $stmt->rowCount();
+    return $rowCount;
+}
+
 function envia_email_conta($nome,$email,$validation_code){
     require_once "../lib/PHPMailer/PHPMailerAutoload.php";
     $mail = new PHPMailer();

@@ -16,10 +16,13 @@ $dados_usuario_novo = prepara_dados();
 $errors = grava_usuario_novo($dados_usuario_novo);
 
 $nome = "Eu";
-$email = "jota@gmail.com";
-envia_email_conta($nome,$email,$dados_usuario_novo['validation_code']);
+$email = "j123@gmail.com";
+$validation_code = md5('temp' + microtime());
+envia_email_conta($nome,$email,$validation_code);
 
-print_r($errors);
+email_exists($email);
+
+// print_r($errors);
 
 
 
