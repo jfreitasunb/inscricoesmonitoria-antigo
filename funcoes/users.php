@@ -7,7 +7,7 @@ function envia_email_conta($nome,$email){
     $email_from = "posgrad@mat.unb.br";
 
     $mail->isSMTP();
-    $link_ativacao = "http:localhost:8080/monitoriamat/activate.php"
+    $link_ativacao = "http://localhost:8080/monitoriamat/activate.php";
 
     $texto="<div>
     Prezado(a) ".$nome.",</div>
