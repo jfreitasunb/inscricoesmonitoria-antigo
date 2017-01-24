@@ -162,4 +162,51 @@ function valida_escolhas_aluno($disciplinas_escolhidas){
 
     return $errors;
 }
+
+function valida_usuario_registrar(){
+
+    GLOBAL $errors;
+
+    if ($_POST['nome'] == "") {
+        $errors[] = "O nome não pode ser vazio.";
+    }
+
+    if ($_POST['nome'] !="" AND $_POST['username'] == "") {
+        $errors[] = "Você deve informar sua matrícula.";
+    }else if($_POST['nome'] !="" AND $_POST['email'] == ""){
+        $errors[] = "Você deve informar um e-mail.";
+    }else if($_POST['nome'] !="" AND $_POST['confirm-email'] == ""){
+        $errors[] = "Você deve confirmar seu e-mail.";
+    }else if($_POST['nome'] !="" AND $_POST['password'] == ""){
+        $errors[] = "Você deve informar uma senha.";
+    }else if($_POST['nome'] !="" AND $_POST['confirm-password'] == ""){
+        $errors[] = "Você deve confirmar sua senha.";
+    }
+
+    if ($_POST['username'] !="" AND !is_numeric($_POST['username'])) {
+        $errors[] = "Você deve informar somente os números da sua matrícula.";
+    }
+
+    if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "Você deve informar um e-mail válido.";
+    }
+
+    if (!filter_var($_POST['confirm-email'], FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "Você deve informar um e-mail válido.";
+    }
+
+    if (!($_POST['email'] === $_POST['confirm-email'])) {
+        $errors[] = "Você deve informar o mesmo e-mail.";
+    }
+
+    if ($_POST['password'] !="" AND !(strlen($_POST['password']) > 7)) {
+        $errors[] = "A senha deve conter pelo menos 8 caracteres.";
+    }else{
+        if (!($_POST['password'] === $_POST['confirm-password'])) {
+            $errors[] = "As senhas informadas não conferem.";
+        }
+    }
+
+    return $errors;
+}
 ?>

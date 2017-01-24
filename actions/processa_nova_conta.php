@@ -7,13 +7,7 @@ require_once "../config/init.php";
  htmlentities($_POST['nome'], ENT_QUOTES, "UTF-8");
 
 
-if ($_POST['nome'] == "") {
-    $errors[] = "O nome não pode ser vazio.";
-}
-
-if ($_POST['nome'] !="" AND $_POST['username'] == "") {
-    $errors[] = "Você deve informar sua matrícula.";
-}
+$errors = valida_usuario_registrar();
 print_r($errors);
 
 
