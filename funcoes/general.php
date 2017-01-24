@@ -106,6 +106,18 @@ function preenche_template_monitoria(){
     return $tpl;
 }
 
+function carrega_template_login_registro(){
+
+    GLOBAL $PATH_TEMPLATES;
+    GLOBAL $numero_escolhas_possiveis;
+
+    $tpl = new HTML_Template_Sigma($PATH_TEMPLATES);
+
+    $tpl->loadTemplatefile("login_registrar.tpl");
+
+    return $tpl;
+}
+
 function horarios_escolhidos_candidato($disciplinas_escolhidas){
     $escolhas = array_filter(array_keys($disciplinas_escolhidas),
         function($key) {
