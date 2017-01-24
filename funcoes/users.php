@@ -1,4 +1,9 @@
 <?php
+function activate($email,$email_code){
+
+    GLOBAL $PDO;
+}
+
 function email_exists($email){
 
     GLOBAL $PDO;
