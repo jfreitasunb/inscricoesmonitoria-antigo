@@ -42,7 +42,7 @@
                 </form>
                 <form id="register-form" action="actions/processa_nova_conta.php" method="post" role="form" style="display: none;">
                   <div class="form-group">
-                    <input type="text" name="nome" id="nome" tabindex="1" class="form-control" placeholder="Nome" value="dafd">
+                    <input type="text" name="nome" id="nome" tabindex="1" class="form-control" placeholder="Nome" value="">
                   </div>
                   <div class="form-group">
                     <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Matrícula" value="">
