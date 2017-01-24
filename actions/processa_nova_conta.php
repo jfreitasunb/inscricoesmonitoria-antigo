@@ -17,7 +17,7 @@ $errors = grava_usuario_novo($dados_usuario_novo);
 
 $nome = "Eu";
 $email = "jota@gmail.com";
-envia_email_conta($nome,$email);
+envia_email_conta($nome,$email,$dados_usuario_novo['validation_code']);
 
 print_r($errors);
 

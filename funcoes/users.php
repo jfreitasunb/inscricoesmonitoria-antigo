@@ -1,5 +1,5 @@
 <?php
-function envia_email_conta($nome,$email){
+function envia_email_conta($nome,$email,$validation_code){
     require_once "../lib/PHPMailer/PHPMailerAutoload.php";
     $mail = new PHPMailer();
 
@@ -7,7 +7,7 @@ function envia_email_conta($nome,$email){
     $email_from = "posgrad@mat.unb.br";
 
     $mail->isSMTP();
-    $link_ativacao = "http://localhost:8080/monitoriamat/activate.php";
+    $link_ativacao = "http://localhost:8080/monitoriamat/activate.php?email=".$email."&email_code=".$validation_code;
 
     $texto="<div>
     Prezado(a) ".$nome.",</div>
