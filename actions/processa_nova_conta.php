@@ -2,17 +2,20 @@
 require_once "../config/init.php";
 
 
- var_dump($_POST);
+ // var_dump($_POST);
 
  htmlentities($_POST['nome'], ENT_QUOTES, "UTF-8");
 
 
 $errors = valida_usuario_registrar();
-print_r($errors);
+// print_r($errors);
 
 $dados_usuario_novo = prepara_dados();
 
-print_r($dados_usuario_novo);
+// echo $dados_usuario_novo['password'];
+$errors = grava_usuario_novo($dados_usuario_novo);
+
+print_r($errors);
 
 
 

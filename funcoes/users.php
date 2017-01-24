@@ -2,18 +2,51 @@
 function prepara_dados(){
     
     $login = trim($_POST['username']);
-    $email = trim($_POST['mail']);
+    $email = trim($_POST['email']);
     $password = trim($_POST['password']);
 
     $dados = array();
 
     $dados['login'] = trim($_POST['username']);
     $dados['email'] = trim($_POST['email']);
-    $dados['password'] = trim($_POST['password']);
-    $dados['validation_code'] = "adfasfd";
-    $dados['is_active'] = FALSE;
+    $dados['password'] = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
+    $dados['validation_code'] = md5($_POST['username'] + microtime());
+    $dados['is_active'] = 0;
 
     return $dados;
+
+}
+
+function grava_usuario_novo($dados_usuario){
+    
+    GLOBAL $PDO;
+    GLOBAL $errors;
+
+    $campos = implode(', ', array_keys($dados_usuario));
+    $bind_valores = ':' . implode(', :', array_keys($dados_usuario));
+
+    $query_insere_novo_usuario = "INSERT INTO users ($campos) VALUES($bind_valores)";
+
+    $stmt = $PDO->prepare( $query_insere_novo_usuario );
+
+
+    foreach ($dados_usuario as $key => &$value) {
+        $stmt -> bindParam(':'.$key, $value);   
+    }
+      
+    try{
+        $result = $stmt->execute();
+    }
+    catch( PDOException $e ){
+        if (strpos($e, 'users_email_key') !== FALSE){
+            $errors[] = "Já existe um usuário cadastrado com esse e-mail.";
+        }
+        if (strpos($e, 'users_login_ke') !== FALSE){
+            $errors[] = "Já existe um usuário cadastrado com essa matrícula.";
+        }
+    }   
+    
+    return $errors;
 
 }
 
