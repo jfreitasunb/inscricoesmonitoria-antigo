@@ -2,6 +2,7 @@
 function upload_historico($id_candidato){
 
     GLOBAL $ROOT_PATH;
+    GLOBAL $PDO;
     GLOBAL $errors;
 
     $_UP['pasta'] = $ROOT_PATH."uploads/";
@@ -34,13 +35,23 @@ function upload_historico($id_candidato){
             exit();
         }else {
             if ($_UP['renomeia'] == true) {
-                $nome_final = "historico_".$id_candidato;
+                $nome_final = "historico_".$id_candidato.".".$extensao;
             }else{
                 $nome_final = $_FILES['arquivo']['name'];
             }
             
-            if (!move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'].$nome_final.".".$extensao)){
+            if (!move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'].$nome_final)){
                 $errors[] = "N&atilde;o foi poss&iacute;vel enviar o arquivo, tente novamente";
+            }else{
+                $query_insere_historico = "INSERT INTO finaliza_escolhas ('id_candidato','historico') VALUES(':id_candidato, :historico')";
+                $stmt = $PDO->prepare( $query_insere_historico );
+                $stmt -> bindParam(':id_candidato', $id_candidato);
+                $stmt -> bindParam(':historico', $nome_final);
+                $result = $stmt->execute();
+
+                if (!$result) {
+                    $errors[] = "Não foi possível gravar seu histórico no banco de dados. Tente novamente mais tarde.";
+                }
             }
         }
 
@@ -88,6 +99,41 @@ function grava_escolhas_monitoria($id_candidato, $ano_monitoria, $semestre_monit
     }
 
     return $gravou;
+}
+
+function finaliza_escolhas($id_candidato, $ano_monitoria, $semestre_monitoria,$disciplinas_escolhidas){
+
+    GLOBAL $PDO;
+
+    $escolheu_hora = horarios_escolhidos_candidato($disciplinas_escolhidas);
+    $hora_escolhida ="";
+    foreach ($escolheu_hora as $key) {
+        $hora_escolhida .= $disciplinas_escolhidas[$key];
+    }
+ 
+    $finaliza_escolhas = TRUE;
+ 
+    $campos_finais = 'id_candidato, tipo_monitoria, hora_escolhida, concordatermos, ano_monitoria_ativa, semestre_monitoria_ativa, finaliza_escolhas';
+ 
+    $bind_valores_finais = ':id_candidato, :tipo_monitoria, :hora_escolhida, :concordatermos, :ano_monitoria_ativa, :semestre_monitoria_ativa, :finaliza_escolhas';
+ 
+    $query_insere_escolha_finais = "UPDATE finaliza_escolhas ($campos_finais) VALUES($bind_valores_finais)";
+     
+    $stmt = $PDO->prepare( $query_insere_escolha_finais );
+    $stmt -> bindParam(':id_candidato', $id_candidato);
+    $stmt -> bindParam(':tipo_monitoria', $disciplinas_escolhidas['tipo_monitoria']);
+    $stmt -> bindParam(':hora_escolhida', $hora_escolhida);
+    $stmt -> bindParam(':concordatermos', $disciplinas_escolhidas['concordatermos']);
+    $stmt -> bindParam(':ano_monitoria_ativa', $ano_monitoria_ativa);
+    $stmt -> bindParam(':semestre_monitoria_ativa', $semestre_monitoria_ativa);
+    $stmt -> bindParam(':finaliza_escolhas', $finaliza_escolhas);
+    $result = $stmt->execute();
+
+    if (!$result) {
+        $errors[] = "Não foi possível finalizar suas escolhas.";
+    }
+
+    return $errors;
 }
 
 ?>

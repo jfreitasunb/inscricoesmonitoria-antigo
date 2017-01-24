@@ -20,7 +20,7 @@ if (empty($errors)){
     }else{
         $errors = upload_historico($id_candidato);
         if (empty($errors)) {
-            echo "Finaliza as escolhas.";
+            $errors = finaliza_escolhas($id_candidato, $ano_monitoria, $semestre_monitoria,$disciplinas_escolhidas);
         }
     }
 }
