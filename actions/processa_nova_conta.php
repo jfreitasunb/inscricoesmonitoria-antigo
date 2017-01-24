@@ -1,6 +1,10 @@
 <?php
 require_once "../config/init.php";
- //Usar para processar o cadastro do candidato. 
+ 
+
+ var_dump($_POST);
+
+ echo htmlentities($_POST['nome'], ENT_QUOTES, "UTF-8");
 
 $campos = implode(', ', array_keys($disciplinas_escolhidas));
 $bind_valores = ':' . implode(', :', array_keys($disciplinas_escolhidas));

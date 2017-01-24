@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <title>Inscrições Monitoria do MAT/UnB</title>
   <meta charset="utf-8">
