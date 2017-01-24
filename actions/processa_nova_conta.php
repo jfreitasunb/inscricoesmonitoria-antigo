@@ -10,6 +10,10 @@ require_once "../config/init.php";
 $errors = valida_usuario_registrar();
 print_r($errors);
 
+$dados_usuario_novo = prepara_dados();
+
+print_r($dados_usuario_novo);
+
 
 
 

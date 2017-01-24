@@ -1,4 +1,22 @@
 <?php
+function prepara_dados(){
+    
+    $login = trim($_POST['username']);
+    $email = trim($_POST['mail']);
+    $password = trim($_POST['password']);
+
+    $dados = array();
+
+    $dados['login'] = trim($_POST['username']);
+    $dados['email'] = trim($_POST['email']);
+    $dados['password'] = trim($_POST['password']);
+    $dados['validation_code'] = "adfasfd";
+    $dados['is_active'] = FALSE;
+
+    return $dados;
+
+}
+
 function upload_historico($id_candidato){
 
     GLOBAL $ROOT_PATH;
