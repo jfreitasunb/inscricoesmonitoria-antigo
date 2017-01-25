@@ -9,9 +9,9 @@
   
 </head>
 <body>
-<!-- BEGIN escolher_disciplina_monitoria -->
-{escolher_disciplina_monitoria}
-<!-- END escolher_disciplina_monitoria -->
+<!-- BEGIN exibe_paginas -->
+{exibe_paginas}
+<!-- END exibe_paginas -->
 
 </body>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
