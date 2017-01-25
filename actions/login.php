@@ -17,6 +17,14 @@ if (!empty($_POST)) {
                 $_SESSION['email'] = $dados_usuario['email'];
                 $_SESSION['user_type'] = $dados_usuario['user_type'];
 
+                if ($dados_usuario['user_type'] === 3) {
+                    carrega_area_aluno();
+                }else if ($dados_usuario['user_type'] === 2) {
+                    carrega_area_coordenador();
+                }else if ($dados_usuario['user_type'] === 1){
+                    carrega_area_administrador();
+                }
+
                 print_r($_SESSION);
             }else{
                 $errors[] = "Login ou senha não conferem.";
