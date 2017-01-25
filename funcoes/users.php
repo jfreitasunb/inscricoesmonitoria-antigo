@@ -76,6 +76,8 @@ function envia_email_conta($nome,$email,$validation_code){
 }
 function prepara_dados(){
     
+    GLOBAL $STRING_VALIDA_EMAIL;
+
     $login = trim($_POST['username']);
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
@@ -85,7 +87,7 @@ function prepara_dados(){
     $dados['login'] = trim($_POST['username']);
     $dados['email'] = trim($_POST['email']);
     $dados['password'] = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
-    $dados['validation_code'] = md5($_POST['username'] + microtime());
+    $dados['validation_code'] = md5($STRING_VALIDA_EMAIL.$_POST['email'].date("d-m-Y H:i:s:u"));
     $dados['is_active'] = 0;
 
     return $dados;
