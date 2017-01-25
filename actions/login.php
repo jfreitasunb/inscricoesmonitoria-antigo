@@ -1,17 +1,21 @@
 <?php
 require_once "../config/init.php";
 
-var_dump($_POST);
-valida_usuario_login();
-// if (!empty($_POST)) {
+if (!empty($_POST)) {
     
-//     $errors = valida_usuario_login();
+    $errors = valida_usuario_login();
+
+    if (empty($errors)) {
+        $username = trim($_POST['username']);
+        $password = trim($_POST['password']);
+        print_r(retorna_dados_usuario($username));
+    }
 
     
-// }else{
-//     header('Location:../index.php');
-//     exit();
-// }
+}else{
+    header('Location:../index.php');
+    exit();
+}
 
 // $campos = implode(', ', array_keys($disciplinas_escolhidas));
 // $bind_valores = ':' . implode(', :', array_keys($disciplinas_escolhidas));

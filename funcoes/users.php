@@ -1,4 +1,23 @@
 <?php
+function retorna_dados_usuario($username){
+
+    GLOBAL $PDO;
+
+    $login = $username;
+
+    $query_busca_usuario = "SELECT * FROM users WHERE login=:login";
+
+    $stmt = $PDO->prepare( $query_busca_usuario);
+
+    $stmt -> bindParam(':login', $login);
+    
+    $stmt->execute();
+
+    $dados_usuario_login = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $dados_usuario_login;
+}
+
 function valida_usuario_login(){
 
     GLOBAL $errors;
@@ -15,7 +34,7 @@ function valida_usuario_login(){
     if (!is_numeric($_POST['username'])) {
         $errors[] = "Você deve informar somente os números da sua matrícula";
     }
-    
+
     return $errors;
 }
 
@@ -26,7 +45,7 @@ function ativar_email($email, $email_code){
     $email = trim(strtolower($email));
     $email_code = trim($email_code);
 
-    $query_busca_codigo = "SELECT * FROM users WHERE email=:email AND validation_code=:validation_code AND ativo=FALSE";
+    $query_busca_codigo = "SELECT * FROM users WHERE email=:email AND validation_code=:validation_code AND ativo=0";
 
     $stmt = $PDO->prepare( $query_busca_codigo );
 
@@ -38,7 +57,7 @@ function ativar_email($email, $email_code){
     $linhas = $stmt->fetchAll();
 
     if (count($linhas)) {
-        $query_ativa_conta = "UPDATE users SET ATIVO=TRUE WHERE email=:email AND validation_code=:validation_code";
+        $query_ativa_conta = "UPDATE users SET ATIVO=1 WHERE email=:email AND validation_code=:validation_code";
 
         $stmt = $PDO->prepare( $query_ativa_conta );
 
@@ -61,7 +80,7 @@ function email_exists($email){
 
     GLOBAL $PDO;
 
-    $query_seleciona_email = "SELECT * FROM users WHERE email=:email AND ATIVO=FALSE";
+    $query_seleciona_email = "SELECT * FROM users WHERE email=:email AND ATIVO=0";
 
     $stmt = $PDO->prepare( $query_seleciona_email );
 
