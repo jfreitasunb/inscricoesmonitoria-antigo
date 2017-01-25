@@ -6,7 +6,7 @@ if (isset($_GET['email'], $_GET['email_code'])) {
     $email_code = trim($_GET['email_code']);
 
     if (!email_exists($email)) {
-        $errors[] = "O e-mail informado não está cadastrado no sistema.";
+        $errors[] = "O e-mail informado não está cadastrado no sistema ou já foi ativado.";
     }else if (!ativar_email($email, $email_code)){
         $errors[] = "Não foi possível ativar sua conta. Tente mais tarde.";
     }
@@ -15,7 +15,7 @@ if (isset($_GET['email'], $_GET['email_code'])) {
         // mostra_erros($errors);
         print_r($errors);
     }else{
-        header('Location: actions/activate.php?sucesso');
+        echo "Sucesso";
         exit();
     }
 }else{

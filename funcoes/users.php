@@ -17,8 +17,6 @@ function ativar_email($email, $email_code){
 
     $linhas = $stmt->fetchAll();
 
-    echo count($linhas);
-
     if (count($linhas)) {
         $query_ativa_conta = "UPDATE users SET ATIVO=TRUE WHERE email=:email AND validation_code=:validation_code";
 
@@ -30,12 +28,12 @@ function ativar_email($email, $email_code){
         $result = $stmt->execute();
 
         if ($result) {
-            return 1;
+            return true;
         }else{
-            return 0;
+            return false;
         }
     }else{
-        return 0;
+        return false;
     }
 }
 
