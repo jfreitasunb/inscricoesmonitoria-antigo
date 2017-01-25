@@ -1,5 +1,5 @@
 <?php
-function activate($email, $email_code){
+function ativar_email($email, $email_code){
 
     GLOBAL $PDO;
 
@@ -16,6 +16,8 @@ function activate($email, $email_code){
     $stmt->execute();
 
     $linhas = $stmt->fetchAll();
+
+    echo count($linhas);
 
     if (count($linhas)) {
         $query_ativa_conta = "UPDATE users SET ATIVO=TRUE WHERE email=:email AND validation_code=:validation_code";
@@ -121,7 +123,7 @@ function prepara_dados(){
     $dados['email'] = trim($_POST['email']);
     $dados['password'] = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
     $dados['validation_code'] = md5($STRING_VALIDA_EMAIL.$_POST['email'].date("d-m-Y H:i:s:u"));
-    $dados['is_active'] = 0;
+    $dados['ativo'] = 0;
 
     return $dados;
 

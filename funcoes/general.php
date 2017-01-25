@@ -1,4 +1,14 @@
 <?php
+function mostra_erros($errors){
+
+    $output = array();
+
+    foreach ($errors as $error) {
+        $output[] = '<li>'.$error.'</li>';
+    }
+
+    return '<ul>'.implode('', $output).'</ul>';
+}
 
 function conecta(){
     try

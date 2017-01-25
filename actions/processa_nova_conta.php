@@ -4,7 +4,7 @@ require_once "../config/init.php";
 
  // var_dump($_POST);
 
- htmlentities($_POST['nome'], ENT_QUOTES, "UTF-8");
+ $nome = htmlentities($_POST['nome'], ENT_QUOTES, "UTF-8");
 
 
 $errors = valida_usuario_registrar();
@@ -12,17 +12,15 @@ $errors = valida_usuario_registrar();
 
 $dados_usuario_novo = prepara_dados();
 
-// echo $dados_usuario_novo['password'];
+
 $errors = grava_usuario_novo($dados_usuario_novo);
 
-$nome = "Eu";
-$email = "j123@gmail.com";
-$validation_code = md5('temp' + microtime());
+$validation_code = $dados_usuario_novo['validation_code'];
+$email = $dados_usuario_novo['email'];
+
 envia_email_ativa_conta($nome,$email,$validation_code);
 
-email_exists($email);
-
-// print_r($errors);
+print_r($errors);
 
 
 
