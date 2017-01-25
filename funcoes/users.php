@@ -1,4 +1,25 @@
 <?php
+function valida_usuario_login(){
+
+    GLOBAL $errors;
+
+    $required_fields = array('username', 'password');
+    
+    foreach ($_POST as $key => $value) {
+        if (empty($value) && in_array($key, $required_fields)) {
+            $errors[] = "Os campos marcados com asterisco devem ser preenchidos.";
+            break 1;
+        }
+    }
+
+    if (!is_numeric($_POST['username'])) {
+        $errors[] = "Você deve informar somente os números da sua matrícula";
+    }
+
+    print_r($errors);
+    return $errors;
+}
+
 function ativar_email($email, $email_code){
 
     GLOBAL $PDO;
