@@ -13,21 +13,20 @@ if (!empty($_POST)) {
             if ($dados_usuario['ativo'] == 0){
                 $errors[] = "Você não ativou sua conta ainda. Verifique se recebeu um e-mail com o link de ativação de conta.";
             }else if (password_verify($password,$dados_usuario['password'])) {
-                echo "Logado";
+                $_SESSION['id_user'] = $dados_usuario['id_user'];
+                $_SESSION['email'] = $dados_usuario['email'];
+                $_SESSION['user_type'] = $dados_usuario['user_type'];
+
+                print_r($_SESSION);
             }else{
                 $errors[] = "Login ou senha não conferem.";
             }
         }
-
-    }
-
-    
+    }   
 }else{
     header('Location:../index.php');
     exit();
 }
-
-print_r($errors);
 
 // $campos = implode(', ', array_keys($disciplinas_escolhidas));
 // $bind_valores = ':' . implode(', :', array_keys($disciplinas_escolhidas));
