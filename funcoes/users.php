@@ -20,7 +20,7 @@ function email_exists($email){
     return $rowCount;
 }
 
-function envia_email_conta($nome,$email,$validation_code){
+function envia_email_ativa_conta($nome,$email,$validation_code){
     require_once "../lib/PHPMailer/PHPMailerAutoload.php";
     $mail = new PHPMailer();
 
@@ -35,7 +35,7 @@ function envia_email_conta($nome,$email,$validation_code){
 <div>
     Sua conta foi criada com sucesso.</div>
 <div>
-    Antes de fazer o login você precisa ativar sua conta entrando no link:<a href='".$link_ativacao."'>".$link_ativacao."</a> 
+    Antes de fazer o login você precisa ativar sua conta entrando no link:<a href='".$link_ativacao."' target='_blank'>".$link_ativacao."</a> 
 <div>
     Coordenação de Graduação do MAT-UnB.</div>
 ";
