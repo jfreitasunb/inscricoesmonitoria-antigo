@@ -18,7 +18,7 @@ $errors = grava_usuario_novo($dados_usuario_novo);
 $nome = "Eu";
 $email = "j123@gmail.com";
 $validation_code = md5('temp' + microtime());
-envia_email_conta($nome,$email,$validation_code);
+envia_email_ativa_conta($nome,$email,$validation_code);
 
 email_exists($email);
 

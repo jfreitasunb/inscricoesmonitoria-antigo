@@ -1,7 +1,40 @@
 <?php
-function activate($email,$email_code){
+function activate($email, $email_code){
 
     GLOBAL $PDO;
+
+    $email = trim(strtolower($email));
+    $email_code = trim($email_code);
+
+    $query_busca_codigo = "SELECT * FROM users WHERE email=:email AND validation_code=:validation_code AND ativo=FALSE";
+
+    $stmt = $PDO->prepare( $query_busca_codigo );
+
+    $stmt -> bindParam(':email', $email);
+    $stmt -> bindParam(':validation_code', $email_code);
+
+    $stmt->execute();
+
+    $linhas = $stmt->fetchAll();
+
+    if (count($linhas)) {
+        $query_ativa_conta = "UPDATE users SET ATIVO=TRUE WHERE email=:email AND validation_code=:validation_code";
+
+        $stmt = $PDO->prepare( $query_ativa_conta );
+
+        $stmt -> bindParam(':email', $email);
+        $stmt -> bindParam(':validation_code', $email_code);
+
+        $result = $stmt->execute();
+
+        if ($result) {
+            return 1;
+        }else{
+            return 0;
+        }
+    }else{
+        return 0;
+    }
 }
 
 function email_exists($email){
