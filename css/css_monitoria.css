@@ -1,6 +1,17 @@
 body {
     padding-top: 90px;
 }
+.jumbotron h1{
+    color: #0000ff;
+    text-align: justify;
+}
+.jumbotron h2{
+    color: #029f5b;
+    text-align: center;
+}
+.jumbotron p{
+    color: #fff;
+}
 .panel-login {
     border-color: #ccc;
     -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
