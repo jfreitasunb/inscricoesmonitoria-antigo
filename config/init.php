@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once "/Arquivos/Dropbox/php/vagrant/rivendel/www/monitoriamat/config/caminhos.php";
 require_once "HTML/Template/Sigma.php";
 require_once $ROOT_PATH."funcoes/general.php";
