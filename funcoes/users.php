@@ -41,7 +41,7 @@ function email_exists($email){
 
     GLOBAL $PDO;
 
-    $query_seleciona_email = "SELECT * FROM users WHERE email=:email AND is_active=FALSE";
+    $query_seleciona_email = "SELECT * FROM users WHERE email=:email AND ATIVO=FALSE";
 
     $stmt = $PDO->prepare( $query_seleciona_email );
 
@@ -49,7 +49,7 @@ function email_exists($email){
 
     $result = $stmt->execute();
 
-    $rowCount = $stmt->rowCount();
+    $rowCount = count($stmt->fetchAll());
     return $rowCount;
 }
 
