@@ -7,7 +7,7 @@ if (isset($_GET['email'], $_GET['email_code'])) {
 
     if (!email_exists($email)) {
         $errors[] = "O e-mail informado não está cadastrado no sistema.";
-    }else if (ativar_email($email, $email_code)){
+    }else if (!ativar_email($email, $email_code)){
         $errors[] = "Não foi possível ativar sua conta. Tente mais tarde.";
     }
 

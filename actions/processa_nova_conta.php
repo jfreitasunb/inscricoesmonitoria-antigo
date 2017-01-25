@@ -1,33 +1,32 @@
 <?php
 require_once "../config/init.php";
 
+if (!empty($_POST)) {
+    
+    $errors = valida_usuario_registrar();
 
- // var_dump($_POST);
+    if (empty($errors)) {
+        $nome = htmlentities($_POST['nome'], ENT_QUOTES, "UTF-8");
+        $dados_usuario_novo = prepara_dados();
+        $errors = grava_usuario_novo($dados_usuario_novo);
 
- $nome = htmlentities($_POST['nome'], ENT_QUOTES, "UTF-8");
+        if (empty($errors)) {
+            $validation_code = $dados_usuario_novo['validation_code'];
+            $email = $dados_usuario_novo['email'];
 
+            $resultado = envia_email_ativa_conta($nome,$email,$validation_code);
 
-$errors = valida_usuario_registrar();
-// print_r($errors);
+            if ($resultado) {
+                header('Location: processa_nova_conta.php?sucesso');
+                exit();
+            }
+        }
+    }
 
-$dados_usuario_novo = prepara_dados();
-
-
-$errors = grava_usuario_novo($dados_usuario_novo);
-
-$validation_code = $dados_usuario_novo['validation_code'];
-$email = $dados_usuario_novo['email'];
-
-envia_email_ativa_conta($nome,$email,$validation_code);
-
-print_r($errors);
-
-
-
-
-
-
-
+}else{
+    header('Location:../index.php');
+    exit();
+}
 
 // $campos = implode(', ', array_keys($disciplinas_escolhidas));
 // $bind_valores = ':' . implode(', :', array_keys($disciplinas_escolhidas));
