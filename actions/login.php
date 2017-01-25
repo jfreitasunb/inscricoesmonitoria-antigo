@@ -24,8 +24,6 @@ if (!empty($_POST)) {
                 }else if ($dados_usuario['user_type'] === 1){
                     carrega_area_administrador();
                 }
-
-                print_r($_SESSION);
             }else{
                 $errors[] = "Login ou senha não conferem.";
             }
