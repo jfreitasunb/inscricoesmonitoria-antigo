@@ -1,4 +1,22 @@
 <?php
+function login_existe($username){
+    GLOBAL $PDO;
+
+    $login = $username;
+
+    $query_busca_usuario = "SELECT * FROM users WHERE login=:login";
+
+    $stmt = $PDO->prepare( $query_busca_usuario);
+
+    $stmt -> bindParam(':login', $login);
+
+    $stmt->execute();
+
+    $linhas = $stmt->fetchAll();
+
+    return count($linhas);
+
+}
 function retorna_dados_usuario($username){
 
     GLOBAL $PDO;
@@ -12,10 +30,10 @@ function retorna_dados_usuario($username){
     $stmt -> bindParam(':login', $login);
     
     $stmt->execute();
-
     $dados_usuario_login = $stmt->fetch(PDO::FETCH_ASSOC);
 
     return $dados_usuario_login;
+
 }
 
 function valida_usuario_login(){

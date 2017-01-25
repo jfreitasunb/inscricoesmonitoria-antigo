@@ -8,7 +8,17 @@ if (!empty($_POST)) {
     if (empty($errors)) {
         $username = trim($_POST['username']);
         $password = trim($_POST['password']);
-        print_r(retorna_dados_usuario($username));
+        if (login_existe($username)){
+            $dados_usuario = retorna_dados_usuario($username);
+            if ($dados_usuario['ativo'] == 0){
+                $errors[] = "Você não ativou sua conta ainda. Verifique se recebeu um e-mail com o link de ativação de conta.";
+            }else if (password_verify($password,$dados_usuario['password'])) {
+                echo "Logado";
+            }else{
+                $errors[] = "Login ou senha não conferem.";
+            }
+        }
+
     }
 
     
@@ -16,6 +26,8 @@ if (!empty($_POST)) {
     header('Location:../index.php');
     exit();
 }
+
+print_r($errors);
 
 // $campos = implode(', ', array_keys($disciplinas_escolhidas));
 // $bind_valores = ':' . implode(', :', array_keys($disciplinas_escolhidas));
