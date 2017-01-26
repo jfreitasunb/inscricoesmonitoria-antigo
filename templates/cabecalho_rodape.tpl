@@ -17,9 +17,9 @@
   </div>
 </div>
 
-<!-- BEGIN exibe_erros -->
-    {exibe_errors}
-<!-- END exibe_errors -->
+<!-- BEGIN exibe_mensagens -->
+    {exibe_mensagens}
+<!-- END exibe_mensagens -->
 
 <!-- BEGIN exibe_paginas -->
 {exibe_paginas}
