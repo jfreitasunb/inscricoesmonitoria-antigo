@@ -15,10 +15,11 @@
     <h1>Departamento de Matemática</h1>      
     <h2 align="justified">Inscrições para a Monitoria do MAT/UnB.</h2>
   </div>
-  <!-- BEGIN exibe_erros -->
-    {exibe_errors}
-  <!-- END exibe_errors -->
 </div>
+
+<!-- BEGIN exibe_erros -->
+    {exibe_errors}
+<!-- END exibe_errors -->
 
 <!-- BEGIN exibe_paginas -->
 {exibe_paginas}

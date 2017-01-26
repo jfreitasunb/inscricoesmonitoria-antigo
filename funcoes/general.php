@@ -20,7 +20,7 @@ function carrega_mensagem_erro(){
     
     $tpl = new HTML_Template_Sigma($PATH_TEMPLATES);
 
-    $tpl->loadTemplatefile("success.tpl");
+    $tpl->loadTemplatefile("error.tpl");
     
     return $tpl;
 
