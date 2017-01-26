@@ -5,10 +5,14 @@
           <div class="panel-heading">
             <div class="row">
               <div class="col-xs-6">
-                <a href="#" class="active" id="login-form-link">Login</a>
+                <!-- BEGIN ativa_formulario_login -->
+                <a href="#" {ativa_formulario_login} id="login-form-link">Login</a>
+                <!-- END ativa_formulario_login -->
               </div>
               <div class="col-xs-6">
-                <a href="#" id="register-form-link">Registrar</a>
+                <!-- BEGIN ativa_formulario_registro -->
+                <a href="#" {ativa_formulario_registro} id="register-form-link">Registrar</a>
+                <!-- END ativa_formulario_registro -->
               </div>
             </div>
             <hr>
@@ -16,7 +20,9 @@
           <div class="panel-body">
             <div class="row">
               <div class="col-lg-12">
-                <form id="login-form" action="" method="post" role="form" style="display: block;">
+              <!-- BEGIN tipo_estilo_login -->
+                <form id="login-form" action="" method="post" role="form" {tipo_estilo}>
+              <!-- END tipo_estilo_login -->
                   <div class="form-group">
                     <div class="required-field-block">
                       <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Matrícula" value="">
@@ -50,7 +56,9 @@
                     </div>
                   </div>
                 </form>
-                <form id="register-form" action="" method="post" role="form" style="display: none;">
+                <!-- BEGIN tipo_estilo_registro -->
+                <form id="register-form" action="" method="post" role="form" {tipo_estilo_registro}>
+                <!-- END tipo_estilo_registro -->
                   <div class="form-group">
                     <input type="text" name="nome" id="nome" tabindex="1" class="form-control" placeholder="Nome" value="">
                   </div>
