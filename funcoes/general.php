@@ -1,4 +1,31 @@
 <?php
+function carrega_base_site(){
+    
+    GLOBAL $PATH_TEMPLATES;
+    GLOBAL $SITE_INSCRICAO_MONITORIA;
+    
+    $tpl_main = new HTML_Template_Sigma($PATH_TEMPLATES);
+
+    $tpl_main->loadTemplatefile("cabecalho_rodape.tpl");
+
+    $tpl_main->setVariable('url_site', $SITE_INSCRICAO_MONITORIA);
+
+    return $tpl_main;
+
+}
+
+function carrega_mensagem_erro(){
+    
+    GLOBAL $PATH_TEMPLATES;
+    
+    $tpl = new HTML_Template_Sigma($PATH_TEMPLATES);
+
+    $tpl->loadTemplatefile("success.tpl");
+    
+    return $tpl;
+
+}
+
 function array_sanitize(&$item){
 
     $item = trim($item);

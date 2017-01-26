@@ -1,9 +1,14 @@
 <?php
 require_once "config/init.php";
 
-$id_user = 55;
-$tabela = 'users';
-$dados_usuario = user_data($id_user, 'users', 'id_user', 'login', 'password', 'email', 'validation_code', 'user_type');
+$tpl_main = new HTML_Template_Sigma($PATH_TEMPLATES);
 
-print_r($dados_usuario);
+$tpl_main->loadTemplatefile("cabecalho_rodape.tpl");
+
+$tpl = carrega_mensagem_sucesso();
+
+$tpl_main -> parse('exibe_paginas');
+$tpl_main -> setVariable('exibe_paginas',$tpl->get());
+
+$tpl_main->show();
 ?>
