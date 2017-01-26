@@ -196,7 +196,7 @@ function email_exists($email){
 }
 
 function envia_email_ativa_conta($nome,$email,$validation_code){
-    require_once "../lib/PHPMailer/PHPMailerAutoload.php";
+    require_once "lib/PHPMailer/PHPMailerAutoload.php";
     $mail = new PHPMailer();
 
     $email_host = "127.0.0.1";//endereco do servidor smtp

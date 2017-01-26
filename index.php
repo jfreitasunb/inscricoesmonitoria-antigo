@@ -16,16 +16,16 @@ if (!empty($_POST)) {
         if (!empty($errors)) {
             $tpl = carrega_mensagem_erro();
             $tpl->setVariable('mensagem_erros', mostra_erros($errors));
-            $tpl_main -> parse('exibe_errors');
-            $tpl_main -> setVariable('exibe_errors',$tpl->get());
+            $tpl_main -> parse('exibe_mensagens');
+            $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
         }
     }else if (isset($_POST['registrar']) && $_POST['registrar'] === "Registrar"){
             $errors = valida_usuario_registrar();
             if (!empty($errors)) {
                 $tpl = carrega_mensagem_erro();
                 $tpl->setVariable('mensagem_erros', mostra_erros($errors));
-                $tpl_main -> parse('exibe_errors');
-                $tpl_main -> setVariable('exibe_errors',$tpl->get());
+                $tpl_main -> parse('exibe_mensagens');
+                $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
             }
 
                 if (empty($errors)) {
@@ -39,10 +39,14 @@ if (!empty($_POST)) {
 
                         $resultado = envia_email_ativa_conta($nome,$email,$validation_code);
 
-                        // if ($resultado) {
-                        //     header('Location: processa_nova_conta.php?sucesso');
-                        //     exit();
-                        // }
+                        if ($resultado) {
+                            $tpl = carrega_mensagem_sucesso();
+                            $mensagem_sucesso = "Sua conta foi criada em nosso sistema. Um e-mail com um link de ativação foi enviado. Somente após ativar sua conta você poderá fazer login.";
+                            $tpl->setVariable('mensagem_sucesso', $mensagem_sucesso);
+                            $tpl_main -> parse('exibe_mensagens');
+                            $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
+                            
+                        }
                     }
                 }
         }

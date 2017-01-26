@@ -32,7 +32,7 @@ function carrega_mensagem_sucesso(){
     
     $tpl = new HTML_Template_Sigma($PATH_TEMPLATES);
 
-    $tpl->loadTemplatefile("sucess.tpl");
+    $tpl->loadTemplatefile("success.tpl");
     
     return $tpl;
 
