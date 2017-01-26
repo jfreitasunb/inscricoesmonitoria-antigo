@@ -5,6 +5,12 @@ function array_sanitize(&item){
 
 }
 
+function sanitize($data){
+
+    return trim($data);
+
+}
+
 function carrega_area_aluno(){
     
     echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=../aluno.php'>";
