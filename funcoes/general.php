@@ -1,21 +1,9 @@
 <?php
 function carrega_area_aluno(){
-
-    GLOBAL $PDO;
-    GLOBAL $PATH_TEMPLATES;
-
-    $tpl_main = new HTML_Template_Sigma($PATH_TEMPLATES);
-
-    $tpl_main->loadTemplatefile("cabecalho_rodape.tpl");
-
-    $tpl_main = new HTML_Template_Sigma($PATH_TEMPLATES);
-
-    $tpl_main->loadTemplatefile("cabecalho_rodape.tpl");
-
-    $tpl_main->show();
-
-    print_r($_SESSION);
+    
+    echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=../aluno.php'>";
 }
+
 function mostra_erros($errors){
 
     $output = array();
