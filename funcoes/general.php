@@ -26,6 +26,18 @@ function carrega_mensagem_erro(){
 
 }
 
+function carrega_mensagem_sucesso(){
+    
+    GLOBAL $PATH_TEMPLATES;
+    
+    $tpl = new HTML_Template_Sigma($PATH_TEMPLATES);
+
+    $tpl->loadTemplatefile("sucess.tpl");
+    
+    return $tpl;
+
+}
+
 function array_sanitize(&$item){
 
     $item = trim($item);
