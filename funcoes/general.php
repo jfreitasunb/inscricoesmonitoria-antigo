@@ -1,5 +1,5 @@
 <?php
-function array_sanitize(&item){
+function array_sanitize(&$item){
 
     $item = trim($item);
 
@@ -14,7 +14,7 @@ function sanitize($data){
 function protect_page(){
 
     if (logged_in() === false) {
-        echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=../aluno.php'>";
+        echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=index.php'>";
         exit();
     }
 }

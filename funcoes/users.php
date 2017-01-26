@@ -1,8 +1,39 @@
 <?php
+function user_data($id_user,$tabela){
+
+    GLOBAL $PDO;
+    
+    $data = array();
+    $id_user = (int)$id_user;
+
+    $func_num_args = func_num_args();
+    $func_get_args = func_get_args();
+
+    if ($func_num_args > 1) {
+        
+        unset($func_get_args[0]);
+        unset($func_get_args[1]);
+        $campos = implode(', ', $func_get_args);
+    }
+
+    $query_recupera_dados_usuario = "SELECT $campos FROM $tabela  WHERE id_user=:id_usuario";
+
+    $stmt = $PDO->prepare( $query_recupera_dados_usuario );
+
+    $stmt -> bindParam(':id_usuario', $id_user);
+        
+    $result = $stmt->execute();
+
+    $data = $stmt -> fetch(PDO::FETCH_ASSOC);
+
+    return $data;
+
+}
+
 function logged_in(){
 
     return (isset($_SESSION['id_user'])) ? true : false;
-    
+
 }
 
 function login_existe($username){
