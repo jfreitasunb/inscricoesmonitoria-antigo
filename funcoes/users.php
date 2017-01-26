@@ -29,9 +29,7 @@ function processa_login(){
         }
     }else{
         if(isset($errors)){
-                    foreach($errors as $error){
-                        echo '<p class="bg-danger">'.$error.'</p>';
-                    }
+                    return $errors;
                 }
 
     }   
