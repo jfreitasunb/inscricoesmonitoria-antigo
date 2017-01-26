@@ -72,7 +72,7 @@
                   <div class="form-group">
                     <div class="row">
                       <div class="col-sm-6 col-sm-offset-3">
-                        <input type="submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Registrar">
+                        <input type="submit" name="registrar" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Registrar">
                       </div>
                     </div>
                   </div>
