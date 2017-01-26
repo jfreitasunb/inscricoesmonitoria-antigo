@@ -1,4 +1,10 @@
 <?php
+function array_sanitize(&item){
+
+    $item = trim($item);
+
+}
+
 function carrega_area_aluno(){
     
     echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=../aluno.php'>";
