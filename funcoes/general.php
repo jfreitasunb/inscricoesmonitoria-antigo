@@ -228,20 +228,13 @@ function valida_usuario_registrar(){
 
     GLOBAL $errors;
 
-    if ($_POST['nome'] == "") {
-        $errors[] = "O nome não pode ser vazio.";
-    }
-
-    if ($_POST['nome'] !="" AND $_POST['username'] == "") {
-        $errors[] = "Você deve informar sua matrícula.";
-    }else if($_POST['nome'] !="" AND $_POST['email'] == ""){
-        $errors[] = "Você deve informar um e-mail.";
-    }else if($_POST['nome'] !="" AND $_POST['confirm-email'] == ""){
-        $errors[] = "Você deve confirmar seu e-mail.";
-    }else if($_POST['nome'] !="" AND $_POST['password'] == ""){
-        $errors[] = "Você deve informar uma senha.";
-    }else if($_POST['nome'] !="" AND $_POST['confirm-password'] == ""){
-        $errors[] = "Você deve confirmar sua senha.";
+    $required_fields = array('nome', 'username', 'email','confirm-email','password', 'confirm-password');
+    
+    foreach ($_POST as $key => $value) {
+        if (empty($value) && in_array($key, $required_fields)) {
+            $errors[] = "Os campos marcados com asterisco devem ser preenchidos.";
+            break 1;
+        }
     }
 
     if ($_POST['username'] !="" AND !is_numeric($_POST['username'])) {
