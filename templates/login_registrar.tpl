@@ -16,7 +16,7 @@
           <div class="panel-body">
             <div class="row">
               <div class="col-lg-12">
-                <form id="login-form" action="actions/login.php" method="post" role="form" style="display: block;">
+                <form id="login-form" action="" method="post" role="form" style="display: block;">
                   <div class="form-group">
                     <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Matrícula" value="">
                   </div>
@@ -40,7 +40,7 @@
                     </div>
                   </div>
                 </form>
-                <form id="register-form" action="actions/processa_nova_conta.php" method="post" role="form" style="display: none;">
+                <form id="register-form" action="" method="post" role="form" style="display: none;">
                   <div class="form-group">
                     <input type="text" name="nome" id="nome" tabindex="1" class="form-control" placeholder="Nome" value="">
                   </div>

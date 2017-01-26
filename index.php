@@ -1,6 +1,10 @@
 <?php
 require_once "config/init.php";
 
+if (!empty($_POST)) {
+    processa_login();
+}
+
 $tpl_main = new HTML_Template_Sigma($PATH_TEMPLATES);
 
 $tpl_main->loadTemplatefile("cabecalho_rodape.tpl");

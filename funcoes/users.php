@@ -1,4 +1,41 @@
 <?php
+function processa_login(){
+    $errors = valida_usuario_login();
+
+    if (empty($errors)) {
+        $username = trim($_POST['username']);
+        $password = trim($_POST['password']);
+        if (login_existe($username)){
+            $dados_usuario = retorna_dados_usuario($username);
+            if ($dados_usuario['ativo'] == 0){
+                $errors[] = "Você não ativou sua conta ainda. Verifique se recebeu um e-mail com o link de ativação de conta.";
+            }else if (password_verify($password,$dados_usuario['password'])) {
+                $_SESSION['id_user'] = $dados_usuario['id_user'];
+                $_SESSION['login'] = $dados_usuario['login'];
+                $_SESSION['email'] = $dados_usuario['email'];
+                $_SESSION['user_type'] = $dados_usuario['user_type'];
+                $_SESSION['ativo'] = $dados_usuario['ativo'];
+
+                if ($dados_usuario['user_type'] === 3) {
+                    carrega_area_aluno();
+                }else if ($dados_usuario['user_type'] === 2) {
+                    carrega_area_coordenador();
+                }else if ($dados_usuario['user_type'] === 1){
+                    carrega_area_administrador();
+                }
+            }else{
+                $errors[] = "Login ou senha não conferem.";
+            }
+        }
+    }else{
+        if(isset($errors)){
+                    foreach($errors as $error){
+                        echo '<p class="bg-danger">'.$error.'</p>';
+                    }
+                }
+
+    }   
+}
 function user_data($id_user,$tabela){
 
     GLOBAL $PDO;
