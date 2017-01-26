@@ -21,7 +21,7 @@
             <div class="row">
               <div class="col-lg-12">
               <!-- BEGIN tipo_estilo_login -->
-                <form id="login-form" action="" method="post" role="form" {tipo_estilo}>
+                <form id="login-form" action="" method="post" role="form" {tipo_estilo_login}>
               <!-- END tipo_estilo_login -->
                   <div class="form-group">
                     <div class="required-field-block">
