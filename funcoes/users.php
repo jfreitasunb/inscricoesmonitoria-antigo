@@ -1,4 +1,10 @@
 <?php
+function logged_in(){
+
+    return (isset($_SESSION['id_user'])) ? true : false;
+    
+}
+
 function login_existe($username){
     GLOBAL $PDO;
 
@@ -17,6 +23,7 @@ function login_existe($username){
     return count($linhas);
 
 }
+
 function retorna_dados_usuario($username){
 
     GLOBAL $PDO;
