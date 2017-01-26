@@ -11,6 +11,13 @@ function sanitize($data){
 
 }
 
+function protect_page(){
+
+    if (logged_in() === false) {
+        echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=../aluno.php'>";
+        exit();
+    }
+}
 function carrega_area_aluno(){
     
     echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=../aluno.php'>";
