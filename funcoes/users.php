@@ -5,6 +5,7 @@ function user_data($id_user,$tabela){
     
     $data = array();
     $id_user = (int)$id_user;
+    $tabela_dados = $tabela;
 
     $func_num_args = func_num_args();
     $func_get_args = func_get_args();
@@ -16,7 +17,7 @@ function user_data($id_user,$tabela){
         $campos = implode(', ', $func_get_args);
     }
 
-    $query_recupera_dados_usuario = "SELECT $campos FROM $tabela  WHERE id_user=:id_usuario";
+    $query_recupera_dados_usuario = "SELECT $campos FROM $tabela_dados  WHERE id_user=:id_usuario";
 
     $stmt = $PDO->prepare( $query_recupera_dados_usuario );
 
@@ -32,7 +33,18 @@ function user_data($id_user,$tabela){
 
 function logged_in(){
 
-    return (isset($_SESSION['id_user'])) ? true : false;
+    $tabela_dados = 'users';
+
+    if (isset($_SESSION['id_user'])){
+
+        $dados_usuario = user_data($_SESSION['id_user'],$tabela_dados, 'login', 'email', 'user_type', 'ativo');
+
+        if ($_SESSION['login'] === $dados_usuario['login'] && $_SESSION['email'] === $dados_usuario['email'] && $_SESSION['user_type'] === $dados_usuario['user_type'] AND $_SESSION['ativo'] === $dados_usuario['ativo']) {
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 }
 

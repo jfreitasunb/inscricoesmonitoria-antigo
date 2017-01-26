@@ -14,8 +14,10 @@ if (!empty($_POST)) {
                 $errors[] = "Você não ativou sua conta ainda. Verifique se recebeu um e-mail com o link de ativação de conta.";
             }else if (password_verify($password,$dados_usuario['password'])) {
                 $_SESSION['id_user'] = $dados_usuario['id_user'];
+                $_SESSION['login'] = $dados_usuario['login'];
                 $_SESSION['email'] = $dados_usuario['email'];
                 $_SESSION['user_type'] = $dados_usuario['user_type'];
+                $_SESSION['ativo'] = $dados_usuario['ativo'];
 
                 if ($dados_usuario['user_type'] === 3) {
                     carrega_area_aluno();
