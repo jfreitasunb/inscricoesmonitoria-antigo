@@ -60,8 +60,7 @@ if (!empty($_POST)) {
                             $mensagem_sucesso = "Sua conta foi criada em nosso sistema. Um e-mail com um link de ativação foi enviado. Somente após ativar sua conta você poderá fazer login.";
                             $tpl->setVariable('mensagem_sucesso', $mensagem_sucesso);
                             $tpl_main -> parse('exibe_mensagens');
-                            $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
-                            
+                            $tpl_main -> setVariable('exibe_mensagens',$tpl->get());  
                         }
                     }
                 }
