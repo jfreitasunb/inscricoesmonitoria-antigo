@@ -14,6 +14,18 @@ function carrega_base_site(){
 
 }
 
+function carrega_menu_aluno(){
+    
+    GLOBAL $PATH_TEMPLATES;
+    
+    $tpl = new HTML_Template_Sigma($PATH_TEMPLATES);
+
+    $tpl->loadTemplatefile("menu.tpl");
+    
+    return $tpl;
+
+}
+
 function carrega_mensagem_erro(){
     
     GLOBAL $PATH_TEMPLATES;
