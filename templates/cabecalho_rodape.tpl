@@ -11,9 +11,9 @@
 </head>
 <body>
 <div class="container">
-  <div style="background:transparent !important" class="jumbotron col-md-6 col-md-offset-3">
-    <h1>Departamento de Matemática</h1>      
-    <h2 align="justified">Inscrições para a Monitoria do MAT/UnB.</h2>
+  <div class="jumbotron">
+    <h1 align="center">Departamento de Matemática</h1> 
+    <h2 align="center">Inscrições para a Monitoria do MAT: </h2> 
   </div>
 </div>
 
