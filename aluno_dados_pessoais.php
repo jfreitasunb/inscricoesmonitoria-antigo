@@ -8,7 +8,7 @@ $tpl_main->loadTemplatefile("cabecalho_rodape.tpl");
 
 $tpl = carrega_dados_pessoais_aluno();
 
-$tpl_main -> setVariable('exibe_menus',$tpl->get());
+$tpl_main -> setVariable('exibe_paginas',$tpl->get());
 
 $tpl_main->show();
 ?>
