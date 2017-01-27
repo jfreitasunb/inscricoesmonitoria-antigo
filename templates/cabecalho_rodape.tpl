@@ -16,14 +16,17 @@
     <h2 align="center">Inscrições para a Monitoria do MAT: </h2> 
   </div>
 </div>
-
-<!-- BEGIN exibe_mensagens -->
+<div class="exibir_mensagem">
+  <!-- BEGIN exibe_mensagens -->
     {exibe_mensagens}
-<!-- END exibe_mensagens -->
+  <!-- END exibe_mensagens -->
+</div>
 
-<!-- BEGIN exibe_paginas -->
-{exibe_paginas}
-<!-- END exibe_paginas -->
+<div class="exibe_">
+  <!-- BEGIN exibe_paginas -->
+  {exibe_paginas}
+  <!-- END exibe_paginas -->
+</div>paginas
 
 </body>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
