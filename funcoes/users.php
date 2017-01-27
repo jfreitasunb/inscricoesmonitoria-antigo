@@ -20,6 +20,7 @@ function grava_dados_pessoais_usuario($dados_pessoais){
 
 
 }
+
 function processa_login(){
     $errors = valida_usuario_login();
 
@@ -55,6 +56,7 @@ function processa_login(){
 
     }   
 }
+
 function user_data($id_user,$tabela){
 
     GLOBAL $PDO;
