@@ -7,6 +7,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
       </button>
     </div>
     <div class="collapse navbar-collapse" id="bar1">
@@ -20,6 +21,7 @@
         <!-- BEGIN dados_bancario -->
         <li><a href="{dados_bancarios}">Dados Bancários</a></li>
         <!-- END dados_bancarios -->
+        <li><a href="logout.php">Sair</a></li>
       </ul>
     </div>
   </nav>
