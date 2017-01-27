@@ -11,9 +11,15 @@
     </div>
     <div class="collapse navbar-collapse" id="bar1">
       <ul class="nav navbar-nav">
+        <!-- BEGIN dados_pessoais-->
         <li><a href="{dados_pessoais}">Dados Pessoais</a></li>
+        <!-- END dados_pessoias -->
+        <!-- BEGIN escolher_monitoria -->
         <li><a href="{escolher_monitoria}">Escolher Monitoria</a></li>
+        <!-- END escolher_monitoria -->
+        <!-- BEGIN dados_bancario -->
         <li><a href="{dados_bancarios}">Dados Bancários</a></li>
+        <!-- END dados_bancarios -->
       </ul>
     </div>
   </nav>
