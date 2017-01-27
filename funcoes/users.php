@@ -203,7 +203,7 @@ function envia_email_ativa_conta($nome,$email,$validation_code){
     $email_from = "posgrad@mat.unb.br";
 
     $mail->isSMTP();
-    $link_ativacao = "http://localhost:8080/monitoriamat/activate.php?email=".$email."&email_code=".$validation_code;
+    $link_ativacao = $URL_SITE."activate.php?email=".$email."&email_code=".$validation_code;
 
     $texto="<div>
     Prezado(a) ".$nome.",</div>
