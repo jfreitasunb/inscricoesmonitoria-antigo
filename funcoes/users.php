@@ -196,14 +196,15 @@ function email_exists($email){
 }
 
 function envia_email_ativa_conta($nome,$email,$validation_code){
-    require_once "lib/PHPMailer/PHPMailerAutoload.php";
+
+    GLOBAL $SITE_INSCRICAO_MONITORIA;
     $mail = new PHPMailer();
 
     $email_host = "127.0.0.1";//endereco do servidor smtp
     $email_from = "posgrad@mat.unb.br";
 
     $mail->isSMTP();
-    $link_ativacao = $URL_SITE."activate.php?email=".$email."&email_code=".$validation_code;
+    $link_ativacao = $SITE_INSCRICAO_MONITORIA."activate.php?email=".$email."&email_code=".$validation_code;
 
     $texto="<div>
     Prezado(a) ".$nome.",</div>
