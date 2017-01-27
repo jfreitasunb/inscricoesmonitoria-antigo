@@ -26,7 +26,7 @@
   <!-- BEGIN exibe_paginas -->
   {exibe_paginas}
   <!-- END exibe_paginas -->
-</div>paginas
+</div>
 
 </body>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
