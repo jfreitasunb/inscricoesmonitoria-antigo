@@ -3,7 +3,7 @@ function processa_login(){
     $errors = valida_usuario_login();
 
     if (empty($errors)) {
-        $username = trim($_POST['username']);
+        $username = sanitize($_POST['username']);
         $password = trim($_POST['password']);
         if (login_existe($username)){
             $dados_usuario = retorna_dados_usuario($username);
