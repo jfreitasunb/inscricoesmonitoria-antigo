@@ -46,7 +46,7 @@ function array_sanitize(&$item){
 
 function sanitize($data){
 
-    return trim($data);
+    return htmlentities(trim($data), ENT_QUOTES, "UTF-8");
 
 }
 
