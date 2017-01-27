@@ -47,7 +47,8 @@ if (!empty($_POST)) {
                 if (empty($errors)) {
                     $nome = sanitize($_POST['nome']);
                     $dados_usuario_novo = prepara_dados();
-                    $errors = grava_usuario_novo($nome,$dados_usuario_novo);
+                    $errors = grava_usuario_novo($dados_usuario_novo);
+                    retorna_id_user_from_username($dados_usuario_novo['login']);
                     grava_dados_pessoais_usuario($dados_usuario_novo,'nome');
 
                     if (empty($errors)) {

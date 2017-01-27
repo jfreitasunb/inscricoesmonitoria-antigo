@@ -3,7 +3,7 @@ function retorna_id_user_from_username($username){
 
     GLOBAL $PDO;
 
-    $query_select_id_user = "SELECT id_user FROM user where login=:login";
+    $query_select_id_user = "SELECT id_user FROM users where login=:login";
 
     $stmt = $PDO -> prepare($query_select_id_user);
 
@@ -11,11 +11,9 @@ function retorna_id_user_from_username($username){
 
     $result = $stmt->execute();
 
-    $id_user = $stmt->fetchAll();
+    $id_user = $stmt->fetchColumn();
 
-    print_r($id_user);
-
-
+    return $id_user;
 }
 
 
@@ -42,9 +40,8 @@ function grava_dados_pessoais_usuario($dados_pessoais){
 
     $campos = implode(', ', $func_get_args);
     
-    $query_ativa_conta = "UPDATE dados_pessoais_usuario SET  WHERE id_user=:id_user ";
+    $query_recupera_dados_usuario = "UPDATE dados_pessoais_usuario SET  WHERE id_user=:id_user ";
     
-
     $stmt = $PDO->prepare( $query_recupera_dados_usuario );
 
     $stmt -> bindParam(':id_usuario', $id_user);
