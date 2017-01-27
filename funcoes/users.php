@@ -1,4 +1,25 @@
 <?php
+function grava_dados_pessoais_usuario($dados_pessoais){
+
+    GLOBAL $PDO;
+
+    $func_get_args = func_get_args();
+
+    $campos = implode(', ', $func_get_args);
+    
+    $query_ativa_conta = "UPDATE dados_pessoais_usuario SET  WHERE id_user=:id_user ";
+    
+
+    $stmt = $PDO->prepare( $query_recupera_dados_usuario );
+
+    $stmt -> bindParam(':id_usuario', $id_user);
+        
+    $result = $stmt->execute();
+
+    $data = $stmt -> fetch(PDO::FETCH_ASSOC);
+
+
+}
 function processa_login(){
     $errors = valida_usuario_login();
 
@@ -365,9 +386,8 @@ function upload_historico($id_candidato){
 
         return $errors;
     }
-
-
 }
+
 function grava_escolhas_monitoria($id_candidato, $ano_monitoria, $semestre_monitoria,$disciplinas_escolhidas){
     
     GLOBAL $PDO;
