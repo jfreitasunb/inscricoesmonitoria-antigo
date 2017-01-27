@@ -22,7 +22,13 @@
   <!-- END exibe_mensagens -->
 </div>
 
-<div class="exibe_">
+<div class="exibe-menus">
+  <!-- BEGIN exibe_menus -->
+    {exibe_menus}
+  <!-- END exibe_menus --> 
+</div>
+
+<div class="exibe_paginas">
   <!-- BEGIN exibe_paginas -->
   {exibe_paginas}
   <!-- END exibe_paginas -->
