@@ -21,7 +21,6 @@ if (isset($_GET['email'], $_GET['email_code'])) {
         $tpl->setVariable('mensagem_erros', mostra_erros($errors));
         $tpl_main -> parse('exibe_mensagens');
         $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
-        
                 
     }else{
         $tpl = carrega_mensagem_sucesso();
@@ -29,7 +28,6 @@ if (isset($_GET['email'], $_GET['email_code'])) {
         $tpl->setVariable('mensagem_sucesso', $mensagem_sucesso);
         $tpl_main -> parse('exibe_mensagens');
         $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
-        exit();
     }
 }else{
     header('Location:index.php');
