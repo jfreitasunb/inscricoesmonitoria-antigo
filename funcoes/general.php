@@ -20,7 +20,15 @@ function carrega_menu_aluno(){
     
     $tpl = new HTML_Template_Sigma($PATH_TEMPLATES);
 
-    $tpl->loadTemplatefile("menu.tpl");
+    $tpl->loadTemplatefile("menu_aluno.tpl");
+
+    foreach ($monitoria_ativas as $key) {
+
+        $tpl -> setCurrentBlock("escolhas_possiveis");
+        $tpl->setVariable('monitorias_disponiveis', '<option value="'.$key['id_monitoria'].'">'.$key['nome_disciplina'].'</option>');
+        $tpl -> parseCurrentBlock("escolhas_possiveis");
+
+    }
     
     return $tpl;
 
