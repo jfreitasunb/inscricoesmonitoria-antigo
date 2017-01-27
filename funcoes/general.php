@@ -34,6 +34,18 @@ function carrega_menu_aluno(){
 
 }
 
+function carrega_dados_pessoais_aluno(){
+    
+    GLOBAL $PATH_TEMPLATES;
+    
+    $tpl = new HTML_Template_Sigma($PATH_TEMPLATES);
+
+    $tpl->loadTemplatefile("dados_pessoais.tpl");
+    
+    return $tpl;
+
+}
+
 function carrega_mensagem_erro(){
     
     GLOBAL $PATH_TEMPLATES;
