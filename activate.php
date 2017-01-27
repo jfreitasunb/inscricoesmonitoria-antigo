@@ -24,7 +24,7 @@ if (isset($_GET['email'], $_GET['email_code'])) {
                 
     }else{
         $tpl = carrega_mensagem_sucesso();
-        $mensagem_sucesso = "Sua conta foi ativada com sucesso. Agora você pode efetuar o login e fazer sua inscrição à Monitoria do MAT/UnB.";
+        $mensagem_sucesso = "Sua conta foi ativada com sucesso. Agora você pode efetuar o login e fazer sua inscrição à Monitoria do MAT/UnB. Em breve você será redirecionando para a página de login.";
         $tpl->setVariable('mensagem_sucesso', $mensagem_sucesso);
         $tpl_main -> parse('exibe_mensagens');
         $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
@@ -34,4 +34,5 @@ if (isset($_GET['email'], $_GET['email_code'])) {
     exit();
 }
 $tpl_main->show();
+echo "<meta HTTP-EQUIV='Refresh' CONTENT='5;URL=index.php'>";
 ?>
