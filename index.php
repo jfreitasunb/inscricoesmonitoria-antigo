@@ -48,6 +48,7 @@ if (!empty($_POST)) {
                     $nome = htmlentities($_POST['nome'], ENT_QUOTES, "UTF-8");
                     $dados_usuario_novo = prepara_dados();
                     $errors = grava_usuario_novo($dados_usuario_novo);
+                    grava_dados_pessoais_usuario($dados_usuario_novo,'nome');
 
                     if (empty($errors)) {
                         $validation_code = $dados_usuario_novo['validation_code'];
