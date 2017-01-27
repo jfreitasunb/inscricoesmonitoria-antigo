@@ -1,4 +1,20 @@
 <?php
+
+function grava_nome_usuario($id_user,$nome){
+
+    GLOBAL $PDO;
+
+    $query_insere_nome_usuario = "INSERT INTO dados_pessoais (id_user,nome) VALUES(:id_user,:nome)";
+
+    $stmt2 = $PDO->prepare( $query_insere_nome_usuario );
+
+    $stmt2 -> bindParam(':id_user', $id_user);
+    $stmt2 -> bindParam(':nome', $nome);
+
+    $result = $stmt2->execute(); 
+    
+}
+
 function grava_dados_pessoais_usuario($dados_pessoais){
 
     GLOBAL $PDO;
@@ -320,8 +336,8 @@ function grava_usuario_novo($dados_usuario){
         if (strpos($e, 'users_login_ke') !== FALSE){
             $errors[] = "Já existe um usuário cadastrado com essa matrícula.";
         }
-    }   
-    
+    }
+
     return $errors;
 
 }

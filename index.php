@@ -45,9 +45,9 @@ if (!empty($_POST)) {
             }
 
                 if (empty($errors)) {
-                    $nome = htmlentities($_POST['nome'], ENT_QUOTES, "UTF-8");
+                    $nome = sanitize($_POST['nome']);
                     $dados_usuario_novo = prepara_dados();
-                    $errors = grava_usuario_novo($dados_usuario_novo);
+                    $errors = grava_usuario_novo($nome,$dados_usuario_novo);
                     grava_dados_pessoais_usuario($dados_usuario_novo,'nome');
 
                     if (empty($errors)) {

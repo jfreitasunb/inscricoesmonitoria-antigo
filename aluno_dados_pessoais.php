@@ -16,4 +16,7 @@ $tpl_dados_pessoais = carrega_dados_pessoais_aluno();
 $tpl_main -> setVariable('exibe_paginas',$tpl_dados_pessoais->get());
 
 $tpl_main->show();
+
+var_dump($_POST);
+var_dump($_SESSION);
 ?>
