@@ -1,4 +1,23 @@
 <?php
+function retorna_id_user_from_username($username){
+
+    GLOBAL $PDO;
+
+    $query_select_id_user = "SELECT id_user FROM user where login=:login";
+
+    $stmt = $PDO -> prepare($query_select_id_user);
+
+    $stmt -> bindParam('login', $username);
+
+    $result = $stmt->execute();
+
+    $id_user = $stmt->fetchAll();
+
+    print_r($id_user);
+
+
+}
+
 
 function grava_nome_usuario($id_user,$nome){
 
