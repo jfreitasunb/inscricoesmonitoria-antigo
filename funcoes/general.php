@@ -22,12 +22,12 @@ function carrega_menu_aluno(){
 
     $tpl->loadTemplatefile("menu_aluno.tpl");
 
-    foreach ($monitoria_ativas as $key) {
+    $menu_aluno['dados_pessoais'] = 'aluno_dados_pessoais.php';
+    $menu_aluno['escolher_monitoria'] = 'aluno_escolher_monitoria.php';
+    $menu_aluno['dados_bancarios'] = 'aluno_dados_bancarios';
 
-        $tpl -> setCurrentBlock("escolhas_possiveis");
-        $tpl->setVariable('monitorias_disponiveis', '<option value="'.$key['id_monitoria'].'">'.$key['nome_disciplina'].'</option>');
-        $tpl -> parseCurrentBlock("escolhas_possiveis");
-
+    foreach ($menu_aluno as $key => $value) {
+        $tpl->setVariable($key, $value);
     }
     
     return $tpl;
