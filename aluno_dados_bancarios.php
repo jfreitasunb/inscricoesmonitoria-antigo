@@ -18,24 +18,16 @@ $tpl_main -> setVariable('exibe_paginas',$tpl_dados_bancarios->get());
 $tpl_main->show();
 
 
-$errors = valida_dados_pessoais();
+$errors = valida_dados_bancarios();
 
-$dados_pessoais  = array(
-    'nome'      => $_POST['nome'],
-    'numerorg'  => $_POST['numerorg'], 
-    'emissorrg' => $_POST['emissorrg'], 
-    'cpf'       => $_POST['cpf'], 
-    'endereco'  => $_POST['endereco'], 
-    'cidade'    => $_POST['cidade'], 
-    'cep'       => $_POST['cep'], 
-    'estado'    => $_POST['estado'], 
-    'telefone'  => $_POST['telefone'],
-    'celular'   => $_POST['celular']
+$dados_bancarios  = array(
+    'nomebanco'            => $_POST['nomebanco'],
+    'numerobanco'          => $_POST['numerobanco'], 
+    'agenciabancaria'      => $_POST['agenciabancaria'], 
+    'nomerocontacorrente'  => $_POST['nomerocontacorrente']
     );
 
-$dados_pessoais_sanitizados = sanitiza_dados_pessoais($dados_pessoais);
+$dados_bancarios_sanitizados = sanitiza_dados_bancarios($dados_bancarios);
 
-$tabela = 'dados_pessoais';
-
-grava_dados_pessoais_usuario($_SESSION['id_user'],$dados_pessoais_sanitizados,$tabela);
+grava_dados_bancarios_usuario($_SESSION['id_user'],$dados_bancarios_sanitizados);
 ?>
