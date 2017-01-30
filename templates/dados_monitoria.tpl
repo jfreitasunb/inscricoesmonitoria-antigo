@@ -1,4 +1,4 @@
-<form action="actions/processa_monitoria.php" method="POST" class="form-group" enctype="multipart/form-data">
+<form action="" method="POST" class="form-group" enctype="multipart/form-data">
   <fieldset class="scheduler-border">
     <legend class="scheduler-border">Monitorias disponíveis</legend>
       <div class="form-inline">
