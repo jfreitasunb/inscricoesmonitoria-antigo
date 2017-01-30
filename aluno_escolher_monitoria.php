@@ -21,6 +21,9 @@ $tpl_main->show();
 
 $disciplinas_escolhidas = $_POST;
 $errors = valida_escolhas_aluno($disciplinas_escolhidas);
+$id_candidato = $_SESSION['id_user'];
+$ano_monitoria = '2017';
+$semestre_monitoria = '1';
 
 if (empty($errors)){
     $resultado = grava_escolhas_monitoria($id_candidato, $ano_monitoria, $semestre_monitoria,$disciplinas_escolhidas);
