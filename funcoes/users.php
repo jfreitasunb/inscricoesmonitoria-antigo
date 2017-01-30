@@ -357,6 +357,11 @@ function grava_dados_bancarios_usuario($id_user,$dados_bancarios){
 
     $result = $stmt->execute();
     
+    if ($result) {
+        return 1;
+    }else{
+        return 0;
+    }
 }
 
 
