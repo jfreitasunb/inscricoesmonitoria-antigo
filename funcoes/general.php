@@ -158,6 +158,14 @@ function sanitiza_dados_pessoais($dados_pessoais){
     return $dados_pessoais;
 }
 
+function sanitiza_dados_bancarios($dados_bancarios){
+
+    array_walk($dados_pessoais, 'array_sanitize');
+
+    return $dados_pessoais;
+
+}
+
 
 function protect_page(){
 
