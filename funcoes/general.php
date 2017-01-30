@@ -307,4 +307,37 @@ function valida_usuario_registrar(){
 
     return $errors;
 }
+
+function valida_dados_pessoais(){
+
+    GLOBAL $errors;
+
+    $required_fields = array('nome', 'numerorg', 'emissorrg','cpf','endereco', 'cidade', 'cep', 'estado', 'telefone', 'celular');
+    
+    foreach ($_POST as $key => $value) {
+        if (empty($value) && in_array($key, $required_fields)) {
+            $errors[] = "Os campos marcados com asterisco devem ser preenchidos.";
+            break 1;
+        }
+    }
+
+    if ($_POST['cpf'] !="" AND !is_numeric($_POST['cpf'])) {
+        $errors[] = "Você deve informar somente os números do seu CPF.";
+    }
+
+    if ($_POST['cep'] !="" AND !is_numeric($_POST['cep'])) {
+        $errors[] = "Você deve informar somente os números do seu CEP.";
+    }
+
+    if ($_POST['telefone'] !="" AND !is_numeric($_POST['telefone'])) {
+        $errors[] = "Você deve informar somente os números do seu telefone.";
+    }
+    
+    if ($_POST['celular'] !="" AND !is_numeric($_POST['celular'])) {
+        $errors[] = "Você deve informar somente os números do seu celular.";
+    }
+    
+
+    return $errors;
+}
 ?>
