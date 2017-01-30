@@ -17,10 +17,23 @@ $tpl_main -> setVariable('exibe_paginas',$tpl_dados_pessoais->get());
 
 $tpl_main->show();
 
-var_dump($_POST);
-var_dump($_SESSION);
 
 $errors = valida_dados_pessoais();
 
-print_r($errors);
+$dados_pessoais  = array(
+    'nome'      => $_POST['nome'],
+    'numerorg'  => $_POST['numerorg'], 
+    'emissorrg' => $_POST['emissorrg'], 
+    'cpf'       => $_POST['cpf'], 
+    'endereco'  => $_POST['endereco'], 
+    'cidade'    => $_POST['cidade'], 
+    'cep'       => $_POST['cep'], 
+    'estado'    => $_POST['estado'], 
+    'telefone'  => $_POST['telefone'],
+    'celular'   => $_POST['celular']
+    );
+
+$dados_pessoais_sanitizados = sanitiza_dados_pessoais($dados_pessoais);
+
+var_dump($dados_pessoais_sanitizados);
 ?>
