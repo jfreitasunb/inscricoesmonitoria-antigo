@@ -11,9 +11,9 @@ $tpl_menu = carrega_menu_aluno();
 $tpl_main -> setVariable('exibe_menus',$tpl_menu->get());
 
 
-$tpl_dados_pessoais = carrega_dados_pessoais_aluno();
+$tpl_dados_bancarios = carrega_dados_bancarios();
 
-$tpl_main -> setVariable('exibe_paginas',$tpl_dados_pessoais->get());
+$tpl_main -> setVariable('exibe_paginas',$tpl_dados_bancarios->get());
 
 $tpl_main->show();
 
