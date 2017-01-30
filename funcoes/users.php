@@ -333,6 +333,28 @@ function prepara_dados(){
 
 }
 
+function grava_dados_bancarios_usuario($id_user,$dados_bancarios){
+
+    GLOBAL $PDO;
+
+    $campos = implode(', ', array_keys($dados_bancarios));
+    $bind_valores = ':' . implode(', :', array_keys($dados_bancarios));
+
+    $query_insere_dados_bancarios = "INSERT INTO dados_bancarios ($campos) VALUES($bind_valores)";
+
+    $stmt = $PDO->prepare( $query_insere_dados_bancarios );
+
+
+    foreach ($dados_bancarios as $key => &$value) {
+        $stmt -> bindParam(':'.$key, $value);   
+    }
+      
+    try{
+        $result = $stmt->execute();
+    }
+}
+
+
 function grava_usuario_novo($dados_usuario){
     
     GLOBAL $PDO;
