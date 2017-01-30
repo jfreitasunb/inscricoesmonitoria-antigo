@@ -20,6 +20,8 @@ $tpl_main->show();
 
 $errors = valida_dados_pessoais();
 
+print_r($errors);
+
 $dados_pessoais  = array(
     'nome'      => $_POST['nome'],
     'numerorg'  => $_POST['numerorg'], 

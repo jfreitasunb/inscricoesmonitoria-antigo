@@ -1,5 +1,4 @@
 <?php
-
 function valida_CPF($cpf) {
  
     // Verifica se um número foi informado
@@ -8,7 +7,7 @@ function valida_CPF($cpf) {
     }
  
     // Elimina possivel mascara
-    $cpf = ereg_replace('[^0-9]', '', $cpf);
+    $cpf = preg_replace('[^0-9]', '', $cpf);
     $cpf = str_pad($cpf, 11, '0', STR_PAD_LEFT);
      
     // Verifica se o numero de digitos informados é igual a 11 
@@ -379,6 +378,10 @@ function valida_dados_pessoais(){
 
     if ($_POST['cpf'] !="" AND !is_numeric($_POST['cpf'])) {
         $errors[] = "Você deve informar somente os números do seu CPF.";
+    }
+
+    if (!valida_CPF($_POST['cpf'])) {
+        $errors[] = "O CPF informado é inválido.";
     }
 
     if ($_POST['cep'] !="" AND !is_numeric($_POST['cep'])) {
