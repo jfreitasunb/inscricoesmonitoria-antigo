@@ -160,12 +160,11 @@ function sanitiza_dados_pessoais($dados_pessoais){
 
 function sanitiza_dados_bancarios($dados_bancarios){
 
-    array_walk($dados_pessoais, 'array_sanitize');
+    array_walk($dados_bancarios, 'array_sanitize');
 
-    return $dados_pessoais;
+    return $dados_bancarios;
 
 }
-
 
 function protect_page(){
 

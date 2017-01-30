@@ -348,10 +348,9 @@ function grava_dados_bancarios_usuario($id_user,$dados_bancarios){
     foreach ($dados_bancarios as $key => &$value) {
         $stmt -> bindParam(':'.$key, $value);   
     }
-      
-    try{
-        $result = $stmt->execute();
-    }
+    
+    $result = $stmt->execute();
+    
 }
 
 
