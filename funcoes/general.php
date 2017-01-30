@@ -14,7 +14,7 @@ function valida_CPF($cpf) {
     }
  
     // Elimina possivel mascara
-    $cpf = preg_replace('[^0-9]', '', $cpf);
+    $cpf = preg_replace('/\D/', '', $cpf);
     $cpf = str_pad($cpf, 11, '0', STR_PAD_LEFT);
      
     // Verifica se o numero de digitos informados é igual a 11 
@@ -140,7 +140,8 @@ function sanitiza_dados_pessoais($dados_pessoais){
 
     array_walk($dados_pessoais, 'array_sanitize');
 
-    $dados_pessoais['cpf'] = retorna_cpf_somente_numeros($dados_pessoais['cpf']);
+    $dados_pessoais['cpf'] = retorna_somente_numeros($dados_pessoais['cpf']);
+    $dados_pessoais['cep'] = retorna_somente_numeros($dados_pessoais['cep']);
 
     return $dados_pessoais;
 }

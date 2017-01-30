@@ -32,7 +32,7 @@ function grava_nome_usuario($id_user,$nome){
     
 }
 
-function grava_dados_pessoais_usuario($id_user,$dados_pessoais){
+function grava_dados_pessoais_usuario($id_user,$dados_pessoais, $tabela){
 
     GLOBAL $PDO;
 
@@ -47,7 +47,7 @@ function grava_dados_pessoais_usuario($id_user,$dados_pessoais){
 
     $campos = implode(', ', array_keys($dados_pessoais));
 
-    $query_update_dados_usuario = "UPDATE dados_pessoais SET  $campos_update  WHERE id_user=:id_user ";
+    $query_update_dados_usuario = "UPDATE $tabela SET  $campos_update  WHERE id_user=:id_user ";
     
     $stmt = $PDO->prepare( $query_update_dados_usuario );
 
