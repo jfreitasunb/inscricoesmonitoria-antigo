@@ -1,4 +1,11 @@
 <?php
+function retorna_somente_numeros($cpf){
+
+    $cpf = preg_replace('/\D/', '', $cpf);
+
+    return $cpf;
+}
+
 function valida_CPF($cpf) {
  
     // Verifica se um número foi informado
@@ -132,6 +139,8 @@ function sanitize($data){
 function sanitiza_dados_pessoais($dados_pessoais){
 
     array_walk($dados_pessoais, 'array_sanitize');
+
+    $dados_pessoais['cpf'] = retorna_cpf_somente_numeros($dados_pessoais['cpf']);
 
     return $dados_pessoais;
 }

@@ -32,24 +32,32 @@ function grava_nome_usuario($id_user,$nome){
     
 }
 
-function grava_dados_pessoais_usuario($dados_pessoais){
+function grava_dados_pessoais_usuario($id_user,$dados_pessoais){
 
     GLOBAL $PDO;
 
-    $func_get_args = func_get_args();
+    $keys_update = array_keys($dados_pessoais);
+    $campos_update = "";
 
-    $campos = implode(', ', $func_get_args);
-    
-    $query_recupera_dados_usuario = "UPDATE dados_pessoais_usuario SET  WHERE id_user=:id_user ";
-    
-    $stmt = $PDO->prepare( $query_recupera_dados_usuario );
+    foreach ($keys_update as $key) {
+        $campos_update .= $key.'=:'.$key.', ';
+    }
 
-    $stmt -> bindParam(':id_usuario', $id_user);
+    $campos_update = rtrim($campos_update, ", ");
+
+    $campos = implode(', ', array_keys($dados_pessoais));
+
+    $query_update_dados_usuario = "UPDATE dados_pessoais SET  $campos_update  WHERE id_user=:id_user ";
+    
+    $stmt = $PDO->prepare( $query_update_dados_usuario );
+
+    $stmt -> bindParam(':id_user', $id_user);
+
+    foreach ($dados_pessoais as $key => &$value) {
+        $stmt -> bindParam(':'.$key, $value);   
+    }
         
     $result = $stmt->execute();
-
-    $data = $stmt -> fetch(PDO::FETCH_ASSOC);
-
 
 }
 

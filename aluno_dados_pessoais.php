@@ -38,4 +38,6 @@ $dados_pessoais  = array(
 $dados_pessoais_sanitizados = sanitiza_dados_pessoais($dados_pessoais);
 
 var_dump($dados_pessoais_sanitizados);
+
+grava_dados_pessoais_usuario($_SESSION['id_user'],$dados_pessoais_sanitizados);
 ?>
