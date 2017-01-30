@@ -190,7 +190,7 @@ function pega_disciplinas_monitoria(){
     
     GLOBAL $PDO;
 
-    $query_retorna_disciplinas = "SELECT id_monitoria,nome_disciplina FROM disciplinas_disponivies";
+    $query_retorna_disciplinas = "SELECT id_monitoria,nome_disciplina FROM disciplinas_disponiveis";
     $stmt = $PDO->prepare( $query_retorna_disciplinas );
     // $stmt->bindParam( ':id_aluno', $id_aluno );
     // $stmt->bindParam( ':id_agenda', $id_agenda );
@@ -228,8 +228,6 @@ function preenche_template_monitoria(){
     $tpl->loadTemplatefile("dados_monitoria.tpl");
 
     $monitoria_ativas = pega_disciplinas_monitoria();
-
-    
 
     for ($i=0; $i < $numero_escolhas_possiveis; $i++) { 
 
