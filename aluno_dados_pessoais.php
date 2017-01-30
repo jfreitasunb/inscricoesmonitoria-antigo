@@ -19,4 +19,8 @@ $tpl_main->show();
 
 var_dump($_POST);
 var_dump($_SESSION);
+
+$errors = valida_dados_pessoais();
+
+print_r($errors);
 ?>

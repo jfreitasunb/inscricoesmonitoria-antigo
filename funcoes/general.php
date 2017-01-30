@@ -72,7 +72,7 @@ function carrega_mensagem_sucesso(){
 
 function array_sanitize(&$item){
 
-    $item = trim($item);
+    $item = htmlentities(strip_tags(trim($item)));
 
 }
 
@@ -332,7 +332,7 @@ function valida_dados_pessoais(){
     if ($_POST['telefone'] !="" AND !is_numeric($_POST['telefone'])) {
         $errors[] = "Você deve informar somente os números do seu telefone.";
     }
-    
+
     if ($_POST['celular'] !="" AND !is_numeric($_POST['celular'])) {
         $errors[] = "Você deve informar somente os números do seu celular.";
     }
