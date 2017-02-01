@@ -160,7 +160,7 @@ function array_sanitize(&$item){
 
 function sanitize($data){
 
-    return htmlentities(strip_tags(trim($data), ENT_QUOTES, "UTF-8"));
+    return htmlentities(strip_tags(trim($data)), ENT_QUOTES, "UTF-8");
 
 }
 
