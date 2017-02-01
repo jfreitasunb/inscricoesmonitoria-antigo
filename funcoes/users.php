@@ -32,15 +32,7 @@ function grava_dados_basicos_usuario($id_user,$nome){
 
     $query_insere_registro_banco = "INSERT INTO dados_bancarios (id_user) VALUES(:id_user)";
 
-    $stmt2 = $PDO->prepare( $query_insere_nome_usuario );
-
-    $stmt2 -> bindParam(':id_user', $id_user);
-    
-    $result = $stmt2->execute();
-
-    $query_insere_registro_banco = "INSERT INTO dados_bancarios (id_user) VALUES(:id_user)";
-
-    $stmt2 = $PDO->prepare( $query_insere_nome_usuario );
+    $stmt2 = $PDO->prepare( $query_insere_registro_banco );
 
     $stmt2 -> bindParam(':id_user', $id_user);
     
