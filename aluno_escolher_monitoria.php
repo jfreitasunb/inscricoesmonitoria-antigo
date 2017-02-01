@@ -29,8 +29,8 @@ if (!empty($_POST)) {
         $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
     }else{
         $id_candidato = $_SESSION['id_user'];
-        $id_monitoria_ativa = $_SESSION['id_monitoria_ativa'];
-        $resultado = grava_escolhas_monitoria($id_candidato, $id_monitoria_ativa,$disciplinas_escolhidas);
+        $id_monitoria = $_SESSION['id_monitoria'];
+        $resultado = grava_escolhas_monitoria($id_candidato, $id_monitoria,$disciplinas_escolhidas);
 
         if ($resultado) {
                 $tpl = carrega_mensagem_sucesso();
@@ -46,7 +46,7 @@ if (!empty($_POST)) {
                     $tpl_main -> parse('exibe_mensagens');
                     $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
                 }else{
-                    $errors = finaliza_escolhas($id_candidato,$id_monitoria_ativa,$disciplinas_escolhidas);
+                    $errors = finaliza_escolhas($id_candidato,$id_monitoria,$disciplinas_escolhidas);
                 }
 
             }else{
