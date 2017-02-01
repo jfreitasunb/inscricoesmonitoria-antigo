@@ -25,26 +25,31 @@ if (!empty($_POST)) {
         $tpl->setVariable('mensagem_erros', mostra_erros($errors));
         $tpl_main -> parse('exibe_mensagens');
         $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
+        }else{
+            $dados_pessoais  = array(
+                'nome'      => $_POST['nome'],
+                'numerorg'  => $_POST['numerorg'], 
+                'emissorrg' => $_POST['emissorrg'], 
+                'cpf'       => $_POST['cpf'], 
+                'endereco'  => $_POST['endereco'], 
+                'cidade'    => $_POST['cidade'], 
+                'cep'       => $_POST['cep'], 
+                'estado'    => $_POST['estado'], 
+                'telefone'  => $_POST['telefone'],
+                'celular'   => $_POST['celular']
+                );
+
+            $dados_pessoais_sanitizados = sanitiza_dados_pessoais($dados_pessoais);
+            
+            $tabela = 'dados_pessoais';
+
+            grava_dados_pessoais_usuario($_SESSION['id_user'],$dados_pessoais_sanitizados,$tabela);
+
         }
 }
 
 $tpl_main->show();
-// $dados_pessoais  = array(
-//     'nome'      => $_POST['nome'],
-//     'numerorg'  => $_POST['numerorg'], 
-//     'emissorrg' => $_POST['emissorrg'], 
-//     'cpf'       => $_POST['cpf'], 
-//     'endereco'  => $_POST['endereco'], 
-//     'cidade'    => $_POST['cidade'], 
-//     'cep'       => $_POST['cep'], 
-//     'estado'    => $_POST['estado'], 
-//     'telefone'  => $_POST['telefone'],
-//     'celular'   => $_POST['celular']
-//     );
 
-// $dados_pessoais_sanitizados = sanitiza_dados_pessoais($dados_pessoais);
 
-// $tabela = 'dados_pessoais';
 
-// grava_dados_pessoais_usuario($_SESSION['id_user'],$dados_pessoais_sanitizados,$tabela);
 ?>
