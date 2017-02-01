@@ -40,16 +40,24 @@ if (!empty($_POST)) {
                 );
 
             $dados_pessoais_sanitizados = sanitiza_dados_pessoais($dados_pessoais);
-            
+
             $tabela = 'dados_pessoais';
 
-            grava_dados_pessoais_usuario($_SESSION['id_user'],$dados_pessoais_sanitizados,$tabela);
+            $resultado = grava_dados_pessoais_usuario($_SESSION['id_user'],$dados_pessoais_sanitizados,$tabela);
+
+            if ($resultado) {
+                $tpl = carrega_mensagem_sucesso();
+                $mensagem_sucesso = "Seus dados pessoais foram atualizados em nosso sitemas. Em breve você será redirecionando para a próxima etapa da inscrição.";
+                $tpl->setVariable('mensagem_sucesso', $mensagem_sucesso);
+                $tpl_main -> parse('exibe_mensagens');
+                $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
+            }
+            
 
         }
 }
 
 $tpl_main->show();
 
-
-
+echo "<meta HTTP-EQUIV='Refresh' CONTENT='5;URL=aluno_dados_bancarios.php'>";
 ?>
