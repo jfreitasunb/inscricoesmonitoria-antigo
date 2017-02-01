@@ -10,9 +10,8 @@ $tpl_menu = carrega_menu_aluno();
 
 $tpl_main -> setVariable('exibe_menus',$tpl_menu->get());
 
-finalizou_inscricao();
 
-if (autoriza_inscricao()) {
+if (autoriza_inscricao() || inscricao_finalizada()) {
     $tpl_dados_monitoria = preenche_template_monitoria();
 
     $tpl_main -> setVariable('exibe_paginas',$tpl_dados_monitoria->get());
