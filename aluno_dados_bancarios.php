@@ -11,7 +11,7 @@ $tpl_menu = carrega_menu_aluno();
 $tpl_main -> setVariable('exibe_menus',$tpl_menu->get());
 
 
-$tpl_dados_bancarios = carrega_dados_bancarios();
+$tpl_dados_bancarios = carrega_template_dados_bancarios();
 
 $tpl_main -> setVariable('exibe_paginas',$tpl_dados_bancarios->get());
 
@@ -37,7 +37,7 @@ if (!empty($_POST)) {
         $dados_bancarios_sanitizados = sanitiza_dados_bancarios($dados_bancarios);
 
         $tabela = "dados_bancarios";
-        
+
         $resultado = grava_dados_pessoais_usuario($_SESSION['id_user'],$dados_bancarios_sanitizados,$tabela);
 
         if ($resultado) {
