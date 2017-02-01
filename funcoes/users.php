@@ -507,9 +507,9 @@ function grava_escolhas_monitoria($id_candidato, $ano_monitoria, $semestre_monit
             $result = $stmt->execute();
 
             if ($result) {
-                $gravou[] = 1;
+                return true;
             }else{
-                $gravou[] = 0;
+                return false;
             }
         }
     }
