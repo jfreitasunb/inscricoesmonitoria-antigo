@@ -10,10 +10,13 @@ $tpl_menu = carrega_menu_aluno();
 
 $tpl_main -> setVariable('exibe_menus',$tpl_menu->get());
 
-
 $tpl_dados_pessoais = carrega_template_dados_pessoais_aluno();
 
 $tpl_main -> setVariable('exibe_paginas',$tpl_dados_pessoais->get());
+
+$tabela = 'dados_pessoais';
+
+print_r(user_data($_SESSION['id_user'],$tabela,'nome','numerorg','emissorrg','cpf','endereco','cidade','cep','estado','telefone','celular'));
 
 if (!empty($_POST)) {
     $errors = valida_dados_pessoais();
@@ -37,8 +40,6 @@ if (!empty($_POST)) {
             );
 
             $dados_pessoais_sanitizados = sanitiza_dados_pessoais($dados_pessoais);
-
-            $tabela = 'dados_pessoais';
 
             $resultado = grava_dados_pessoais_usuario($_SESSION['id_user'],$dados_pessoais_sanitizados,$tabela);
 
