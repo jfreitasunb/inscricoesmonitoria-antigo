@@ -15,19 +15,45 @@ $tpl_dados_bancarios = carrega_dados_bancarios();
 
 $tpl_main -> setVariable('exibe_paginas',$tpl_dados_bancarios->get());
 
+
+
+if (!empty($_POST)) {
+    
+    $errors = valida_dados_bancarios();
+
+    if (!empty($errors)) {
+        $tpl = carrega_mensagem_erro();
+        $tpl->setVariable('mensagem_erros', mostra_erros($errors));
+        $tpl_main -> parse('exibe_mensagens');
+        $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
+    }else{
+        $dados_bancarios  = array(
+            'nomebanco'            => $_POST['nomebanco'],
+            'numerobanco'          => $_POST['numerobanco'], 
+            'agenciabancaria'      => $_POST['agenciabancaria'], 
+            'nomerocontacorrente'  => $_POST['nomerocontacorrente']
+        );
+
+        $dados_bancarios_sanitizados = sanitiza_dados_bancarios($dados_bancarios);
+
+        $resultado = grava_dados_bancarios_usuario($_SESSION['id_user'],$dados_bancarios_sanitizados);
+
+        if ($resultado) {
+                $tpl = carrega_mensagem_sucesso();
+                $mensagem_sucesso = "Seus dados bancários foram atualizados em nosso sitemas. Em breve você será redirecionando para a próxima etapa da inscrição.";
+                $tpl->setVariable('mensagem_sucesso', $mensagem_sucesso);
+                $tpl_main -> parse('exibe_mensagens');
+                $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
+                echo "<meta HTTP-EQUIV='Refresh' CONTENT='5;URL=aluno_dados_bancarios.php'>";
+            }else{
+                $errors[] = "Houve um problema durante a atualização dos seus dados. Tente novamente mais tarde.";
+                $tpl = carrega_mensagem_erro();
+                $tpl->setVariable('mensagem_erros', mostra_erros($errors));
+                $tpl_main -> parse('exibe_mensagens');
+                $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
+            }
+    }
+}
+
 $tpl_main->show();
-
-
-$errors = valida_dados_bancarios();
-
-$dados_bancarios  = array(
-    'nomebanco'            => $_POST['nomebanco'],
-    'numerobanco'          => $_POST['numerobanco'], 
-    'agenciabancaria'      => $_POST['agenciabancaria'], 
-    'nomerocontacorrente'  => $_POST['nomerocontacorrente']
-    );
-
-$dados_bancarios_sanitizados = sanitiza_dados_bancarios($dados_bancarios);
-
-grava_dados_bancarios_usuario($_SESSION['id_user'],$dados_bancarios_sanitizados);
 ?>

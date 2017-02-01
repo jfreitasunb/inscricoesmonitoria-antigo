@@ -37,7 +37,7 @@ if (!empty($_POST)) {
                 'estado'    => $_POST['estado'], 
                 'telefone'  => $_POST['telefone'],
                 'celular'   => $_POST['celular']
-                );
+            );
 
             $dados_pessoais_sanitizados = sanitiza_dados_pessoais($dados_pessoais);
 
