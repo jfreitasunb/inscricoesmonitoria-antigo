@@ -59,6 +59,12 @@ function grava_dados_pessoais_usuario($id_user,$dados_pessoais, $tabela){
         
     $result = $stmt->execute();
 
+    if ($result) {
+        return true;
+    }else{
+        return false;
+    }
+
 }
 
 function processa_login(){
