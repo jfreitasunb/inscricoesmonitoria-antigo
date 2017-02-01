@@ -16,8 +16,9 @@ LIMIT 1";
 
 }
 
-function autoriza_inscricao($dados_monitoria){
+function autoriza_inscricao(){
 
+    $dados_monitoria = retorna_monitoria_ativa();
     $inicio = DateTime::createFromFormat('Y-m-d', $dados_monitoria['inicio_inscricao']);
     $fim = DateTime::createFromFormat('Y-m-d', $dados_monitoria['fim_inscricao']);
     $data_inicio = $inicio->format('Y-m-d');
@@ -284,8 +285,8 @@ function preenche_template_monitoria(){
     for ($i=0; $i < $numero_escolhas_possiveis; $i++) { 
 
         $tpl -> setCurrentBlock("escolhas_possiveis");
-            $tpl->setVariable('monitorias_disponiveis', '<option selected="selected" value="disciplina_vazia">Selecione a disciplina</option>');
-            $tpl -> parseCurrentBlock("escolhas_possiveis");
+        $tpl->setVariable('monitorias_disponiveis', '<option selected="selected" value="disciplina_vazia">Selecione a disciplina</option>');
+        $tpl -> parseCurrentBlock("escolhas_possiveis");
 
         foreach ($monitoria_ativas as $key) {
 
@@ -334,6 +335,14 @@ function carrega_template_login_registro(){
     $tpl = new HTML_Template_Sigma($PATH_TEMPLATES);
 
     $tpl->loadTemplatefile("login_registrar.tpl");
+
+    if (autoriza_inscricao()) {
+        
+        $tpl->setVariable('desativa_registro','');
+
+    }else{
+        $tpl->setVariable('desativa_registro','disabled="disabled"');
+    }
 
     return $tpl;
 }

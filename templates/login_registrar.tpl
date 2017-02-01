@@ -60,28 +60,30 @@
                 <form id="register-form" action="" method="post" role="form" {tipo_estilo_registro}>
                 <!-- END tipo_estilo_registro -->
                   <div class="form-group">
-                    <input type="text" name="nome" id="nome" tabindex="1" class="form-control" placeholder="Nome" value="">
+                  <!-- BEGIN desativa_registro-->
+                    <input type="text" name="nome" id="nome" tabindex="1" class="form-control" placeholder="Nome" value="" {desativa_registro}>
                   </div>
                   <div class="form-group">
-                    <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Matrícula" value="">
+                    <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Matrícula" value="" {desativa_registro}>
                   </div>
                   <div class="form-group">
-                    <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email" value="">
+                    <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email" value="" {desativa_registro}>
                   </div>
                   <div class="form-group">
-                    <input type="email" name="confirm-email" id="confirm-email" tabindex="1" class="form-control" placeholder="Confirmar Email" value="">
+                    <input type="email" name="confirm-email" id="confirm-email" tabindex="1" class="form-control" placeholder="Confirmar Email" value="" {desativa_registro}>
                   </div>
                   <div class="form-group">
-                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Senha">
+                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Senha" {desativa_registro}>
                   </div>
                   <div class="form-group">
-                    <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirmar Senha">
+                    <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirmar Senha" {desativa_registro}>
                   </div>
                   <div class="form-group">
                     <div class="row">
                       <div class="col-sm-6 col-sm-offset-3">
-                        <input type="submit" name="registrar" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Registrar">
+                        <input type="submit" name="registrar" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Registrar" {desativa_registro}>
                       </div>
+                    <!-- END desativa_registro -->
                     </div>
                   </div>
                 </form>
