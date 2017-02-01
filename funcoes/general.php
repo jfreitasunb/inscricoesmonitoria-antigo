@@ -122,7 +122,7 @@ function carrega_menu_aluno(){
 
 }
 
-function carrega_dados_pessoais_aluno(){
+function carrega_template_dados_pessoais_aluno(){
     
     GLOBAL $PATH_TEMPLATES;
     
