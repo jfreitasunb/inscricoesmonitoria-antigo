@@ -517,7 +517,7 @@ function grava_escolhas_monitoria($id_candidato, $ano_monitoria, $semestre_monit
     return $gravou;
 }
 
-function finaliza_escolhas($id_candidato, $ano_monitoria_ativa, $semestre_monitoria_ativa,$disciplinas_escolhidas){
+function finaliza_escolhas($id_candidato, $id_monitoria,$disciplinas_escolhidas){
 
     GLOBAL $PDO;
     GLOBAL $errors;
@@ -530,9 +530,9 @@ function finaliza_escolhas($id_candidato, $ano_monitoria_ativa, $semestre_monito
  
     $finaliza_escolhas = TRUE;
  
-    $campos_finais = 'id_candidato, tipo_monitoria, hora_escolhida, concordatermos, ano_monitoria_ativa, semestre_monitoria_ativa, finaliza_escolhas';
+    $campos_finais = 'id_candidato, tipo_monitoria, hora_escolhida, concordatermos, id_monitoria, finaliza_escolhas';
  
-    $bind_valores_finais = ':id_candidato, :tipo_monitoria, :hora_escolhida, :concordatermos, :ano_monitoria_ativa, :semestre_monitoria_ativa, :finaliza_escolhas';
+    $bind_valores_finais = ':id_candidato, :tipo_monitoria, :hora_escolhida, :concordatermos, :id_monitoria, :finaliza_escolhas';
  
     $query_insere_escolha_finais = "INSERT INTO finaliza_escolhas ($campos_finais) VALUES($bind_valores_finais)";
      
@@ -541,8 +541,7 @@ function finaliza_escolhas($id_candidato, $ano_monitoria_ativa, $semestre_monito
     $stmt -> bindParam(':tipo_monitoria', $disciplinas_escolhidas['tipo_monitoria']);
     $stmt -> bindParam(':hora_escolhida', $hora_escolhida);
     $stmt -> bindParam(':concordatermos', $disciplinas_escolhidas['concordatermos']);
-    $stmt -> bindParam(':ano_monitoria_ativa', $ano_monitoria_ativa);
-    $stmt -> bindParam(':semestre_monitoria_ativa', $semestre_monitoria_ativa);
+    $stmt -> bindParam(':id_monitoria', $id_monitoria);
     $stmt -> bindParam(':finaliza_escolhas', $finaliza_escolhas);
     $result = $stmt->execute();
 
