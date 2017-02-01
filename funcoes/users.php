@@ -1,4 +1,26 @@
 <?php
+function inscricao_finalizada{
+
+    GLOBAL $PDO;
+
+    $id_user        = $_SESSION['id_user'];
+    $id_monitoria   = $_SESSION['id_monitoria'];
+
+    $query_verifica_finalizacao = "SELECT finaliza_escolhas FROm finaliza_escolhas WHERE id_user=:id_user AND id_monitoria=:id_monitoria";
+
+    $stmt = $PDO->prepare($query_verifica_finalizacao);
+
+    $stmt->bindParam(':id_user',$id_user);
+    $stmt->bindParam(':id_monitoria',$id_monitoria);
+
+    $result = $stmt->execute();
+
+    $finalizado = $stmt->fetchColumn();
+
+    return $finalizado;
+
+}
+
 function retorna_id_user_from_username($username){
 
     GLOBAL $PDO;
