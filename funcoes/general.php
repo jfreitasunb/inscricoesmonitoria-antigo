@@ -1,4 +1,20 @@
 <?php
+function retorna_monitoria_ativa(){
+
+    GLOBAL $PDO;
+
+    $query_retorna_monitoria_ativa = "SELECT * FROM configura_monitoria ORDER BY id_monitoria DESC
+LIMIT 1";
+
+    $stmt = $PDO -> prepare($query_retorna_monitoria_ativa);
+
+    $result = $stmt->execute();
+
+    $dados = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $dados;
+
+}
 function retorna_somente_numeros($cpf){
 
     $cpf = preg_replace('/\D/', '', $cpf);
