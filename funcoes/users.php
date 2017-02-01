@@ -17,18 +17,34 @@ function retorna_id_user_from_username($username){
 }
 
 
-function grava_nome_usuario($id_user,$nome){
+function grava_dados_basicos_usuario($id_user,$nome){
 
     GLOBAL $PDO;
 
     $query_insere_nome_usuario = "INSERT INTO dados_pessoais (id_user,nome) VALUES(:id_user,:nome)";
 
+    $stmt = $PDO->prepare( $query_insere_nome_usuario );
+
+    $stmt -> bindParam(':id_user', $id_user);
+    $stmt -> bindParam(':nome', $nome);
+
+    $result = $stmt->execute();
+
+    $query_insere_registro_banco = "INSERT INTO dados_bancarios (id_user) VALUES(:id_user)";
+
     $stmt2 = $PDO->prepare( $query_insere_nome_usuario );
 
     $stmt2 -> bindParam(':id_user', $id_user);
-    $stmt2 -> bindParam(':nome', $nome);
+    
+    $result = $stmt2->execute();
 
-    $result = $stmt2->execute(); 
+    $query_insere_registro_banco = "INSERT INTO dados_bancarios (id_user) VALUES(:id_user)";
+
+    $stmt2 = $PDO->prepare( $query_insere_nome_usuario );
+
+    $stmt2 -> bindParam(':id_user', $id_user);
+    
+    $result = $stmt2->execute();
     
 }
 
