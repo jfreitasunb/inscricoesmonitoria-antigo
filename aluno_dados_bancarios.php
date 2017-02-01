@@ -36,7 +36,9 @@ if (!empty($_POST)) {
 
         $dados_bancarios_sanitizados = sanitiza_dados_bancarios($dados_bancarios);
 
-        $resultado = grava_dados_bancarios_usuario($_SESSION['id_user'],$dados_bancarios_sanitizados);
+        $tabela = "dados_bancarios";
+        
+        $resultado = grava_dados_pessoais_usuario($_SESSION['id_user'],$dados_bancarios_sanitizados,$tabela);
 
         if ($resultado) {
                 $tpl = carrega_mensagem_sucesso();
