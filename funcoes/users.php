@@ -1,5 +1,5 @@
 <?php
-function inscricao_finalizada{
+function inscricao_finalizada(){
 
     GLOBAL $PDO;
 
@@ -438,7 +438,7 @@ function grava_usuario_novo($dados_usuario){
 
 }
 
-function upload_historico($id_candidato){
+function upload_historico($id_user){
 
     GLOBAL $ROOT_PATH;
     GLOBAL $PDO;
@@ -476,7 +476,7 @@ function upload_historico($id_candidato){
             exit();
         }else {
             if ($_UP['renomeia'] == true) {
-                $nome_final = md5("historico_".$id_candidato).".".$extensao;
+                $nome_final = md5("historico_".$id_user).".".$extensao;
             }else{
                 $nome_final = $_FILES['arquivo']['name'];
             }
@@ -484,10 +484,10 @@ function upload_historico($id_candidato){
             if (!move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'].$nome_final)){
                 $errors[] = "N&atilde;o foi poss&iacute;vel enviar o arquivo, tente novamente";
             }else{
-                $query_insere_historico = "INSERT INTO arquivos_enviados (id_candidato,nome_arquivo,data_envio) VALUES(:id_candidato, :nome_arquivo, :data)";
+                $query_insere_historico = "INSERT INTO arquivos_enviados (id_user,nome_arquivo,data_envio) VALUES(:id_user, :nome_arquivo, :data)";
                 $stmt = $PDO->prepare( $query_insere_historico );
-                echo $id_candidato;
-                $stmt -> bindParam(':id_candidato', $id_candidato);
+                echo $id_user;
+                $stmt -> bindParam(':id_user', $id_user);
                 $stmt -> bindParam(':nome_arquivo', $nome_final);
                 $stmt -> bindParam(':data', $data);
                 $result = $stmt->execute();
@@ -501,14 +501,14 @@ function upload_historico($id_candidato){
     }
 }
 
-function grava_escolhas_monitoria($id_candidato, $id_monitoria,$disciplinas_escolhidas){
+function grava_escolhas_monitoria($id_user, $id_monitoria,$disciplinas_escolhidas){
     
     GLOBAL $PDO;
     GLOBAL $numero_escolhas_possiveis;
 
-    $campos = 'id_candidato, escolha_aluno, mencao_aluno, ano_cursado, semestre_cursado, id_monitoria';
+    $campos = 'id_user, escolha_aluno, mencao_aluno, ano_cursado, semestre_cursado, id_monitoria';
 
-    $bind_valores = ':id_candidato, :escolha_aluno, :mencao_aluno, :ano_cursado, :semestre_cursado, :id_monitoria';
+    $bind_valores = ':id_user, :escolha_aluno, :mencao_aluno, :ano_cursado, :semestre_cursado, :id_monitoria';
 
 
     $escolheu_hora = horarios_escolhidos_candidato($disciplinas_escolhidas);
@@ -520,7 +520,7 @@ function grava_escolhas_monitoria($id_candidato, $id_monitoria,$disciplinas_esco
             $query_insere_escolha_aluno = "INSERT INTO escolhas_candidatos ($campos) VALUES($bind_valores)";
             
             $stmt = $PDO->prepare( $query_insere_escolha_aluno );
-            $stmt -> bindParam(':id_candidato', $id_candidato);
+            $stmt -> bindParam(':id_user', $id_user);
             $stmt -> bindParam(':escolha_aluno', $disciplinas_escolhidas['escolha_aluno_'.$i]);
             $stmt -> bindParam(':mencao_aluno', $disciplinas_escolhidas['mencao_aluno_'.$i]);
             $stmt -> bindParam(':ano_cursado', $disciplinas_escolhidas['ano_cursado_'.$i]);
@@ -537,7 +537,7 @@ function grava_escolhas_monitoria($id_candidato, $id_monitoria,$disciplinas_esco
     }
 }
 
-function finaliza_escolhas($id_candidato, $id_monitoria,$disciplinas_escolhidas){
+function finaliza_escolhas($id_user, $id_monitoria,$disciplinas_escolhidas){
 
     GLOBAL $PDO;
     GLOBAL $errors;
@@ -550,14 +550,14 @@ function finaliza_escolhas($id_candidato, $id_monitoria,$disciplinas_escolhidas)
  
     $finaliza_escolhas = TRUE;
  
-    $campos_finais = 'id_candidato, tipo_monitoria, hora_escolhida, concordatermos, id_monitoria, finaliza_escolhas';
+    $campos_finais = 'id_user, tipo_monitoria, hora_escolhida, concordatermos, id_monitoria, finaliza_escolhas';
  
-    $bind_valores_finais = ':id_candidato, :tipo_monitoria, :hora_escolhida, :concordatermos, :id_monitoria, :finaliza_escolhas';
+    $bind_valores_finais = ':id_user, :tipo_monitoria, :hora_escolhida, :concordatermos, :id_monitoria, :finaliza_escolhas';
  
     $query_insere_escolha_finais = "INSERT INTO finaliza_escolhas ($campos_finais) VALUES($bind_valores_finais)";
      
     $stmt = $PDO->prepare( $query_insere_escolha_finais );
-    $stmt -> bindParam(':id_candidato', $id_candidato);
+    $stmt -> bindParam(':id_user', $id_user);
     $stmt -> bindParam(':tipo_monitoria', $disciplinas_escolhidas['tipo_monitoria']);
     $stmt -> bindParam(':hora_escolhida', $hora_escolhida);
     $stmt -> bindParam(':concordatermos', $disciplinas_escolhidas['concordatermos']);
