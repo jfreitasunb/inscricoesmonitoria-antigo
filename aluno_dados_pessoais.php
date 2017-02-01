@@ -51,6 +51,13 @@ if (!empty($_POST)) {
                 $tpl->setVariable('mensagem_sucesso', $mensagem_sucesso);
                 $tpl_main -> parse('exibe_mensagens');
                 $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
+                echo "<meta HTTP-EQUIV='Refresh' CONTENT='5;URL=aluno_dados_bancarios.php'>";
+            }else{
+                $errors[] = "Houve um problema durante a atualização dos seus dados. Tente novamente mais tarde.";
+                $tpl = carrega_mensagem_erro();
+                $tpl->setVariable('mensagem_erros', mostra_erros($errors));
+                $tpl_main -> parse('exibe_mensagens');
+                $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
             }
             
 
@@ -58,6 +65,4 @@ if (!empty($_POST)) {
 }
 
 $tpl_main->show();
-
-echo "<meta HTTP-EQUIV='Refresh' CONTENT='5;URL=aluno_dados_bancarios.php'>";
 ?>
