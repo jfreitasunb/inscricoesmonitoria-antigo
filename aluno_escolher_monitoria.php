@@ -10,17 +10,14 @@ $tpl_menu = carrega_menu_aluno();
 
 $tpl_main -> setVariable('exibe_menus',$tpl_menu->get());
 
-
 $tpl_dados_monitoria = preenche_template_monitoria();
 
 $tpl_main -> setVariable('exibe_paginas',$tpl_dados_monitoria->get());
 
 
-
 if (!empty($_POST)) {
     $disciplinas_escolhidas = $_POST;
     $errors = valida_escolhas_aluno($disciplinas_escolhidas);
-    
 
     if (!empty($errors)) {
         $tpl = carrega_mensagem_erro();
@@ -48,7 +45,6 @@ if (!empty($_POST)) {
                 }else{
                     $errors = finaliza_escolhas($id_candidato,$id_monitoria,$disciplinas_escolhidas);
                 }
-
             }else{
                 $errors[] = "Houve um problema durante a atualização dos seus dados. Tente novamente mais tarde.";
                 $tpl = carrega_mensagem_erro();

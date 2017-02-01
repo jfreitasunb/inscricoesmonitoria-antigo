@@ -475,7 +475,6 @@ function upload_historico($id_candidato){
                 }
             }
         }
-
         return $errors;
     }
 }

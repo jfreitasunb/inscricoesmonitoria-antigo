@@ -15,9 +15,6 @@ $tpl_dados_pessoais = carrega_dados_pessoais_aluno();
 
 $tpl_main -> setVariable('exibe_paginas',$tpl_dados_pessoais->get());
 
-
-
-
 if (!empty($_POST)) {
     $errors = valida_dados_pessoais();
     if (!empty($errors)) {    
@@ -59,8 +56,6 @@ if (!empty($_POST)) {
                 $tpl_main -> parse('exibe_mensagens');
                 $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
             }
-            
-
         }
 }
 

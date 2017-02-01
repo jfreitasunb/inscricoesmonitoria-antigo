@@ -15,6 +15,23 @@ LIMIT 1";
     return $dados;
 
 }
+
+function autoriza_inscricao($dados_monitoria){
+
+    $inicio = DateTime::createFromFormat('Y-m-d', $dados_monitoria['inicio_inscricao']);
+    $fim = DateTime::createFromFormat('Y-m-d', $dados_monitoria['fim_inscricao']);
+    $data_inicio = $inicio->format('Y-m-d');
+    $data_fim = $fim->format('Y-m-d');
+
+    $data_hoje = (new DateTime())->format('Y-m-d');
+
+    if ($data_hoje >= $data_inicio && $data_hoje <= $data_fim) {
+        return true;
+    }else{
+        return false;
+    }
+}
+
 function retorna_somente_numeros($cpf){
 
     $cpf = preg_replace('/\D/', '', $cpf);
