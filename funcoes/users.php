@@ -92,6 +92,10 @@ function processa_login(){
                 $_SESSION['user_type'] = $dados_usuario['user_type'];
                 $_SESSION['ativo'] = $dados_usuario['ativo'];
 
+                $dados_monitoria_ativa = retorna_monitoria_ativa();
+
+                $_SESSION['id_monitoria'] = $dados_monitoria_ativa['id_monitoria'];
+
                 if ($dados_usuario['user_type'] === 3) {
                     carrega_area_aluno();
                 }else if ($dados_usuario['user_type'] === 2) {
