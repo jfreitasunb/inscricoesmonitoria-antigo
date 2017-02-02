@@ -158,7 +158,8 @@ function processa_login(){
                     return $errors;
                 }
 
-    }   
+    }
+    return $errors;
 }
 
 function user_data($id_user,$tabela){
