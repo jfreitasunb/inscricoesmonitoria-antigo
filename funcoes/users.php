@@ -50,7 +50,20 @@ function grava_dados_basicos_usuario($id_user,$nome){
     $stmt -> bindParam(':id_user', $id_user);
     $stmt -> bindParam(':nome', $nome);
 
-    $result = $stmt->execute();
+    try{
+        $result = $stmt->execute();
+    }
+    catch( PDOException $e ){
+        if (strpos($e, 'users_email_key') !== FALSE){
+            $errors[] = "Já existe um usuário cadastrado com esse e-mail.";
+        }
+        if (strpos($e, 'users_login_ke') !== FALSE){
+            $errors[] = "Já existe um usuário cadastrado com essa matrícula.";
+        }
+        if (strpos($e, 'duplicate key value ') !== FALSE){
+            $errors[] = "Já existe um usuário cadastrado.";
+        }
+    }
 
     $query_insere_registro_banco = "INSERT INTO dados_bancarios (id_user) VALUES(:id_user)";
 
@@ -59,6 +72,17 @@ function grava_dados_basicos_usuario($id_user,$nome){
     $stmt2 -> bindParam(':id_user', $id_user);
     
     $result = $stmt2->execute();
+
+    $finaliza_escolhas = 0;
+
+    $query_insere_registro_finaliza = "INSERT INTO finaliza_escolhas (id_user,finaliza_escolhas) VALUES(:id_user,:finaliza_escolhas)";
+
+    $stmt3 = $PDO->prepare( $query_insere_registro_finaliza );
+
+    $stmt3 -> bindParam(':id_user', $id_user);
+    $stmt3 -> bindParam(':finaliza_escolhas', $finaliza_escolhas);
+    
+    $result = $stmt3->execute();
     
 }
 

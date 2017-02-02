@@ -8,7 +8,9 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="nome">Nome</label>  
   <div class="col-md-4">
-  <input id="nome" name="nome" type="text" class="form-control input-md" required="required">
+  <!-- BEGIN nome -->
+  <input id="nome" name="nome" type="text" class="form-control input-md" required="required" {nome}>
+  <!-- END nome -->
   </div>
 </div>
 

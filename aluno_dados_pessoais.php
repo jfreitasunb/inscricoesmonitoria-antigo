@@ -16,7 +16,7 @@ $tpl_main -> setVariable('exibe_paginas',$tpl_dados_pessoais->get());
 
 $tabela = 'dados_pessoais';
 
-print_r(user_data($_SESSION['id_user'],$tabela,'nome','numerorg','emissorrg','cpf','endereco','cidade','cep','estado','telefone','celular'));
+$dados_usuario=user_data($_SESSION['id_user'],$tabela,'nome','numerorg','emissorrg','cpf','endereco','cidade','cep','estado','telefone','celular');
 
 if (!empty($_POST)) {
     $errors = valida_dados_pessoais();

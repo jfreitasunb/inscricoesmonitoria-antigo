@@ -129,6 +129,7 @@ function carrega_template_dados_pessoais_aluno(){
     $tpl = new HTML_Template_Sigma($PATH_TEMPLATES);
 
     $tpl->loadTemplatefile("dados_pessoais.tpl");
+    $tpl->setVariable('nome','value="teste"');
     
     return $tpl;
 
