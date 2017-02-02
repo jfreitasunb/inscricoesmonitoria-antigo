@@ -122,6 +122,26 @@ function carrega_menu_aluno(){
 
 }
 
+function carrega_menu_coordenador(){
+    
+    GLOBAL $PATH_TEMPLATES;
+    
+    $tpl = new HTML_Template_Sigma($PATH_TEMPLATES);
+
+    $tpl->loadTemplatefile("menu_coordenador.tpl");
+
+    // $menu_aluno['dados_pessoais'] = 'aluno_dados_pessoais.php';
+    // $menu_aluno['escolher_monitoria'] = 'aluno_escolher_monitoria.php';
+    // $menu_aluno['dados_bancarios'] = 'aluno_dados_bancarios';
+
+    // foreach ($menu_aluno as $key => $value) {
+    //     $tpl->setVariable($key, $value);
+    // }
+    
+    return $tpl;
+
+}
+
 function carrega_template_dados_pessoais_aluno(){
     
     GLOBAL $PATH_TEMPLATES;
