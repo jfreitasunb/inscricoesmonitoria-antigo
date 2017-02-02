@@ -31,7 +31,7 @@ if (!empty($_POST)) {
             'nomebanco'            => $_POST['nomebanco'],
             'numerobanco'          => $_POST['numerobanco'], 
             'agenciabancaria'      => $_POST['agenciabancaria'], 
-            'nomerocontacorrente'  => $_POST['nomerocontacorrente']
+            'numerocontacorrente'  => $_POST['numerocontacorrente']
         );
 
         $dados_bancarios_sanitizados = sanitiza_dados_bancarios($dados_bancarios);

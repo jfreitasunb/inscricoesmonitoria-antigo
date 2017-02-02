@@ -148,7 +148,15 @@ function carrega_template_dados_bancarios(){
     
     $tpl = new HTML_Template_Sigma($PATH_TEMPLATES);
 
+    $tabela = 'dados_bancarios';
+
+    $dados_bancarios_usuario=user_data($_SESSION['id_user'],$tabela,'nomebanco','numerobanco','agenciabancaria','numerocontacorrente');
+
     $tpl->loadTemplatefile("dados_bancarios.tpl");
+
+    foreach ($dados_bancarios_usuario as $key => $value) {
+        $tpl->setVariable($key,'value="'.$value.'"');    
+    }
     
     return $tpl;
 
@@ -481,7 +489,7 @@ function valida_dados_bancarios(){
 
     GLOBAL $errors;
 
-    $required_fields = array('nomebanco', 'numerobanco', 'agenciabancaria','nomerocontacorrente');
+    $required_fields = array('nomebanco', 'numerobanco', 'agenciabancaria','numerocontacorrente');
     
     foreach ($_POST as $key => $value) {
         if (empty($value) && in_array($key, $required_fields)) {
