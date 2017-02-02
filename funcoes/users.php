@@ -142,11 +142,11 @@ function processa_login(){
 
                 $_SESSION['id_monitoria'] = $dados_monitoria_ativa['id_monitoria'];
 
-                if ($dados_usuario['user_type'] === 3) {
+                if ($dados_usuario['user_type'] === 0) {
                     carrega_area_aluno();
-                }else if ($dados_usuario['user_type'] === 2) {
+                }else if ($dados_usuario['user_type'] === 1) {
                     carrega_area_coordenador();
-                }else if ($dados_usuario['user_type'] === 1){
+                }else if ($dados_usuario['user_type'] === 2){
                     carrega_area_administrador();
                 }
             }else{
