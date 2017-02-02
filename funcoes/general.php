@@ -228,6 +228,11 @@ function carrega_area_aluno(){
     echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=aluno.php'>";
 }
 
+function carrega_area_coordenador(){
+    
+    echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=coordenador.php'>";
+}
+
 function mostra_erros($errors){
 
     $output = array();

@@ -157,7 +157,6 @@ function processa_login(){
         if(isset($errors)){
                     return $errors;
                 }
-
     }
     return $errors;
 }
