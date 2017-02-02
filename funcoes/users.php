@@ -574,11 +574,9 @@ function finaliza_escolhas($id_user, $id_monitoria,$disciplinas_escolhidas){
  
     $finaliza_escolhas = TRUE;
  
-    $campos_finais = 'id_user, tipo_monitoria, hora_escolhida, concordatermos, id_monitoria, finaliza_escolhas';
+    $campos_update = 'id_user=:id_user, tipo_monitoria=:tipo_monitoria, hora_escolhida=:hora_escolhida, concordatermos=:concordatermos, id_monitoria=:id_monitoria, finaliza_escolhas=:finaliza_escolhas';
  
-    $bind_valores_finais = ':id_user, :tipo_monitoria, :hora_escolhida, :concordatermos, :id_monitoria, :finaliza_escolhas';
- 
-    $query_insere_escolha_finais = "INSERT INTO finaliza_escolhas ($campos_finais) VALUES($bind_valores_finais)";
+    $query_insere_escolha_finais = "UPDATE finaliza_escolhas SET $campos_update WHERE id_user=:id_user";
      
     $stmt = $PDO->prepare( $query_insere_escolha_finais );
     $stmt -> bindParam(':id_user', $id_user);
