@@ -261,9 +261,9 @@ function valida_usuario_login(){
         }
     }
 
-    if (!is_numeric($_POST['username'])) {
-        $errors[] = "Você deve informar somente os números da sua matrícula.";
-    }
+    // if (!is_numeric($_POST['username'])) {
+    //     $errors[] = "Você deve informar somente os números da sua matrícula.";
+    // }
 
     return $errors;
 }
