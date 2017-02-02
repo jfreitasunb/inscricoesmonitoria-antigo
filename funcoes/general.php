@@ -130,13 +130,12 @@ function carrega_menu_coordenador(){
 
     $tpl->loadTemplatefile("menu_coordenador.tpl");
 
-    // $menu_aluno['dados_pessoais'] = 'aluno_dados_pessoais.php';
-    // $menu_aluno['escolher_monitoria'] = 'aluno_escolher_monitoria.php';
-    // $menu_aluno['dados_bancarios'] = 'aluno_dados_bancarios';
+    $menu_coordenador['configura_monitoria'] = 'coordenador_configura_monitoria.php';
+    $menu_coordenador['gera_relatorioss'] = 'coordenador_gera_relatorioss.php';
 
-    // foreach ($menu_aluno as $key => $value) {
-    //     $tpl->setVariable($key, $value);
-    // }
+    foreach ($menu_aluno as $key => $value) {
+        $tpl->setVariable($key, $value);
+    }
     
     return $tpl;
 
