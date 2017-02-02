@@ -16,8 +16,8 @@
         <li><a href="{configura_monitoria}">Configurar Inscrição</a></li>
         <!-- END configura_monitoria -->
         <!-- BEGIN gera_relatorios -->
-        <li><a href="{gera_relatorioss}">Relatórios</a></li>
-        <!-- END gera_relatorioss -->
+        <li><a href="{gera_relatorios}">Relatórios</a></li>
+        <!-- END gera_relatorios -->
         <li><a href="logout.php">Sair</a></li>
       </ul>
     </div>
