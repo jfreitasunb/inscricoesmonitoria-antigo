@@ -131,9 +131,9 @@ function carrega_menu_coordenador(){
     $tpl->loadTemplatefile("menu_coordenador.tpl");
 
     $menu_coordenador['configura_monitoria'] = 'coordenador_configura_monitoria.php';
-    $menu_coordenador['gera_relatorioss'] = 'coordenador_gera_relatorioss.php';
+    $menu_coordenador['gera_relatorios'] = 'coordenador_gera_relatorios.php';
 
-    foreach ($menu_aluno as $key => $value) {
+    foreach ($menu_coordenador as $key => $value) {
         $tpl->setVariable($key, $value);
     }
     

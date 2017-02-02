@@ -6,9 +6,9 @@ $tpl_main = new HTML_Template_Sigma($PATH_TEMPLATES);
 
 $tpl_main->loadTemplatefile("cabecalho_rodape.tpl");
 
-$tpl_menu = carrega_menu_coordenador();
+$tpl_menu_coordenador = carrega_menu_coordenador();
 
-$tpl_main -> setVariable('exibe_menus',$tpl_menu->get());
+$tpl_main -> setVariable('exibe_menus',$tpl_menu_coordenador->get());
 
 
 // $tpl_dados_bancarios = carrega_template_dados_bancarios();
