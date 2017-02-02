@@ -132,10 +132,11 @@ function carrega_template_dados_pessoais_aluno(){
     
     $tpl = new HTML_Template_Sigma($PATH_TEMPLATES);
 
-    print_r($dados_usuario);
-
     $tpl->loadTemplatefile("dados_pessoais.tpl");
-    $tpl->setVariable('nome','value="'.$dados_usuario['nome'].'"');
+
+    foreach ($dados_usuario as $key => $value) {
+        $tpl->setVariable($key,'value="'.$value.'"');    
+    }
     
     return $tpl;
 
