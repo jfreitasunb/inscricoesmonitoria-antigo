@@ -125,11 +125,17 @@ function carrega_menu_aluno(){
 function carrega_template_dados_pessoais_aluno(){
     
     GLOBAL $PATH_TEMPLATES;
+
+    $tabela = 'dados_pessoais';
+
+    $dados_usuario=user_data($_SESSION['id_user'],$tabela,'nome','numerorg','emissorrg','cpf','endereco','cidade','cep','estado','telefone','celular');
     
     $tpl = new HTML_Template_Sigma($PATH_TEMPLATES);
 
+    print_r($dados_usuario);
+
     $tpl->loadTemplatefile("dados_pessoais.tpl");
-    $tpl->setVariable('nome','value="teste"');
+    $tpl->setVariable('nome','value="'.$dados_usuario['nome'].'"');
     
     return $tpl;
 
