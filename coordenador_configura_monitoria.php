@@ -14,8 +14,6 @@ $tpl_configura_monitoria = carrega_template_configura_monitoria();
 
 $tpl_main -> setVariable('exibe_paginas',$tpl_configura_monitoria->get());
 
-seleciona_disciplinas_para_monitoria();
-
 if (!empty($_POST)) {
     
     $errors = valida_dados_configuracao();

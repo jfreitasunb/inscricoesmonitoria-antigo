@@ -1,4 +1,4 @@
-<?php
+<?php    
 function seleciona_disciplinas_para_monitoria(){
 
     GLOBAL $PDO;
@@ -144,8 +144,21 @@ function carrega_template_configura_monitoria(){
 
     $tpl->loadTemplatefile("configura_monitoria.tpl");
 
-    // $menu_coordenador['configura_monitoria'] = 'coordenador_configura_monitoria.php';
-    // $menu_coordenador['gera_relatorios'] = 'coordenador_gera_relatorios.php';
+    $lista_disciplinas = seleciona_disciplinas_para_monitoria();
+    // print_r($lista_disciplinas);
+    foreach ($lista_disciplinas as $row) {
+        echo $row['codigo']."</br>";
+        echo $row['nome']."</br>";
+    
+    $linha_tabela = "<tr><td><input type='checkbox' name='escolhas_coordenador[]' class='checkbox' value='".$row['codigo']."'";
+
+
+        
+        // $tpl -> setCurrentBlock("linha_tabela");
+        // $tpl->setVariable('monitorias_disponiveis', '<option selected="selected" value="disciplina_vazia">Selecione a disciplina</option>');
+        // $tpl -> parseCurrentBlock("escolhas_possiveis"); 
+
+    }
 
     foreach ($menu_coordenador as $key => $value) {
         $tpl->setVariable($key, $value);

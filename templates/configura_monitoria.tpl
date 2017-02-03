@@ -49,7 +49,16 @@
     </thead>
     <tbody>
     <!-- BEGIN lista_disciplinas -->
-      {lista_disciplinas}
+      <tr>
+      <!--BEGIN codigo_disciplina -->
+      <!-- BEGIN nome_disciplina -->
+        <td><input type="checkbox" name="escolhas_coordenador[]" class="checkbox" {codigo_disciplina}> {nome_disciplina} </td>
+        <td>Nome disciplina</td>
+        <td><input type="checkbox" name="escolhas_coordenador[]" class="checkbox" {codigo_disciplina}> {nome_disciplina} </td>
+        <td>Nome disciplina</td>
+      <!-- END nome_disciplina -->
+      <!-- END codigo_disciplina -->
+      </tr>
     <!-- END lista_disciplinas -->
     </tbody>
   </table>
