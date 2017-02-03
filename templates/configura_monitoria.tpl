@@ -52,10 +52,10 @@
       <tr>
       <!--BEGIN codigo_disciplina -->
       <!-- BEGIN nome_disciplina -->
-        <td><input type="checkbox" name="escolhas_coordenador[]" class="checkbox" {codigo_disciplina}> {nome_disciplina} </td>
-        <td>Nome disciplina</td>
-        <td><input type="checkbox" name="escolhas_coordenador[]" class="checkbox" {codigo_disciplina}> {nome_disciplina} </td>
-        <td>Nome disciplina</td>
+        <td><input type="checkbox" name="escolhas_coordenador[]" class="checkbox" {codigo_disciplina}></td>
+        <td>{nome_disciplina}</td>
+        <td><input type="checkbox" name="escolhas_coordenador[]" class="checkbox" {codigo_disciplina2}></td>
+        <td>{nome_disciplina2}</td>
       <!-- END nome_disciplina -->
       <!-- END codigo_disciplina -->
       </tr>

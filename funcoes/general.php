@@ -146,19 +146,20 @@ function carrega_template_configura_monitoria(){
 
     $lista_disciplinas = seleciona_disciplinas_para_monitoria();
     // print_r($lista_disciplinas);
-    foreach ($lista_disciplinas as $row) {
-        echo $row['codigo']."</br>";
-        echo $row['nome']."</br>";
+    $i=0;
     
-    $linha_tabela = "<tr><td><input type='checkbox' name='escolhas_coordenador[]' class='checkbox' value='".$row['codigo']."'";
-
-
+    while ($i < sizeof($lista_disciplinas)+1) { 
+        $tpl -> setCurrentBlock("lista_disciplinas");
+        $tpl->setVariable('codigo_disciplina', 'value="'.$lista_disciplinas[$i]['codigo'].'"');
+        $tpl->setVariable('nome_disciplina', $lista_disciplinas[$i]['nome']);
+        $tpl->setVariable('codigo_disciplina2', 'value="'.$lista_disciplinas[$i+1]['codigo'].'"');
+        $tpl->setVariable('nome_disciplina2', $lista_disciplinas[$i+1]['nome']);
+        $tpl -> parseCurrentBlock("lista_disciplinas");
+        $i = $i+2;
         
-        // $tpl -> setCurrentBlock("linha_tabela");
-        // $tpl->setVariable('monitorias_disponiveis', '<option selected="selected" value="disciplina_vazia">Selecione a disciplina</option>');
-        // $tpl -> parseCurrentBlock("escolhas_possiveis"); 
-
     }
+    
+        
 
     foreach ($menu_coordenador as $key => $value) {
         $tpl->setVariable($key, $value);
