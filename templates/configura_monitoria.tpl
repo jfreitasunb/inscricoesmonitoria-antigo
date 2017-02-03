@@ -65,29 +65,3 @@
 </form>
 
 <div id="result"></div>
-
-
-<script src="js/bootstrap.min.js"></script>
-<script src="js/monitoria.js"></script>
-
-<script type="text/javascript" src="bower_components/jquery/jquery.min.js"></script>
-
-<script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
-<script type="text/javascript" src="bower_components/moment/locale/pt-br.js"></script>
-<script type="text/javascript" src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-<link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
-<script src="bower_components/moment/locale/fr.js"></script>
-  
-
-<script type="text/javascript">
-  $(function () {
-      $('#inicio_inscricao').datetimepicker({
-          locale: 'pt-br',
-          format: 'DD/MM/YYYY'
-      });
-      $('#fim_inscricao').datetimepicker({
-          locale: 'pt-br',
-          format: 'DD/MM/YYYY'
-      });
-  }); 
-</script>
