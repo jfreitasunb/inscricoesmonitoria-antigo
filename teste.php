@@ -11,10 +11,10 @@ require_once "config/init.php";
 
 $login="coordgrad";
 $password = password_hash('senha123', PASSWORD_DEFAULT);
-$email="coordgrad@mat.unb.br";
+$email="coordgrad@mat.unb.br"
 
 
-    $query_insere_novo_usuario = "INSERT INTO users (login,password,email) VALUES(:login,:password,:email)";
+    $query_insere_novo_usuario = "INSERT INTO user (login,password,email) VALUES(:login,:password,:email)";
 
     $stmt = $PDO->prepare( $query_insere_novo_usuario );
 

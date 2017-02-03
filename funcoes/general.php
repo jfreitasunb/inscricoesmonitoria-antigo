@@ -122,6 +122,23 @@ function carrega_menu_aluno(){
 
 }
 
+function carrega_template_configura_monitoria(){
+    GLOBAL $PATH_TEMPLATES;
+    
+    $tpl = new HTML_Template_Sigma($PATH_TEMPLATES);
+
+    $tpl->loadTemplatefile("configura_monitoria.tpl");
+
+    // $menu_coordenador['configura_monitoria'] = 'coordenador_configura_monitoria.php';
+    // $menu_coordenador['gera_relatorios'] = 'coordenador_gera_relatorios.php';
+
+    foreach ($menu_coordenador as $key => $value) {
+        $tpl->setVariable($key, $value);
+    }
+    
+    return $tpl;
+}
+
 function carrega_menu_coordenador(){
     
     GLOBAL $PATH_TEMPLATES;
