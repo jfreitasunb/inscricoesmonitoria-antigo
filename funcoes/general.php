@@ -543,6 +543,10 @@ function valida_dados_configuracao(){
         $errors[] = "Você deve escolher pelo menos uma disciplina para a monitoria.";
     }
 
+    if ($_POST['inicio_inscricao'] === $_POST['fim_inscricao']) {
+        $errors[] = "A data de início e fim das inscrições não podem ser iguais.";
+    }
+
     return $errors;
 }
 
