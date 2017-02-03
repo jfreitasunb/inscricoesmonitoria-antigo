@@ -48,12 +48,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td><input type="checkbox" name="escolhas_coordenador[]" class="checkbox" value="Cálculo 1"> </td>
-        <td>Nome disciplina</td>
-        <td><input type="checkbox" name="escolhas_coordenador[]" class="checkbox" value="Cálculo 1"></td>
-        <td>Nome disciplina</td>
-      </tr>
+    <!-- BEGIN lista_disciplinas -->
+      {lista_disciplinas}
+    <!-- END lista_disciplinas -->
     </tbody>
   </table>
 </div>

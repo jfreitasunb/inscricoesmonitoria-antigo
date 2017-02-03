@@ -38,7 +38,6 @@ function retorna_id_user_from_username($username){
     return $id_user;
 }
 
-
 function grava_dados_basicos_usuario($id_user,$nome){
 
     GLOBAL $PDO;
