@@ -526,6 +526,22 @@ function valida_dados_pessoais(){
     return $errors;
 }
 
+function valida_dados_configuracao(){
+
+    GLOBAL $errors;
+
+    $required_fields = array('inicio_inscricao', 'fim_inscricao', 'escolhas_coordenador');
+    
+    foreach ($_POST as $key => $value) {
+        if (empty($value) && in_array($key, $required_fields)) {
+            $errors[] = "Os campos marcados com asterisco devem ser preenchidos.";
+            break 1;
+        }
+    }
+
+    return $errors;
+}
+
 function valida_dados_bancarios(){
 
     GLOBAL $errors;
