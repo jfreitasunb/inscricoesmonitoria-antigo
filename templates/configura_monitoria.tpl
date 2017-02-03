@@ -3,7 +3,7 @@
 <div class="container">
   <legend>Configurar período da abertura da inscrição</legend>
     <div class="row">
-        <div class='col-xs-6'>
+        <div class='col-xs-4'>
             <div class="form-group form-inline">
                 <label for="">Início da Inscríção:</label>
                 <div class='input-group date' id='inicio_inscricao'>
@@ -14,7 +14,7 @@
                 </div>
             </div>
         </div>
-        <div class='col-xs-6'>
+        <div class='col-xs-4'>
             <div class="form-group form-inline">
                 <label for="">Final da Inscríção:</label>
                 <div class='input-group date' id='fim_inscricao'>
@@ -24,6 +24,13 @@
                     </span>
                 </div>
             </div>
+        </div>
+        <div class="col-xs-4">
+          <div class="form-group form-inline">
+          <label for="">Semestre: </label>
+            <input type="radio" name="semestre" class="radio" value="1"> 1
+            <input type="radio" name="semestre" class="radio" value="2"> 2
+          </div>
         </div>
     </div>
 </div>

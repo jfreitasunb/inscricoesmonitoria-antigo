@@ -547,6 +547,10 @@ function valida_dados_configuracao(){
         $errors[] = "A data de início e fim das inscrições não podem ser iguais.";
     }
 
+    if ($_POST['inicio_inscricao'] > $_POST['fim_inscricao']) {
+        $errors[] = "A data de início é maior que a data de finalização das inscrições.";
+    }
+
     return $errors;
 }
 

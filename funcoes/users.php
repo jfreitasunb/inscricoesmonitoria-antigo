@@ -118,7 +118,6 @@ function grava_datas_monitoria($datas_monitoria,$semestre_monitoria){
     }else{
         return 0;
     }
-
 }
 
 function grava_dados_pessoais_usuario($id_user,$dados_pessoais, $tabela){
