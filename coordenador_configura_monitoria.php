@@ -17,16 +17,17 @@ $tpl_main -> setVariable('exibe_paginas',$tpl_configura_monitoria->get());
 var_dump($_POST);
 
 
-// if (!empty($_POST)) {
+if (!empty($_POST)) {
     
-//     $errors = valida_dados_bancarios();
+    $errors = valida_dados_configuracao();
 
-//     if (!empty($errors)) {
-//         $tpl = carrega_mensagem_erro();
-//         $tpl->setVariable('mensagem_erros', mostra_erros($errors));
-//         $tpl_main -> parse('exibe_mensagens');
-//         $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
-//     }else{
+    if (!empty($errors)) {
+        $tpl = carrega_mensagem_erro();
+        $tpl->setVariable('mensagem_erros', mostra_erros($errors));
+        $tpl_main -> parse('exibe_mensagens');
+        $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
+    }
+    // else{
 //         $dados_bancarios  = array(
 //             'nomebanco'            => $_POST['nomebanco'],
 //             'numerobanco'          => $_POST['numerobanco'], 
@@ -55,7 +56,7 @@ var_dump($_POST);
 //                 $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
 //             }
 //     }
-// }
+}
 
 $tpl_main->show();
 ?>

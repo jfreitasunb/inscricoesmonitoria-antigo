@@ -530,13 +530,17 @@ function valida_dados_configuracao(){
 
     GLOBAL $errors;
 
-    $required_fields = array('inicio_inscricao', 'fim_inscricao', 'escolhas_coordenador');
+    $required_fields = array('inicio_inscricao', 'fim_inscricao');
     
     foreach ($_POST as $key => $value) {
         if (empty($value) && in_array($key, $required_fields)) {
             $errors[] = "Os campos marcados com asterisco devem ser preenchidos.";
             break 1;
         }
+    }
+
+    if (!isset($_POST['escolhas_coordenador'])) {
+        $errors[] = "Você deve escolher pelo menos uma disciplina para a monitoria.";
     }
 
     return $errors;
