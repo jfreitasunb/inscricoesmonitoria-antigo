@@ -35,14 +35,14 @@ if (!empty($_POST)) {
 
         $resultado = grava_datas_monitoria($datas_sanitizadas);
 
-//         if ($resultado) {
-//                 $tpl = carrega_mensagem_sucesso();
-//                 $mensagem_sucesso = "Seus dados bancários foram atualizados em nosso sitemas. Em breve você será redirecionando para a próxima etapa da inscrição.";
-//                 $tpl->setVariable('mensagem_sucesso', $mensagem_sucesso);
-//                 $tpl_main -> parse('exibe_mensagens');
-//                 $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
-//                 echo "<meta HTTP-EQUIV='Refresh' CONTENT='5;URL=aluno_escolher_monitoria.php'>";
-//             }else{
+        if ($resultado) {
+                $tpl = carrega_mensagem_sucesso();
+                $mensagem_sucesso = "A inscrição foi configurada com sucesso.";
+                $tpl->setVariable('mensagem_sucesso', $mensagem_sucesso);
+                $tpl_main -> parse('exibe_mensagens');
+                $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
+            }
+            // else{
 //                 $errors[] = "Houve um problema durante a atualização dos seus dados. Tente novamente mais tarde.";
 //                 $tpl = carrega_mensagem_erro();
 //                 $tpl->setVariable('mensagem_erros', mostra_erros($errors));

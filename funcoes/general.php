@@ -300,7 +300,7 @@ function pega_disciplinas_monitoria(){
     
     GLOBAL $PDO;
 
-    $query_retorna_disciplinas = "SELECT id_monitoria,nome_disciplina FROM disciplinas_disponiveis";
+    $query_retorna_disciplinas = "SELECT id_monitoria,codigo_disciplina FROM disciplinas_disponiveis";
     $stmt = $PDO->prepare( $query_retorna_disciplinas );
     // $stmt->bindParam( ':id_aluno', $id_aluno );
     // $stmt->bindParam( ':id_agenda', $id_agenda );
