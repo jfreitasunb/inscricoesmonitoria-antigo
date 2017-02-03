@@ -14,6 +14,8 @@ $tpl_configura_monitoria = carrega_template_configura_monitoria();
 
 $tpl_main -> setVariable('exibe_paginas',$tpl_configura_monitoria->get());
 
+seleciona_disciplinas_para_monitoria();
+
 if (!empty($_POST)) {
     
     $errors = valida_dados_configuracao();
@@ -32,7 +34,6 @@ if (!empty($_POST)) {
 
         $datas_sanitizadas = sanitiza_dados_bancarios($datas_inscricao);
 
-
         $resultado = grava_datas_monitoria($datas_sanitizadas);
 
         if ($resultado) {
@@ -41,14 +42,13 @@ if (!empty($_POST)) {
                 $tpl->setVariable('mensagem_sucesso', $mensagem_sucesso);
                 $tpl_main -> parse('exibe_mensagens');
                 $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
+            }else{
+                $errors[] = "Houve um problema durante a configuração da monitoria. Tente novamente mais tarde.";
+                $tpl = carrega_mensagem_erro();
+                $tpl->setVariable('mensagem_erros', mostra_erros($errors));
+                $tpl_main -> parse('exibe_mensagens');
+                $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
             }
-            // else{
-//                 $errors[] = "Houve um problema durante a atualização dos seus dados. Tente novamente mais tarde.";
-//                 $tpl = carrega_mensagem_erro();
-//                 $tpl->setVariable('mensagem_erros', mostra_erros($errors));
-//                 $tpl_main -> parse('exibe_mensagens');
-//                 $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
-//             }
     }
 }
 

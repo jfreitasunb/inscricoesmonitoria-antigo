@@ -1,4 +1,19 @@
 <?php
+function seleciona_disciplinas_para_monitoria(){
+
+    GLOBAL $PDO;
+
+    $query_monta_monitoria = "SELECT codigo,nome FROM disciplinas_mat";
+
+    $stmt = $PDO -> prepare($query_monta_monitoria);
+
+    $result = $stmt->execute();
+
+    $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $dados;
+}
+
 function retorna_monitoria_ativa(){
 
     GLOBAL $PDO;
