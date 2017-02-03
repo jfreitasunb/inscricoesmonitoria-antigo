@@ -47,8 +47,8 @@ function grava_dados_basicos_usuario($id_user,$nome){
 
     $stmt = $PDO->prepare( $query_insere_nome_usuario );
 
-    $stmt -> bindParam(':id_user', $id_user);
-    $stmt -> bindParam(':nome', $nome);
+    $stmt->bindParam(':id_user', $id_user);
+    $stmt->bindParam(':nome', $nome);
 
     try{
         $result = $stmt->execute();
@@ -69,7 +69,7 @@ function grava_dados_basicos_usuario($id_user,$nome){
 
     $stmt2 = $PDO->prepare( $query_insere_registro_banco );
 
-    $stmt2 -> bindParam(':id_user', $id_user);
+    $stmt2->bindParam(':id_user', $id_user);
     
     $result = $stmt2->execute();
 
@@ -79,11 +79,46 @@ function grava_dados_basicos_usuario($id_user,$nome){
 
     $stmt3 = $PDO->prepare( $query_insere_registro_finaliza );
 
-    $stmt3 -> bindParam(':id_user', $id_user);
-    $stmt3 -> bindParam(':finaliza_escolhas', $finaliza_escolhas);
+    $stmt3->bindParam(':id_user', $id_user);
+    $stmt3->bindParam(':finaliza_escolhas', $finaliza_escolhas);
     
     $result = $stmt3->execute();
     
+}
+
+
+
+
+function grava_datas_monitoria($datas_monitoria,$semestre_monitoria){
+
+    GLOBAL $PDO;
+
+    $inicio = DateTime::createFromFormat('d/m/Y', $datas_monitoria['inicio_inscricao']);
+    $fim = DateTime::createFromFormat('d/m/Y', $datas_monitoria['fim_inscricao']);
+    
+    $data_inicio = $inicio->format('Y-m-d');
+    $data_fim = $fim->format('Y-m-d');
+
+    $ano = $inicio->format('Y');
+    
+    $query_insere_datas_monitoria = "INSERT INTO configura_monitoria (ano_monitoria,semestre_monitoria,inicio_inscricao,fim_inscricao) VALUES(:ano_monitoria,:semestre_monitoria,:inicio_inscricao,:fim_inscricao)";
+
+
+    $stmt = $PDO->prepare( $query_insere_datas_monitoria );
+
+    $stmt->bindParam(':ano_monitoria', $ano);
+    $stmt->bindParam(':semestre_monitoria', $semestre_monitoria);
+    $stmt->bindParam(':inicio_inscricao', $data_inicio);
+    $stmt->bindParam(':fim_inscricao', $data_fim);
+
+    $result = $stmt->execute();
+
+    if ($result) {
+        return 1;
+    }else{
+        return 0;
+    }
+
 }
 
 function grava_dados_pessoais_usuario($id_user,$dados_pessoais, $tabela){

@@ -14,7 +14,7 @@ $tpl_configura_monitoria = carrega_template_configura_monitoria();
 
 $tpl_main -> setVariable('exibe_paginas',$tpl_configura_monitoria->get());
 
-var_dump($_POST);
+// var_dump($_POST);
 
 
 if (!empty($_POST)) {
@@ -26,20 +26,16 @@ if (!empty($_POST)) {
         $tpl->setVariable('mensagem_erros', mostra_erros($errors));
         $tpl_main -> parse('exibe_mensagens');
         $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
-    }
-    // else{
-//         $dados_bancarios  = array(
-//             'nomebanco'            => $_POST['nomebanco'],
-//             'numerobanco'          => $_POST['numerobanco'], 
-//             'agenciabancaria'      => $_POST['agenciabancaria'], 
-//             'numerocontacorrente'  => $_POST['numerocontacorrente']
-//         );
+    }else{
+        $datas_inscricao  = array(
+            'inicio_inscricao'  => $_POST['inicio_inscricao'],
+            'fim_inscricao'     => $_POST['fim_inscricao']
+        );
 
-//         $dados_bancarios_sanitizados = sanitiza_dados_bancarios($dados_bancarios);
+        $datas_sanitizadas = sanitiza_dados_bancarios($datas_inscricao);
 
-//         $tabela = "dados_bancarios";
 
-//         $resultado = grava_dados_pessoais_usuario($_SESSION['id_user'],$dados_bancarios_sanitizados,$tabela);
+        $resultado = grava_datas_monitoria($datas_sanitizadas);
 
 //         if ($resultado) {
 //                 $tpl = carrega_mensagem_sucesso();
@@ -55,7 +51,7 @@ if (!empty($_POST)) {
 //                 $tpl_main -> parse('exibe_mensagens');
 //                 $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
 //             }
-//     }
+    }
 }
 
 $tpl_main->show();
