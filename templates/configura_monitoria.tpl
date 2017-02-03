@@ -1,4 +1,4 @@
-<form action="" method="POST">
+<form action="coordenador_configura_monitoria.php" method="POST">
 
 <div class="container">
   <legend>Configurar período da abertura da inscrição</legend>
