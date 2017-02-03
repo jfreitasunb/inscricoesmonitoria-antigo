@@ -14,9 +14,6 @@ $tpl_configura_monitoria = carrega_template_configura_monitoria();
 
 $tpl_main -> setVariable('exibe_paginas',$tpl_configura_monitoria->get());
 
-// var_dump($_POST);
-
-
 if (!empty($_POST)) {
     
     $errors = valida_dados_configuracao();
@@ -29,7 +26,8 @@ if (!empty($_POST)) {
     }else{
         $datas_inscricao  = array(
             'inicio_inscricao'  => $_POST['inicio_inscricao'],
-            'fim_inscricao'     => $_POST['fim_inscricao']
+            'fim_inscricao'     => $_POST['fim_inscricao'],
+            'semestre'     => $_POST['semestre']
         );
 
         $datas_sanitizadas = sanitiza_dados_bancarios($datas_inscricao);

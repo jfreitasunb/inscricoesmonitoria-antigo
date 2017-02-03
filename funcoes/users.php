@@ -89,7 +89,7 @@ function grava_dados_basicos_usuario($id_user,$nome){
 
 
 
-function grava_datas_monitoria($datas_monitoria,$semestre_monitoria){
+function grava_datas_monitoria($datas_monitoria){
 
     GLOBAL $PDO;
 
@@ -100,6 +100,7 @@ function grava_datas_monitoria($datas_monitoria,$semestre_monitoria){
     $data_fim = $fim->format('Y-m-d');
 
     $ano = $inicio->format('Y');
+    $semestre_monitoria = $datas_monitoria['semestre'];
     
     $query_insere_datas_monitoria = "INSERT INTO configura_monitoria (ano_monitoria,semestre_monitoria,inicio_inscricao,fim_inscricao) VALUES(:ano_monitoria,:semestre_monitoria,:inicio_inscricao,:fim_inscricao)";
 
