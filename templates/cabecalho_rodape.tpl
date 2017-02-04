@@ -64,4 +64,12 @@
         });
     }); 
   </script>
+<script>
+  $('#disciplinas').click(function() {
+  var checkedStatus = this.checked;
+  $('#disciplinas tbody tr').find('td :checkbox').each(function() {
+    $(this).prop('checked', checkedStatus);
+  });
+});
+</script>
 </html>

@@ -38,7 +38,8 @@
 <div class="container">
   <legend>Escolher disciplinas disponíveis para a Monitoria</legend>
   <div class="row">
-  <table class="table table-striped">
+  <input type="checkbox" name="selectAll" id="disciplinas" /> Selecionar todos
+  <table class="table table-striped" id="disciplinas">
     <thead>
       <tr>
         <th>Disponível</th>
@@ -52,9 +53,9 @@
       <tr>
       <!--BEGIN codigo_disciplina -->
       <!-- BEGIN nome_disciplina -->
-        <td><input type="checkbox" name="escolhas_coordenador[]" class="checkbox" {codigo_disciplina}></td>
+        <td><input type="checkbox" id="disciplinas" name="escolhas_coordenador[]" class="checkbox" {codigo_disciplina}></td>
         <td>{nome_disciplina}</td>
-        <td><input type="checkbox" name="escolhas_coordenador[]" class="checkbox" {codigo_disciplina2}></td>
+        <td><input type="checkbox" id="disciplinas" name="escolhas_coordenador[]" class="checkbox" {codigo_disciplina2}></td>
         <td>{nome_disciplina2}</td>
       <!-- END nome_disciplina -->
       <!-- END codigo_disciplina -->
