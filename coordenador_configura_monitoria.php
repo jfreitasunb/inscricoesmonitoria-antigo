@@ -13,7 +13,8 @@ $tpl_main -> setVariable('exibe_menus',$tpl_menu->get());
 $tpl_configura_monitoria = carrega_template_configura_monitoria();
 
 $tpl_main -> setVariable('exibe_paginas',$tpl_configura_monitoria->get());
-var_dump($_POST);
+var_dump($_POST[escolhas_coordenador][169]);
+
 
 if (!empty($_POST)) {
     
