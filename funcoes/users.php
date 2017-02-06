@@ -85,7 +85,32 @@ function grava_dados_basicos_usuario($id_user,$nome){
     
 }
 
+function grava_disciplinas_disponiveis($id_monitoria_ativa,$escolhas_coordenador){
 
+    GLOBAL $PDO;
+    GLOBAL $errors;
+
+    $id_monitoria = (int)$id_monitoria_ativa;
+
+    $query_insere_disciplinas = "INSERT INTO disciplinas_disponiveis (id_monitoria,codigo_disciplina) VALUES(:id_monitoria,:codigo_disciplina)";
+
+    $stmt = $PDO->prepare( $query_insere_disciplinas );
+
+    $stmt->bindParam(':id_monitoria', $id_monitoria);
+    foreach ($escolhas_coordenador as $key => &$value) {
+        if ($value <> '') {
+            $stmt->bindParam(':codigo_disciplina', $value);
+        }
+        $result = $stmt->execute();
+
+        if (!$result) {
+            $errors[] = 'Houve um erro durante a configuração das disciplinas. Tente novamente depois.';
+        }
+    }
+
+    return $errors;
+
+}
 
 
 function grava_datas_monitoria($datas_monitoria){
