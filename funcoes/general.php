@@ -341,7 +341,7 @@ function pega_disciplinas_monitoria(){
     $result = $stmt->execute();
     $rows = [];
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
+
     return $rows;
 }
 
@@ -371,7 +371,8 @@ function preenche_template_monitoria(){
 
     $tpl->loadTemplatefile("dados_monitoria.tpl");
 
-    $monitoria_ativas = pega_disciplinas_monitoria();
+    $monitorias_ativas = pega_disciplinas_monitoria();
+    
 
     for ($i=0; $i < $numero_escolhas_possiveis; $i++) { 
 
@@ -379,10 +380,10 @@ function preenche_template_monitoria(){
         $tpl->setVariable('monitorias_disponiveis', '<option selected="selected" value="disciplina_vazia">Selecione a disciplina</option>');
         $tpl -> parseCurrentBlock("escolhas_possiveis");
 
-        foreach ($monitoria_ativas as $key) {
+        foreach ($monitorias_ativas as $key) {
 
             $tpl -> setCurrentBlock("escolhas_possiveis");
-            $tpl->setVariable('monitorias_disponiveis', '<option value="'.$key['id_monitoria'].'">'.$key['nome_disciplina'].'</option>');
+            $tpl->setVariable('monitorias_disponiveis', '<option value="'.$key['codigo'].'">'.$key['nome'].'</option>');
             $tpl -> parseCurrentBlock("escolhas_possiveis");
 
         }
