@@ -329,10 +329,15 @@ function pega_disciplinas_monitoria(){
     
     GLOBAL $PDO;
 
-    $query_retorna_disciplinas = "SELECT id_monitoria,codigo_disciplina FROM disciplinas_disponiveis";
+    $monitoria_ativa = retorna_monitoria_ativa();
+
+    $id_monitoria_ativa = $monitoria_ativa['id_monitoria'];
+
+    $query_retorna_disciplinas = "SELECT codigo_disciplina FROM disciplinas_disponiveis WHERE id_monitoria=:id_monitoria";
     $stmt = $PDO->prepare( $query_retorna_disciplinas );
-    // $stmt->bindParam( ':id_aluno', $id_aluno );
-    // $stmt->bindParam( ':id_agenda', $id_agenda );
+
+    $stmt->bindParam(':id_monitoria',$id_monitoria_ativa);
+    
     $result = $stmt->execute();
     $rows = [];
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
