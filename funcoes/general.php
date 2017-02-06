@@ -3,7 +3,7 @@ function seleciona_disciplinas_para_monitoria(){
 
     GLOBAL $PDO;
 
-    $query_monta_monitoria = "SELECT codigo,nome FROM disciplinas_mat";
+    $query_monta_monitoria = "SELECT codigo,nome FROM disciplinas_mat ORDER by codigo";
 
     $stmt = $PDO -> prepare($query_monta_monitoria);
 
