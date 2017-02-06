@@ -137,6 +137,26 @@ function carrega_menu_aluno(){
 
 }
 
+function carrega_template_gera_relatorios(){
+
+    GLOBAL $PATH_TEMPLATES;
+    
+    $tpl = new HTML_Template_Sigma($PATH_TEMPLATES);
+
+    $tpl->loadTemplatefile("relatorios.tpl");
+
+    $relatorios['dados_pessoais'] = 'aluno_dados_pessoais.php';
+    $relatorios['escolher_monitoria'] = 'aluno_escolher_monitoria.php';
+    $relatorios['dados_bancarios'] = 'aluno_dados_bancarios';
+
+    foreach ($menu_aluno as $key => $value) {
+        $tpl->setVariable($key, $value);
+    }
+    
+    return $tpl;
+}
+
+
 function carrega_template_configura_monitoria(){
     GLOBAL $PATH_TEMPLATES;
     
