@@ -333,7 +333,7 @@ function pega_disciplinas_monitoria(){
 
     $id_monitoria_ativa = $monitoria_ativa['id_monitoria'];
 
-    $query_retorna_disciplinas = "SELECT codigo_disciplina FROM disciplinas_disponiveis WHERE id_monitoria=:id_monitoria";
+    $query_retorna_disciplinas = "SELECT codigo,nome FROM disciplinas_mat INNER JOIN disciplinas_disponiveis ON codigo= codigo_disciplina AND id_monitoria=:id_monitoria";
     $stmt = $PDO->prepare( $query_retorna_disciplinas );
 
     $stmt->bindParam(':id_monitoria',$id_monitoria_ativa);
@@ -341,7 +341,7 @@ function pega_disciplinas_monitoria(){
     $result = $stmt->execute();
     $rows = [];
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+    
     return $rows;
 }
 
