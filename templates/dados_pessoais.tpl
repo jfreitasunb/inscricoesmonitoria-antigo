@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     <form class="form-horizontal" action="" method="post">
-      <fieldset>
-        <legend>Dados Pessoais</legend>
+      <fieldset class="scheduler-border">
+        <legend class="scheduler-border">Dados Pessoais</legend>
 
         <div class="form-group">
           <div class="row">
