@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     <form class="form-horizontal" action="" method="post">
-      <fieldset>
-        <legend>Dados Bancários</legend>
+      <fieldset class="scheduler-border">
+        <legend class="scheduler-border">Dados Bancários</legend>
         
         <div class="form-group">
           <div class="row">
