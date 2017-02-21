@@ -150,7 +150,7 @@
 
       <div class="form-group">
         <div class="row">
-          <div class="col-sm-6 col-sm-offset-3">
+          <div class="col-sm-4 col-sm-offset-3">
             <input type="submit" name="registrar" id="register-submit" class="btn btn-primary" tabindex="4" value="Enviar" {desativa_registro}>
           </div>
         </div>
