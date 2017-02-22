@@ -12,9 +12,9 @@
 <body>
 <div class="container">
   <div class="jumbotron">
-    <h1 align="center">Departamento de Matemática</h1> 
+    <h1>Departamento de Matemática - UnB</h1> 
     <!-- BEGIN periodo_inscricao -->
-    <h2 align="center">Inscrições para a Monitoria do MAT: {periodo_inscricao}</h2> 
+    <h2>Inscrições para a Monitoria do MAT: {periodo_inscricao}</h2> 
     <!-- END periodo_inscricao -->
   </div>
 </div>
