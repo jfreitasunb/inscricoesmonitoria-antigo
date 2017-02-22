@@ -1,12 +1,12 @@
 <div class="container">
-  <div class="row">
+
     <form action="" method="POST" class="form-group" enctype="multipart/form-data">
       <fieldset class="scheduler-border">
         <legend class="scheduler-border">Monitorias disponíveis</legend>
         <div class="form-inline">
           <div class="row">
             <!-- BEGIN numero_escolhas -->
-            <div class="form-group col-xs-3">
+            <div class="col-xs-3">
               <label for="email">Disciplina:</label>
               <!-- BEGIN escolha_aluno -->
               <select id="id_disciplina" name="{escolha_aluno}" class="form-group">
@@ -16,10 +16,10 @@
               <!-- END monitorias_disponiveis -->
               <!-- END escolhas_possiveis -->
               </select>
-              <!-- BEGIN escolha_aluno -->
+              <!-- END escolha_aluno -->
             </div>
 
-            <div class="form-group col-xs-3">
+            <div class="col-xs-3">
               <!-- BEGIN mencao_aluno -->
               <label for="email">Menção:</label>
               <select id="id_mencao" name="{mencao_aluno}" class="form-group">
@@ -34,7 +34,7 @@
               <!-- END mencao_aluno -->
             </div>
 
-            <div class="form-group col-xs-3">
+            <div class="col-xs-3">
               <label for="email">Ano:</label>
               <!-- BEGIN ano_cursado -->
               <select id="id_ano" name="{ano_cursado}" class="form-group">
@@ -48,7 +48,7 @@
               <!-- END ano_cursado -->
             </div>
 
-            <div class="form-group col-xs-3">
+            <div class="col-xs-3">
               <label for="email">Semestre:</label>
               <!-- BEGIN semestre_cursado -->
               <select id="id_semestre" name="{semestre_cursado}" class="form-group">
@@ -157,5 +157,5 @@
           </div>
         </div>
     </form>
-  </div>
+  
 </div>
