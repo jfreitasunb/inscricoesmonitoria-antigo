@@ -2,86 +2,49 @@
 
     <form action="" method="POST" class="form-group" enctype="multipart/form-data">
       <fieldset class="scheduler-border">
-        <!-- BEGIN semestre_ano_ira -->
-        <legend class="scheduler-border">IRA atualizado (incluindo {semestre_ano_ira})</legend>
-        <!-- END semestre_ano_ira -->
-        <h4 align="center">Escolha até três (03) disciplinas, em ordem de prioridade.</h4>
+        <legend class="scheduler-border">IRA atualizado (incluindo 02/16)</legend>
         <div class="form-horizontal">
           <div class="row">
-            <!-- BEGIN numero_escolhas -->
-            <div class="form-group">
-              <input type="textarea" name="ira" id="ira" value="ira" checked="checked">
+            <label class="col-md-4 control-label" for="ira">IRA</label>  
+            <div class="col-md-4">
+              <input id="ira" name="ira" type="text" class="form-control input-md" required="required">
             </div>
-
-            <div class="form-group col-xs-6">
-              <!-- BEGIN mencao_aluno -->
-              <label for="email">Menção:</label>
-              <select id="id_mencao" name="{mencao_aluno}" class="form-control">
-                <option selected="selected" value="mencao_vazia">Menção</option>
-                <option value="SR">SR</option>
-                <option value="II">II</option>
-                <option value="MI">MI</option>
-                <option value="MM">MM</option>
-                <option value="MS">MS</option>
-                <option value="SS">SS</option>
-              </select>
-              <!-- END mencao_aluno -->
-            </div>
-            <!-- END numero_escolhas -->        
           </div>
         </div>
       </fieldset>
 
-    <fieldset class="scheduler-border">
-      <legend class="scheduler-border">Tipo de Monitoria</legend>
-        <div class="form-horizontal">
-          <div class="row">
-            <div class="radio">
-              <label for="somentevoluntaria">
-                <input type="radio" name="tipo_monitoria" id="somentevoluntaria" value="somentevoluntaria" checked="checked">
-                Somente voluntária
-              </label>
-            </div>
-          </div>
-          
-          <div class="row">
-            <div class="radio">
-              <label for="somenteremunerada">
-                <input type="radio" name="tipo_monitoria" id="somenteremunerada" value="somenteremunerada">
-                Somente remunerada
-              </label>
-            </div>
-          </div>
-          
-          <div class="row">
-            <div class="radio">
-              <label for="indiferente">
-                <input type="radio" name="tipo_monitoria" id="indiferente" value="indiferente">
-                Indiferente
-              </label>
-            </div>
-          </div>
-        </div>
-      </fieldset>
-    
       <fieldset class="scheduler-border">
-        <legend class="scheduler-border">Horários possíveis</legend>
+        <legend class="scheduler-border">Você já foi monitor de disciplinas do Departamento de Matemática?</legend>
         <div class="form-horizontal">
           <div class="row">
-             <!-- BEGIN horarios_disponiveis -->
             <div class="checkbox">
-              <label for="checkbox_hora_monitoria">
-              <!-- BEGIN nome_hora_monitoria -->
-              <!-- BEGIN id_hora -->
-              <!-- BEGIN horario_monitoria -->
-                <input type="checkbox" name="{nome_hora_monitoria}" id="checkbox_hora_monitoria" value="{id_hora}">
-                {horario_monitoria}
-              <!-- END nome_hora_monitoria -->
-              <!-- END id_hora -->
-              <!-- END horario_monitoria -->
-              </label>
+              <label><input type="checkbox" name="checkbox_foi_monitor" id="checkbox_foi_monitor" value="">Sim, de Cálculo 1 ou Matemática 1</label>
             </div>
-            <!-- END horarios_disponiveis -->
+          </div>
+          <div class="row">
+            <div class="checkbox">
+              <label><input type="checkbox" name="checkbox_foi_monitor" id="checkbox_foi_monitor" value="">Sim, de Cálculo 2 ou Matemática 2</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="checkbox">
+              <label><input type="checkbox" name="checkbox_foi_monitor" id="checkbox_foi_monitor" value="">Sim, de Cálculo 3</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="checkbox">
+              <label><input type="checkbox" name="checkbox_foi_monitor" id="checkbox_foi_monitor" value="">Sim, de Introdução à Álgebra Linear ou Álgebra Linear</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="checkbox">
+              <label><input type="checkbox" name="checkbox_foi_monitor" id="checkbox_foi_monitor" value="">Sim, de outras disciplinas</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="checkbox">
+              <label><input type="checkbox" name="checkbox_foi_monitor" id="checkbox_foi_monitor" value="">Não</label>
+            </div>
           </div>
         </div>
       </fieldset>
