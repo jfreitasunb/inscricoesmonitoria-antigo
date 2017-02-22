@@ -3,10 +3,11 @@
     <form action="" method="POST" class="form-group" enctype="multipart/form-data">
       <fieldset class="scheduler-border">
         <legend class="scheduler-border">Monitorias disponíveis</legend>
+        <h4 align="center">Escolha até três (03) disciplinas, em ordem de prioridade.</h4>
         <div class="form-inline">
           <div class="row">
             <!-- BEGIN numero_escolhas -->
-            <div class="col-xs-6">
+            <div class="form-group col-xs-6">
               <label for="email">Disciplina:</label>
               <!-- BEGIN escolha_aluno -->
               <select id="id_disciplina" name="{escolha_aluno}" class="form-control">
@@ -19,7 +20,7 @@
               <!-- END escolha_aluno -->
             </div>
 
-            <div class="col-xs-6">
+            <div class="form-group col-xs-6">
               <!-- BEGIN mencao_aluno -->
               <label for="email">Menção:</label>
               <select id="id_mencao" name="{mencao_aluno}" class="form-control">
