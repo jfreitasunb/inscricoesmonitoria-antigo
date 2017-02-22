@@ -7,15 +7,16 @@
   <!-- BEGIN url_site -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/css_monitoria.css" rel="stylesheet">
-  
 </head>
 <body>
 <div class="container">
-  <div class="jumbotron">
-    <h1>Departamento de Matemática - UnB</h1> 
-    <!-- BEGIN periodo_inscricao -->
-    <h2>Inscrições para a Monitoria do MAT: {periodo_inscricao}</h2> 
-    <!-- END periodo_inscricao -->
+  <div class="row">
+    <div class="jumbotron">
+      <h1>Departamento de Matemática - UnB</h1> 
+      <!-- BEGIN periodo_inscricao -->
+      <h2>Inscrições para a Monitoria do MAT: {periodo_inscricao}</h2> 
+      <!-- END periodo_inscricao -->
+    </div>
   </div>
 </div>
 <div class="exibir_mensagem">
