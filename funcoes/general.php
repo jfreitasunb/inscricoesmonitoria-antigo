@@ -408,11 +408,11 @@ function preenche_template_monitoria(){
 
         }
             
-        for ($l=date('Y'); $l > date('Y') - 5; $l--) { 
-            $tpl -> setCurrentBlock("anos_possiveis");
-            $tpl->setVariable('ano_cursou_disciplina', '<option value="'.$l.'">'.$l.'</option>');
-            $tpl -> parseCurrentBlock("anos_possiveis");
-        }
+        // for ($l=date('Y'); $l > date('Y') - 5; $l--) { 
+        //     $tpl -> setCurrentBlock("anos_possiveis");
+        //     $tpl->setVariable('ano_cursou_disciplina', '<option value="'.$l.'">'.$l.'</option>');
+        //     $tpl -> parseCurrentBlock("anos_possiveis");
+        // }
 
         $monitoria_escolhas['escolha_aluno'] = 'escolha_aluno_'.$i;
         $monitoria_escolhas['mencao_aluno'] = 'mencao_aluno_'.$i;

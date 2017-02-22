@@ -6,10 +6,10 @@
         <div class="form-inline">
           <div class="row">
             <!-- BEGIN numero_escolhas -->
-            <div class="col-xs-3">
+            <div class="input-group col-xs-3">
               <label for="email">Disciplina:</label>
               <!-- BEGIN escolha_aluno -->
-              <select id="id_disciplina" name="{escolha_aluno}" class="form-group">
+              <select id="id_disciplina" name="{escolha_aluno}" class="form-control">
               <!-- BEGIN escolhas_possiveis -->
               <!-- BEGIN monitorias_disponiveis -->
                 {monitorias_disponiveis}
@@ -19,10 +19,10 @@
               <!-- END escolha_aluno -->
             </div>
 
-            <div class="col-xs-3">
+            <div class="input-group col-xs-3">
               <!-- BEGIN mencao_aluno -->
               <label for="email">Menção:</label>
-              <select id="id_mencao" name="{mencao_aluno}" class="form-group">
+              <select id="id_mencao" name="{mencao_aluno}" class="form-control">
                 <option selected="selected" value="mencao_vazia">Menção</option>
                 <option value="SR">SR</option>
                 <option value="II">II</option>
@@ -34,10 +34,10 @@
               <!-- END mencao_aluno -->
             </div>
 
-            <div class="col-xs-3">
+            <div class="input-group col-xs-3">
               <label for="email">Ano:</label>
               <!-- BEGIN ano_cursado -->
-              <select id="id_ano" name="{ano_cursado}" class="form-group">
+              <select id="id_ano" name="{ano_cursado}" class="form-control">
                 <option selected="selected" value="ano_vazio">Ano</option>
                 <!-- BEGIN anos_possiveis -->
                 <!-- BEGIN ano_cursou_disciplina -->
@@ -48,10 +48,10 @@
               <!-- END ano_cursado -->
             </div>
 
-            <div class="col-xs-3">
+            <div class="input-group col-xs-3">
               <label for="email">Semestre:</label>
               <!-- BEGIN semestre_cursado -->
-              <select id="id_semestre" name="{semestre_cursado}" class="form-group">
+              <select id="id_semestre" name="{semestre_cursado}" class="form-control">
                 <option selected="selected" value="semestre_vazio">Semestre</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
