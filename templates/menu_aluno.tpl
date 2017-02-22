@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <nav class="navbar navbar-default col-md-6 col-md-offset-3" role="navigation">
+    <nav class="navbar navbar-default col-md-8 col-md-offset-2" role="navigation">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bar1">
             <span class="icon-bar"></span>
