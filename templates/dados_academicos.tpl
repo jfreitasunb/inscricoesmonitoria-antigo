@@ -12,6 +12,52 @@
       </fieldset>
 
       <fieldset class="scheduler-border">
+        <legend class="scheduler-border">Curso de Graduação</legend>
+        <div class="form-horizontal">
+          <div class="row">
+            <div class="radio">
+              <label><input type="radio" name="curso_graduacao" id="curso_graduacao" value="matematica">Matemática (Bacharelado/Licenciatura)</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="radio">
+              <label><input type="radio" name="curso_graduacao" id="curso_graduacao" value="computacao">Ciências da Computação (Bacharelado/Licenciatura)</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="radio">
+              <label><input type="radio" name="curso_graduacao" id="curso_graduacao" value="estatistica">Estatística</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="radio">
+              <label><input type="radio" name="curso_graduacao" id="curso_graduacao" value="fisica">Física (Bacharelado/Licenciatura)</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="radio">
+              <label><input type="radio" name="curso_graduacao" id="curso_graduacao" value="quimica">Química (Bacharelado/Licenciatura)</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="radio">
+              <label><input type="radio" name="curso_graduacao" id="curso_graduacao" value="geologia_geofisica">Geologia/Geofísica</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="radio">
+              <label><input type="radio" name="curso_graduacao" id="curso_graduacao" value="engenharia">Engenharia (Mecânica/Elétrica/Civil/Redes/Mecatrônica/Química/Produção)</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="radio">
+              <label><input type="radio" name="curso_graduacao" id="curso_graduacao" value="outros">Outros</label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="scheduler-border">
         <legend class="scheduler-border">Você já foi monitor de disciplinas do Departamento de Matemática?</legend>
         <div class="form-horizontal">
           <div class="row">
@@ -42,35 +88,6 @@
           <div class="row">
             <div class="checkbox">
               <label><input type="checkbox" name="checkbox_foi_monitor" id="checkbox_foi_monitor" value="">Não</label>
-            </div>
-          </div>
-        </div>
-      </fieldset>
-
-      <fieldset class="scheduler-border">
-        <legend class="scheduler-border">Você será monitor de um projeto de monitoria específico?</legend>
-        <h4>Atenção: Apenas marque SIM se você foi convidado por um professor.</h4>
-        <div class="form-horizontal">
-          <div class="row">
-            <div class="radio">
-              <label for="convidado">
-                <input type="radio" name="convidado" id="convidado" value="nao">
-                Não
-              </label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="radio">
-              <label for="convidado">
-                <input type="radio" name="convidado" id="convidado" value="sim">
-                Sim. Por favor, digite abaixo o nome do professor que será responsável por sua monitoria. Neste caso, apenas será possível matrícula na opção de monitoria voluntária.
-              </label>
-            </div>
-          </div>
-          <div class="row">
-            <h4>Caso tenha respondido "SIM" à questão anterior, escreva o nome do professor que será responsável por sua monitoria.</h4>
-            <div class="col-md-6">
-              <input id="nome_professor" name="nome_professor" type="text" class="form-control input-md" required="required">
             </div>
           </div>
         </div>
