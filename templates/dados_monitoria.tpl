@@ -58,7 +58,7 @@
             <div class="row">
               <h4>Caso tenha respondido "SIM" à questão anterior, escreva o nome do professor que será responsável por sua monitoria.</h4>
               <div class="col-md-6">
-                <input id="nome_professor" name="nome_professor" type="text" class="form-control input-md" required="required">
+                <input id="nome_professor" name="nome_professor" type="text" class="form-control input-md">
               </div>
             </div>
           </div>
