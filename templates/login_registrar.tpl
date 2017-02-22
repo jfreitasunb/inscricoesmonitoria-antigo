@@ -38,6 +38,7 @@
                       <div class="text">*</div>
                     </div>
                   </div>
+                  <div class="col-xs-12" style="height:20px;"></div>
                   <div class="form-group">
                     <div class="row">
                       <div class="col-sm-6 col-sm-offset-3">
