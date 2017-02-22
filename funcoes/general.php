@@ -128,7 +128,7 @@ function carrega_menu_aluno(){
     $menu_aluno['dados_pessoais'] = 'aluno_dados_pessoais.php';
     $menu_aluno['dados_bancarios'] = 'aluno_dados_bancarios.php';
     $menu_aluno['escolher_monitoria'] = 'aluno_escolher_monitoria.php';
-    $menu_aluno['dados_bancarios'] = 'aluno_dados_academicos.php';
+    $menu_aluno['dados_academicos'] = 'aluno_dados_academicos.php';
 
     foreach ($menu_aluno as $key => $value) {
         $tpl->setVariable($key, $value);
@@ -243,6 +243,26 @@ function carrega_template_dados_bancarios(){
     foreach ($dados_bancarios_usuario as $key => $value) {
         $tpl->setVariable($key,'value="'.$value.'"');    
     }
+    
+    return $tpl;
+
+}
+
+function carrega_template_dados_academicos(){
+    
+    GLOBAL $PATH_TEMPLATES;
+    
+    $tpl = new HTML_Template_Sigma($PATH_TEMPLATES);
+
+    $tabela = 'dados_academicos';
+
+    // $dados_bancarios_usuario=user_data($_SESSION['id_user'],$tabela,'nomebanco','numerobanco','agenciabancaria','numerocontacorrente');
+
+    $tpl->loadTemplatefile("dados_academicos.tpl");
+
+    // foreach ($dados_bancarios_usuario as $key => $value) {
+    //     $tpl->setVariable($key,'value="'.$value.'"');    
+    // }
     
     return $tpl;
 
