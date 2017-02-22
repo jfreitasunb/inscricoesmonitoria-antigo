@@ -67,15 +67,14 @@
     </div>
 
     <div id="hidden_form_container" style="display:none;"></div>
-    <div class="container">
-      <div class="row">
+    <div class="col-xs-12" style="height:35px;"></div>
         <div class="form-group">
-            <div class="col-sm-6 col-sm-offset-3">
-              <input type="submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Entrar">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+              <input type="submit" name="registrar" id="register-submit" class="btn btn-primary btn-lg" tabindex="4" value="Enviar">
             </div>
+          </div>
         </div>
-      </div>
-    </div>
   </form>
 
   <div id="result"></div>

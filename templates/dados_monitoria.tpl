@@ -148,13 +148,14 @@
         </div>
       </fieldset>
 
-      <div class="form-group">
-        <div class="row">
-          <div class="col-sm-4 col-sm-offset-3">
-            <input type="submit" name="registrar" id="register-submit" class="btn btn-primary" tabindex="4" value="Enviar" {desativa_registro}>
+      <div class="col-xs-12" style="height:35px;"></div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+              <input type="submit" name="registrar" id="register-submit" class="btn btn-primary btn-lg" tabindex="4" value="Enviar" {desativa_registro}>
+            </div>
           </div>
         </div>
-      </div>
     </form>
   </div>
 </div>
