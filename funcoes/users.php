@@ -589,9 +589,13 @@ function grava_escolhas_monitoria($id_user, $id_monitoria,$disciplinas_escolhida
     GLOBAL $PDO;
     GLOBAL $numero_escolhas_possiveis;
 
-    $campos = 'id_user, escolha_aluno, mencao_aluno, ano_cursado, semestre_cursado, id_monitoria';
+    $campos = 'id_user, escolha_aluno, mencao_aluno, id_monitoria';
 
-    $bind_valores = ':id_user, :escolha_aluno, :mencao_aluno, :ano_cursado, :semestre_cursado, :id_monitoria';
+    $bind_valores = ':id_user, :escolha_aluno, :mencao_aluno, :id_monitoria';
+
+    // $campos = 'id_user, escolha_aluno, mencao_aluno, ano_cursado, semestre_cursado, id_monitoria';
+
+    // $bind_valores = ':id_user, :escolha_aluno, :mencao_aluno, :ano_cursado, :semestre_cursado, :id_monitoria';
 
 
     $escolheu_hora = horarios_escolhidos_candidato($disciplinas_escolhidas);
@@ -606,9 +610,9 @@ function grava_escolhas_monitoria($id_user, $id_monitoria,$disciplinas_escolhida
             $stmt -> bindParam(':id_user', $id_user);
             $stmt -> bindParam(':escolha_aluno', $disciplinas_escolhidas['escolha_aluno_'.$i]);
             $stmt -> bindParam(':mencao_aluno', $disciplinas_escolhidas['mencao_aluno_'.$i]);
-            $stmt -> bindParam(':ano_cursado', $disciplinas_escolhidas['ano_cursado_'.$i]);
-            $stmt -> bindParam(':semestre_cursado', $disciplinas_escolhidas['semestre_cursado_'.$i]);
-            $stmt -> bindParam(':id_monitoria', $id_monitoria);
+            // $stmt -> bindParam(':ano_cursado', $disciplinas_escolhidas['ano_cursado_'.$i]);
+            // $stmt -> bindParam(':semestre_cursado', $disciplinas_escolhidas['semestre_cursado_'.$i]);
+            // $stmt -> bindParam(':id_monitoria', $id_monitoria);
             $result = $stmt->execute();
 
             if ($result) {
