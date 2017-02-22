@@ -1,13 +1,11 @@
 <div class="container">
-
     <form action="" method="POST" class="form-group" enctype="multipart/form-data">
       <fieldset class="scheduler-border">
         <legend class="scheduler-border">IRA atualizado (incluindo 02/16)</legend>
         <div class="form-horizontal">
           <div class="row">
-            <label class="col-md-4 control-label" for="ira">IRA</label>  
-            <div class="col-md-4">
-              <input id="ira" name="ira" type="text" class="form-control input-md" required="required">
+            <div class="col-md-4 form-group">
+              <input id="ira" name="ira" type="text" class="form-control" required="required">
             </div>
           </div>
         </div>
@@ -71,7 +69,7 @@
           </div>
           <div class="row">
             <h4>Caso tenha respondido "SIM" à questão anterior, escreva o nome do professor que será responsável por sua monitoria.</h4>
-            <div class="col-md-4">
+            <div class="col-md-6">
               <input id="nome_professor" name="nome_professor" type="text" class="form-control input-md" required="required">
             </div>
           </div>
