@@ -2,22 +2,15 @@
 
     <form action="" method="POST" class="form-group" enctype="multipart/form-data">
       <fieldset class="scheduler-border">
-        <legend class="scheduler-border">Monitorias disponíveis</legend>
+        <!-- BEGIN semestre_ano_ira -->
+        <legend class="scheduler-border">IRA atualizado (incluindo {semestre_ano_ira})</legend>
+        <!-- END semestre_ano_ira -->
         <h4 align="center">Escolha até três (03) disciplinas, em ordem de prioridade.</h4>
-        <div class="form-inline">
+        <div class="form-horizontal">
           <div class="row">
             <!-- BEGIN numero_escolhas -->
-            <div class="form-group col-xs-6">
-              <label for="email">Disciplina:</label>
-              <!-- BEGIN escolha_aluno -->
-              <select id="id_disciplina" name="{escolha_aluno}" class="form-control">
-              <!-- BEGIN escolhas_possiveis -->
-              <!-- BEGIN monitorias_disponiveis -->
-                {monitorias_disponiveis}
-              <!-- END monitorias_disponiveis -->
-              <!-- END escolhas_possiveis -->
-              </select>
-              <!-- END escolha_aluno -->
+            <div class="form-group">
+              <input type="textarea" name="ira" id="ira" value="ira" checked="checked">
             </div>
 
             <div class="form-group col-xs-6">

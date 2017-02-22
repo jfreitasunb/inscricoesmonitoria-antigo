@@ -13,7 +13,7 @@
         <ul class="nav navbar-nav">
           <!-- BEGIN dados_pessoais-->
           <li><a href="{dados_pessoais}">Dados Pessoais</a></li>
-          <!-- END dados_pessoias -->
+          <!-- END dados_pessoais -->
           <!-- BEGIN dados_bancario -->
           <li><a href="{dados_bancarios}">Dados Bancários</a></li>
           <!-- END dados_bancarios -->
