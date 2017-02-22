@@ -70,7 +70,7 @@
             <div class="row">
               <div class="radio">
                 <label for="somentevoluntaria">
-                  <input type="radio" name="tipo_monitoria" id="somentevoluntaria" value="somentevoluntaria" checked="checked">
+                  <input type="radio" name="tipo_monitoria" id="somentevoluntaria" value="somentevoluntaria">
                   Somente voluntária
                 </label>
               </div>
