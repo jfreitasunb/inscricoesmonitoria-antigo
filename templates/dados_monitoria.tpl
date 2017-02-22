@@ -90,37 +90,6 @@
         </div>
       </fieldset>
 
-      <fieldset class="scheduler-border">
-        <legend class="scheduler-border">Histórico</legend>
-        <div class="form-horizontal">
-          <div class="row">
-            <input type="text" class="form-control image-preview-filename"> <!-- don't give a name === doesn't send on POST/GET -->
-            <span class="input-group-btn">
-                <!-- image-preview-clear button -->
-                <button type="button" class="btn btn-primary" style="display:none;">
-                    <span class="glyphicon glyphicon-remove"></span> Clear
-                </button>
-                <!-- image-preview-input -->
-                <div class="btn btn-primary">
-                    <input type="file" accept="application/pdf, image/png, image/jpeg, image/jpg, image/gif" name="arquivo"/> <!-- rename it -->
-                </div>
-            </span>
-          </div>
-        </div>
-      </fieldset>
-  
-      <fieldset class="scheduler-border">
-        <legend class="scheduler-border">Declaração de conhecimento das regras da Monitoria da UnB:</legend>
-        <div class="checkbox form-horizontal">
-          <div class="row">
-            <label for="concordatermos">
-              <input type="checkbox" name="concordatermos" id="concordatermos" value="1">
-              Declaro conhecer os critérios de participação do Programa de Monitoria de Graduação, estabelecidos pela Resolução CEPE no 008/90 de 26.10.1990 (disponível online em <a href="http://tinyurl.com/hg3ch99" target="_blank">http://tinyurl.com/hg3ch99</a>), e ser conhecedor que a participação no Programa não estabelece nenhum vínculo empregatício meu junto a Fundação Universidade de Brasília – UnB.
-            </label>
-          </div>
-        </div>
-      </fieldset>
-
       <div class="col-xs-12" style="height:35px;"></div>
         <div class="form-group">
           <div class="row">
