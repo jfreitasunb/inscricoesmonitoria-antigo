@@ -416,8 +416,8 @@ function preenche_template_monitoria(){
 
         $monitoria_escolhas['escolha_aluno'] = 'escolha_aluno_'.$i;
         $monitoria_escolhas['mencao_aluno'] = 'mencao_aluno_'.$i;
-        $monitoria_escolhas['ano_cursado'] = 'ano_cursado_'.$i;
-        $monitoria_escolhas['semestre_cursado'] = 'semestre_cursado_'.$i;
+        // $monitoria_escolhas['ano_cursado'] = 'ano_cursado_'.$i;
+        // $monitoria_escolhas['semestre_cursado'] = 'semestre_cursado_'.$i;
 
         $tpl -> setCurrentBlock("numero_escolhas");
         $tpl->setVariable($monitoria_escolhas);
