@@ -50,6 +50,35 @@
       </fieldset>
 
       <fieldset class="scheduler-border">
+        <legend class="scheduler-border">Você será monitor de um projeto de monitoria específico?</legend>
+        <h4>Atenção: Apenas marque SIM se você foi convidado por um professor.</h4>
+        <div class="form-horizontal">
+          <div class="row">
+            <div class="radio">
+              <label for="convidado">
+                <input type="radio" name="convidado" id="convidado" value="nao">
+                Não
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="radio">
+              <label for="convidado">
+                <input type="radio" name="convidado" id="convidado" value="sim">
+                Sim. Por favor, digite abaixo o nome do professor que será responsável por sua monitoria. Neste caso, apenas será possível matrícula na opção de monitoria voluntária.
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <h4>Caso tenha respondido "SIM" à questão anterior, escreva o nome do professor que será responsável por sua monitoria.</h4>
+            <div class="col-md-4">
+              <input id="nome_professor" name="nome_professor" type="text" class="form-control input-md" required="required">
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="scheduler-border">
         <legend class="scheduler-border">Histórico</legend>
         <div class="form-horizontal">
           <div class="row">
