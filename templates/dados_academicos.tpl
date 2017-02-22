@@ -18,27 +18,27 @@
         <div class="form-horizontal">
           <div class="row">
             <div class="checkbox">
-              <label><input type="checkbox" name="checkbox_foi_monitor" id="checkbox_foi_monitor" value="">Sim, de Cálculo 1 ou Matemática 1</label>
+              <label><input type="checkbox" name="checkbox_foi_monitor[]" id="checkbox_foi_monitor" value="calculo1_matematica1">Sim, de Cálculo 1 ou Matemática 1</label>
             </div>
           </div>
           <div class="row">
             <div class="checkbox">
-              <label><input type="checkbox" name="checkbox_foi_monitor" id="checkbox_foi_monitor" value="">Sim, de Cálculo 2 ou Matemática 2</label>
+              <label><input type="checkbox" name="checkbox_foi_monitor[]" id="checkbox_foi_monitor" value="calculo2_matematica_2">Sim, de Cálculo 2 ou Matemática 2</label>
             </div>
           </div>
           <div class="row">
             <div class="checkbox">
-              <label><input type="checkbox" name="checkbox_foi_monitor" id="checkbox_foi_monitor" value="">Sim, de Cálculo 3</label>
+              <label><input type="checkbox" name="checkbox_foi_monitor[]" id="checkbox_foi_monitor" value="calculo3">Sim, de Cálculo 3</label>
             </div>
           </div>
           <div class="row">
             <div class="checkbox">
-              <label><input type="checkbox" name="checkbox_foi_monitor" id="checkbox_foi_monitor" value="">Sim, de Introdução à Álgebra Linear ou Álgebra Linear</label>
+              <label><input type="checkbox" name="checkbox_foi_monitor[]" id="checkbox_foi_monitor" value="outras">Sim, de Introdução à Álgebra Linear ou Álgebra Linear</label>
             </div>
           </div>
           <div class="row">
             <div class="checkbox">
-              <label><input type="checkbox" name="checkbox_foi_monitor" id="checkbox_foi_monitor" value="">Sim, de outras disciplinas</label>
+              <label><input type="checkbox" name="checkbox_foi_monitor[]" id="checkbox_foi_monitor" value="nao">Sim, de outras disciplinas</label>
             </div>
           </div>
           <div class="row">
