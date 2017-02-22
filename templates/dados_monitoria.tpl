@@ -6,7 +6,7 @@
         <div class="form-inline">
           <div class="row">
             <!-- BEGIN numero_escolhas -->
-            <div class="input-group col-xs-3">
+            <div class="col-xs-6">
               <label for="email">Disciplina:</label>
               <!-- BEGIN escolha_aluno -->
               <select id="id_disciplina" name="{escolha_aluno}" class="form-control">
@@ -19,7 +19,7 @@
               <!-- END escolha_aluno -->
             </div>
 
-            <div class="input-group col-xs-3">
+            <div class="col-xs-6">
               <!-- BEGIN mencao_aluno -->
               <label for="email">Menção:</label>
               <select id="id_mencao" name="{mencao_aluno}" class="form-control">
@@ -32,31 +32,6 @@
                 <option value="SS">SS</option>
               </select>
               <!-- END mencao_aluno -->
-            </div>
-
-            <div class="input-group col-xs-3">
-              <label for="email">Ano:</label>
-              <!-- BEGIN ano_cursado -->
-              <select id="id_ano" name="{ano_cursado}" class="form-control">
-                <option selected="selected" value="ano_vazio">Ano</option>
-                <!-- BEGIN anos_possiveis -->
-                <!-- BEGIN ano_cursou_disciplina -->
-                {ano_cursou_disciplina}
-                <!-- END ano_cursou_disciplina -->
-                <!-- END anos_possiveis -->
-              </select>
-              <!-- END ano_cursado -->
-            </div>
-
-            <div class="input-group col-xs-3">
-              <label for="email">Semestre:</label>
-              <!-- BEGIN semestre_cursado -->
-              <select id="id_semestre" name="{semestre_cursado}" class="form-control">
-                <option selected="selected" value="semestre_vazio">Semestre</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-              </select>
-              <!-- END semestre_cursado -->
             </div>
             <!-- END numero_escolhas -->        
           </div>
