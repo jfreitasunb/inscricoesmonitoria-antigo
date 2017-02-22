@@ -25,12 +25,9 @@
               <label for="email">Menção:</label>
               <select id="id_mencao" name="{mencao_aluno}" class="form-control">
                 <option selected="selected" value="mencao_vazia">Menção</option>
-                <option value="SR">SR</option>
-                <option value="II">II</option>
-                <option value="MI">MI</option>
-                <option value="MM">MM</option>
-                <option value="MS">MS</option>
                 <option value="SS">SS</option>
+                <option value="MS">MS</option>
+                <option value="MM">MM</option>
               </select>
               <!-- END mencao_aluno -->
             </div>
