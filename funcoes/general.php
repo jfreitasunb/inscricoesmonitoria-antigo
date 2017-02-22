@@ -126,8 +126,9 @@ function carrega_menu_aluno(){
     $tpl->loadTemplatefile("menu_aluno.tpl");
 
     $menu_aluno['dados_pessoais'] = 'aluno_dados_pessoais.php';
+    $menu_aluno['dados_bancarios'] = 'aluno_dados_bancarios.php';
     $menu_aluno['escolher_monitoria'] = 'aluno_escolher_monitoria.php';
-    $menu_aluno['dados_bancarios'] = 'aluno_dados_bancarios';
+    $menu_aluno['dados_bancarios'] = 'aluno_dados_academicos.php';
 
     foreach ($menu_aluno as $key => $value) {
         $tpl->setVariable($key, $value);
