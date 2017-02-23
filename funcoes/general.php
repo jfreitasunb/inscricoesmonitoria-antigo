@@ -336,12 +336,16 @@ function protect_page(){
 }
 function carrega_area_aluno(){
     
-    echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=aluno.php'>";
+    $http = new HTTP2();
+    $http->redirect("aluno.php");
+    // echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=aluno.php'>";
 }
 
 function carrega_area_coordenador(){
     
-    echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=coordenador.php'>";
+    $http = new HTTP2();
+    $http->redirect("coordenador.php");
+    // echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=coordenador.php'>";
 }
 
 function mostra_erros($errors){
