@@ -46,7 +46,11 @@ if (!empty($_POST)) {
                 $tpl->setVariable('mensagem_sucesso', $mensagem_sucesso);
                 $tpl_main -> parse('exibe_mensagens');
                 $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
-                echo "<meta HTTP-EQUIV='Refresh' CONTENT='5;URL=aluno_escolher_monitoria.php'>";
+                $http = new HTTP2();
+                $http->redirect("aluno_escolher_monitoria.php");
+                $http = new HTTP2();
+                $http->redirect("aluno_escolher_monitoria.php");
+                // echo "<meta HTTP-EQUIV='Refresh' CONTENT='5;URL=aluno_escolher_monitoria.php'>";
             }else{
                 $errors[] = "Houve um problema durante a atualização dos seus dados. Tente novamente mais tarde.";
                 $tpl = carrega_mensagem_erro();

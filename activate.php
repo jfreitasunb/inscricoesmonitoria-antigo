@@ -34,5 +34,7 @@ if (isset($_GET['email'], $_GET['email_code'])) {
     exit();
 }
 $tpl_main->show();
-echo "<meta HTTP-EQUIV='Refresh' CONTENT='5;URL=index.php'>";
+$http = new HTTP2();
+$http->redirect("index.php");
+// echo "<meta HTTP-EQUIV='Refresh' CONTENT='5;URL=index.php'>";
 ?>
