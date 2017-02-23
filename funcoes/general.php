@@ -1,4 +1,6 @@
-<?php    
+<?php
+require_once 'HTTP2.php';
+
 function seleciona_disciplinas_para_monitoria(){
 
     GLOBAL $PDO;
@@ -325,7 +327,10 @@ function sanitiza_dados_bancarios($dados_bancarios){
 function protect_page(){
 
     if (logged_in() === false) {
-        echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=index.php'>";
+
+        $http = new HTTP2();
+        $http->redirect("index.php");
+        // echo "<meta HTTP-EQUIV='Refresh' CONTENT='0;URL=index.php'>";
         exit();
     }
 }

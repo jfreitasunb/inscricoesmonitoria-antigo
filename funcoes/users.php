@@ -265,6 +265,8 @@ function logged_in(){
         }else{
             return false;
         }
+    }else{
+        return false;
     }
 
 }
