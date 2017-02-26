@@ -2,6 +2,8 @@
 require_once "config/init.php";
 protect_page();
 
+var_dump($_POST);
+
 $tpl_main = new HTML_Template_Sigma($PATH_TEMPLATES);
 
 $tpl_main->loadTemplatefile("cabecalho_rodape.tpl");
@@ -28,31 +30,31 @@ if (autoriza_inscricao()) {
             }else{
                 $id_user = $_SESSION['id_user'];
                 $id_monitoria = $_SESSION['id_monitoria'];
-                $resultado = grava_escolhas_monitoria($id_user, $id_monitoria,$disciplinas_escolhidas);
+                // $resultado = grava_escolhas_monitoria($id_user, $id_monitoria,$disciplinas_escolhidas);
 
-                if ($resultado) {
-                        $tpl = carrega_mensagem_sucesso();
-                        $mensagem_sucesso = "Seus escolhas para monitoria foram gravadas em nosso sitemas.";
-                        $tpl->setVariable('mensagem_sucesso', $mensagem_sucesso);
-                        $tpl_main -> parse('exibe_mensagens');
-                        $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
-                        $errors = upload_historico($id_user);
+                // if ($resultado) {
+                //         $tpl = carrega_mensagem_sucesso();
+                //         $mensagem_sucesso = "Seus escolhas para monitoria foram gravadas em nosso sitemas.";
+                //         $tpl->setVariable('mensagem_sucesso', $mensagem_sucesso);
+                //         $tpl_main -> parse('exibe_mensagens');
+                //         $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
+                //         $errors = upload_historico($id_user);
 
-                        if (!empty($errors)) {
-                            $tpl = carrega_mensagem_erro();
-                            $tpl->setVariable('mensagem_erros', mostra_erros($errors));
-                            $tpl_main -> parse('exibe_mensagens');
-                            $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
-                        }else{
-                            $errors = finaliza_escolhas($id_user,$id_monitoria,$disciplinas_escolhidas);
-                        }
-                    }else{
-                        $errors[] = "Houve um problema durante a atualização dos seus dados. Tente novamente mais tarde.";
-                        $tpl = carrega_mensagem_erro();
-                        $tpl->setVariable('mensagem_erros', mostra_erros($errors));
-                        $tpl_main -> parse('exibe_mensagens');
-                        $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
-                    }
+                //         if (!empty($errors)) {
+                //             $tpl = carrega_mensagem_erro();
+                //             $tpl->setVariable('mensagem_erros', mostra_erros($errors));
+                //             $tpl_main -> parse('exibe_mensagens');
+                //             $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
+                //         }else{
+                //             $errors = finaliza_escolhas($id_user,$id_monitoria,$disciplinas_escolhidas);
+                //         }
+                //     }else{
+                //         $errors[] = "Houve um problema durante a atualização dos seus dados. Tente novamente mais tarde.";
+                //         $tpl = carrega_mensagem_erro();
+                //         $tpl->setVariable('mensagem_erros', mostra_erros($errors));
+                //         $tpl_main -> parse('exibe_mensagens');
+                //         $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
+                //     }
             }
         }
     }else{

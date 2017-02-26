@@ -549,8 +549,8 @@ function valida_escolhas_aluno($disciplinas_escolhidas){
         $errors[] = "Você deve escolher pelo menos um horário para a monitoria.";
     }
 
-    if (empty($disciplinas_escolhidas['concordatermos'])) {
-        $errors[] = "Você deve concordar com os termos da monitoria.";
+    if (empty($disciplinas_escolhidas['convidado'])) {
+        $errors[] = "Você deve informar se participa de algum projeto de monitoria.";
     }
 
     return $errors;
