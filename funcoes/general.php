@@ -553,6 +553,11 @@ function valida_escolhas_aluno($disciplinas_escolhidas){
         $errors[] = "Você deve informar se participa de algum projeto de monitoria.";
     }
 
+    if (empty($disciplinas_escolhidas['tipo_monitoria'])) {
+        $errors[] = "Você deve informar o tipo de monitoria.";
+    }
+
+
     return $errors;
 }
 
