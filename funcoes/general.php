@@ -269,14 +269,19 @@ function carrega_template_dados_bancarios(){
 function carrega_template_dados_academicos(){
     
     GLOBAL $PATH_TEMPLATES;
+
+    $ano_semestre_ira = ira_ano_semestre();
     
     $tpl = new HTML_Template_Sigma($PATH_TEMPLATES);
 
     $tabela = 'dados_academicos';
 
+
+
     // $dados_bancarios_usuario=user_data($_SESSION['id_user'],$tabela,'nomebanco','numerobanco','agenciabancaria','numerocontacorrente');
 
     $tpl->loadTemplatefile("dados_academicos.tpl");
+    $tpl->setVariable('ano_semestre_ira',$ano_semestre_ira);
 
     // foreach ($dados_bancarios_usuario as $key => $value) {
     //     $tpl->setVariable($key,'value="'.$value.'"');    
