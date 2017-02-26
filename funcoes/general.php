@@ -561,7 +561,7 @@ function valida_escolhas_aluno($disciplinas_escolhidas){
         $errors[] = "Como você já participa de um projeto de monitoria, você somente pode se candidatar para a monitoria voluntária.";
     }
 
-    if ($disciplinas_escolhidas['convidado']==='sim' AND empty($disciplinas_escolhidas['tipo_monitoria'])) {
+    if ($disciplinas_escolhidas['convidado']==='sim' AND empty($disciplinas_escolhidas['nome_professor'])) {
         $errors[] = "Por favor informe o nome do professor.";
     }
 
