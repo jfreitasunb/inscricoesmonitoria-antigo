@@ -1,6 +1,22 @@
 <?php
 require_once 'HTTP2.php';
 
+function ira_ano_semestre(){
+    
+    $date = new DateTime;
+    $mes = $date->format('m');
+    $ano = $date->format('y');
+    
+    if ($mes < 7) {
+    $ano_semestre_ira = "02/".($ano-1);
+    }else{
+        $ano_semestre_ira = "01/".$ano;
+    }
+
+    return $ano_semestre_ira;
+
+}
+
 function seleciona_disciplinas_para_monitoria(){
 
     GLOBAL $PDO;
