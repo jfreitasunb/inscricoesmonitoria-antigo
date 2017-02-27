@@ -100,20 +100,38 @@
           <legend class="scheduler-border">Explicite seus dias e horários possíveis para a monitoria:</legend>
           <div class="form-horizontal">
             <div class="row">
-               <!-- BEGIN horarios_disponiveis -->
-              <div class="checkbox">
-                <label for="checkbox_hora_monitoria">
-                <!-- BEGIN nome_hora_monitoria -->
-                <!-- BEGIN id_hora -->
-                <!-- BEGIN horario_monitoria -->
-                  <input type="checkbox" name="{nome_hora_monitoria}" id="checkbox_hora_monitoria" value="{id_hora}">
-                  {horario_monitoria}
-                <!-- END nome_hora_monitoria -->
-                <!-- END id_hora -->
-                <!-- END horario_monitoria -->
-                </label>
-              </div>
-              <!-- END horarios_disponiveis -->
+            <!-- BEGIN horarios_disponiveis -->
+              <table class="table table-striped">                     
+                <div class="table responsive">
+                  <thead>
+                    <tr>
+                    <th></th>
+                    <!-- BEGIN cabecalho_hora -->
+                      <th>{cabecalho_hora}</th>
+                    <!-- END cabecalho_hora -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- BEGIN dia_semana -->
+                    <tr>
+                      <td>{dia_semana}</td>
+                      <td scope="row">
+                      <!-- BEGIN hora_semana -->
+                        <input type="radio" name="{nome_hora_monitoria}" id="radio_hora_monitoria" value="{id_hora_1}">
+                      </td>
+                      <td>
+                        <input type="radio" name="{nome_hora_monitoria}" id="radio_hora_monitoria" value="{id_hora_2}">
+                      </td>
+                      <td>
+                        <input type="radio" name="{nome_hora_monitoria}" id="checkbox_hora_monitoria" value="{id_hora_3}">
+                      </td>
+                      <!-- END hora_semana -->
+                    </tr>
+                    <!-- END dia_semana -->
+                  </tbody>
+                </div>
+              </table>
+            <!-- END horarios_disponiveis -->
             </div>
           </div>
         </fieldset>

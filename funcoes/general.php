@@ -422,8 +422,40 @@ function pega_horario_monitoria(){
     
     GLOBAL $PDO;
 
-    $query_retorna_horarios_monitoria = "SELECT id_horario,horario_monitoria FROM horario_monitoria";
+    $query_retorna_horarios_monitoria = "SELECT id_horario,horario_monitoria,dia_semana FROM disponibilidade_horario_monitoria";
     $stmt = $PDO->prepare( $query_retorna_horarios_monitoria );
+    // $stmt->bindParam( ':id_aluno', $id_aluno );
+    // $stmt->bindParam( ':id_agenda', $id_agenda );
+    $result = $stmt->execute();
+    $rows = [];
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $rows;
+}
+
+// function pega_dias_semana(){
+    
+//     GLOBAL $PDO;
+
+//     $query_retorna_dias_semana = "SELECT DISTINCT horario_monitoria, dia_semana FROM disponibilidade_horario_monitoria ORDER BY horario_monitoria";
+//     $stmt = $PDO->prepare( $query_retorna_dias_semana );
+    
+//     $result = $stmt->execute();
+//     $rows = [];
+//     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+//     print_r($rows);
+
+//     return $rows;
+// }
+
+function pega_horas_semana(){
+    
+    GLOBAL $PDO;
+
+    $query_retorna_dias_semana = "SELECT horario_monitoria FROM disponibilidade_horario_monitoria GROUP BY horario_monitoria";
+    $stmt = $PDO->prepare( $query_retorna_dias_semana );
+    
     $result = $stmt->execute();
     $rows = [];
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -474,16 +506,38 @@ function preenche_template_monitoria(){
 
     }    
     
+    $array_horarios_disponiveis = array('12:00 às 13:00','13:00 às 14:00','18:00 às 19:00');
+
+    for ($i=0; $i < sizeof($array_horarios_disponiveis); $i++) { 
+        $tpl -> setCurrentBlock("cabecalho_hora");
+        $tpl->setVariable('cabecalho_hora', $array_horarios_disponiveis[$i]);
+        $tpl -> parseCurrentBlock("cabecalho_hora");
+    }
+
+    $array_dias_semana = array('Segunda-Feira','Terça-Feira','Quarta-Feira','Quinta-Feira','Sexta-Feira');
+
+
+    for ($i=0; $i < sizeof($array_dias_semana); $i++) {
+        $tpl -> setCurrentBlock("dia_semana");
+        $tpl->setVariable(array('dia_semana' => $array_dias_semana[$i],'nome_hora_monitoria' =>'nome_hora_monitoria_'.$i,'id_hora_1' => $array_dias_semana[$i].'_'.$array_horarios_disponiveis[0], 'id_hora_2' =>$array_dias_semana[$i].'_'.$array_horarios_disponiveis[1], 'id_hora_3' =>$array_dias_semana[$i].'_'.$array_horarios_disponiveis[2]));
+        $tpl -> parseCurrentBlock("dia_semana");
+        
+    }
+
     $monitoria_horarios = pega_horario_monitoria();
 
-    $i=0;
-    foreach ($monitoria_horarios as $key) {
-        $tpl -> setCurrentBlock("horarios_disponiveis");
-        $tpl->setVariable(array('nome_hora_monitoria' => 'nome_hora_monitoria_'.$i,
-            'id_hora' => $key['id_horario'], 'horario_monitoria' => $key['horario_monitoria']));
-        $tpl -> parseCurrentBlock("horarios_disponiveis");
-        $i++;
-    }
+    // $i=0;
+    // foreach ($monitoria_horarios as $key) {
+        // $tpl -> setCurrentBlock("dia_semana");
+        // $tpl->setVariable(array('nome_hora_monitoria_1' => 'nome_hora_monitoria_'.$i,
+        //     'id_hora_1' => $key['id_horario']));
+        // $tpl->setVariable(array('nome_hora_monitoria_2' => 'nome_hora_monitoria_'.($i+1),
+        //     'id_hora_2' => $key['id_horario']));
+        // $tpl->setVariable(array('nome_hora_monitoria_3' => 'nome_hora_monitoria_'.($i+2),
+        //     'id_hora_3' => $key['id_horario']));
+        // $tpl -> parseCurrentBlock("dia_semana");
+    //     $i+3;
+    // }
 
     return $tpl;
 }

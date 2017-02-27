@@ -2,8 +2,11 @@
 require_once "config/init.php";
 include_once "funcoes/general.php";
 // $teste = pega_horario_monitoria();
-// print_r($teste);
-pega_dias_semana();
+print_r($teste);
+$horas_monitoria = pega_horas_semana();
+
+$array_dias_semana = array('Segunda-Feira','Terça-Feira','Quarta-Feira','Quinta-Feira','Sexta-Feira');
+
 ?>
 
 <!DOCTYPE html>
@@ -24,19 +27,19 @@ pega_dias_semana();
         <tr>
         <th></th>
         <?php 
-        for ($i=0; $i < 3; $i++) { 
-        echo "<th>".$i."</th>";
+        for ($i=0; $i < sizeof($horas_monitoria); $i++) { 
+        echo "<th>".$horas_monitoria[$i]['horario_monitoria']."</th>";
         }
         ?>   
         </tr>
       </thead>
       <tbody>
         <?php 
-        for ($j=0; $j < 6; $j++) { 
+        for ($j=0; $j < 1; $j++) { 
         echo '<tr>
-        <td></td><td scope="row">' . $j. '</td>
-        <td>' . ($j+1) .'</td>
-        <td> '.($j+2) .'</td>
+        <td>'.$array_dias_semana[$j].'</td><td scope="row"><input type="radio" name="{nome_hora_monitoria}" id="radio_hora_monitoria" value="{id_hora}"></td>
+        <td><input type="radio" name="{nome_hora_monitoria}" id="radio_hora_monitoria" value="{id_hora}"></td>
+        <td> <input type="radio" name="{nome_hora_monitoria}" id="radio_hora_monitoria" value="{id_hora}"></td>
         </tr>';
         }  
         ?>
