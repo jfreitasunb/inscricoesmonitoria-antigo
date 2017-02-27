@@ -38,6 +38,7 @@ if (!empty($_POST)) {
 
             $dados_pessoais_sanitizados = sanitiza_dados_pessoais($dados_pessoais);
 
+            $tabela = "dados_pessoais";
             $resultado = grava_dados_pessoais_usuario($_SESSION['id_user'],$dados_pessoais_sanitizados,$tabela);
 
             if ($resultado) {
