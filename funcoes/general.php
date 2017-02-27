@@ -422,10 +422,8 @@ function pega_horario_monitoria(){
     
     GLOBAL $PDO;
 
-    $query_retorna_horarios_monitoria = "SELECT id_horario,horario_monitoria,dia_semana FROM horario_monitoria";
+    $query_retorna_horarios_monitoria = "SELECT id_horario,horario_monitoria FROM horario_monitoria";
     $stmt = $PDO->prepare( $query_retorna_horarios_monitoria );
-    // $stmt->bindParam( ':id_aluno', $id_aluno );
-    // $stmt->bindParam( ':id_agenda', $id_agenda );
     $result = $stmt->execute();
     $rows = [];
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);

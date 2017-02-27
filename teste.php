@@ -1,8 +1,9 @@
 <?php
 require_once "config/init.php";
 include_once "funcoes/general.php";
-$teste = pega_horario_monitoria();
-print_r($teste);
+// $teste = pega_horario_monitoria();
+// print_r($teste);
+pega_dias_semana();
 ?>
 
 <!DOCTYPE html>
