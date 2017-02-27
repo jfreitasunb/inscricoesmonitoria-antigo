@@ -6,7 +6,7 @@ function inscricao_finalizada(){
     $id_user        = $_SESSION['id_user'];
     $id_monitoria   = $_SESSION['id_monitoria'];
 
-    $query_verifica_finalizacao = "SELECT finaliza_escolhas FROm finaliza_escolhas WHERE id_user=:id_user AND id_monitoria=:id_monitoria";
+    $query_verifica_finalizacao = "SELECT finaliza_escolhas FROM finaliza_escolhas WHERE id_user=:id_user AND id_monitoria=:id_monitoria";
 
     $stmt = $PDO->prepare($query_verifica_finalizacao);
 
@@ -160,7 +160,7 @@ function grava_dados_pessoais_usuario($id_user,$dados_pessoais, $tabela){
 
     $campos = implode(', ', array_keys($dados_pessoais));
 
-    $query_update_dados_usuario = "UPDATE $tabela SET  $campos_update  WHERE id_user=:id_user ";
+    $query_update_dados_usuario = "UPDATE $tabela SET  $campos_update  WHERE id_user=:id_user";
     
     $stmt = $PDO->prepare( $query_update_dados_usuario );
 
