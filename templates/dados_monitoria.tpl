@@ -97,7 +97,7 @@
         </fieldset>
     
         <fieldset class="scheduler-border">
-          <legend class="scheduler-border">Horários possíveis</legend>
+          <legend class="scheduler-border">Explicite seus dias e horários possíveis para a monitoria:</legend>
           <div class="form-horizontal">
             <div class="row">
                <!-- BEGIN horarios_disponiveis -->
