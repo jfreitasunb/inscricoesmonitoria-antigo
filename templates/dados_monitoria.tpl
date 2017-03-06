@@ -107,7 +107,7 @@
                     <tr>
                     <th></th>
                     <!-- BEGIN cabecalho_hora -->
-                      <th>{cabecalho_hora}</th>
+                      <th class="text-center">{cabecalho_hora}</th>
                     <!-- END cabecalho_hora -->
                     </tr>
                   </thead>
@@ -115,17 +115,15 @@
                     <!-- BEGIN dia_semana -->
                     <tr>
                       <td>{dia_semana}</td>
-                      <td scope="row">
-                      <!-- BEGIN hora_semana -->
+                      <td scope="row" class="text-center">
                         <input type="radio" name="{nome_hora_monitoria}" id="radio_hora_monitoria" value="{id_hora_1}">
                       </td>
-                      <td>
+                      <td class="text-center">
                         <input type="radio" name="{nome_hora_monitoria}" id="radio_hora_monitoria" value="{id_hora_2}">
                       </td>
-                      <td>
+                      <td class="text-center">
                         <input type="radio" name="{nome_hora_monitoria}" id="checkbox_hora_monitoria" value="{id_hora_3}">
                       </td>
-                      <!-- END hora_semana -->
                     </tr>
                     <!-- END dia_semana -->
                   </tbody>
