@@ -4,11 +4,18 @@ require_once "config/init.php";
 $tpl_main = new HTML_Template_Sigma($PATH_TEMPLATES);
 
 $dados_monitoria = retorna_monitoria_ativa();
-$data_inicio = DateTime::createFromFormat('Y-m-d', $dados_monitoria['inicio_inscricao']);
-$data_fim = DateTime::createFromFormat('Y-m-d', $dados_monitoria['fim_inscricao']);
 
-$tpl_main->loadTemplatefile("cabecalho_rodape.tpl");
-$tpl_main->setVariable('periodo_inscricao',$data_inicio->format('d/m/Y')." à ".$data_fim->format('d/m/Y'));
+if (!empty($dados_monitoria)) {
+    $data_inicio = DateTime::createFromFormat('Y-m-d', $dados_monitoria['inicio_inscricao']);
+    $data_fim = DateTime::createFromFormat('Y-m-d', $dados_monitoria['fim_inscricao']);
+
+    $tpl_main->loadTemplatefile("cabecalho_rodape.tpl");
+    $tpl_main->setVariable('periodo_inscricao',$data_inicio->format('d/m/Y')." à ".$data_fim->format('d/m/Y'));    
+}else{
+    $tpl_main->loadTemplatefile("cabecalho_rodape.tpl");
+$tpl_main->setVariable('periodo_inscricao','O período de inscrição já se encerrou ou ainda não está aberto');
+}
+
 $formulario_ativo = "class=\"active\"";
 $tipo_estilo_none = "style=\"display: none;\"";
 $tipo_estilo_block = "style=\"display: block;\"";

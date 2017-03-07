@@ -52,15 +52,19 @@ LIMIT 1";
 function autoriza_inscricao(){
 
     $dados_monitoria = retorna_monitoria_ativa();
-    $inicio = DateTime::createFromFormat('Y-m-d', $dados_monitoria['inicio_inscricao']);
-    $fim = DateTime::createFromFormat('Y-m-d', $dados_monitoria['fim_inscricao']);
-    $data_inicio = $inicio->format('Y-m-d');
-    $data_fim = $fim->format('Y-m-d');
+    if (!empty($dados_monitoria)) {
+        $inicio = DateTime::createFromFormat('Y-m-d', $dados_monitoria['inicio_inscricao']);
+        $fim = DateTime::createFromFormat('Y-m-d', $dados_monitoria['fim_inscricao']);
+        $data_inicio = $inicio->format('Y-m-d');
+        $data_fim = $fim->format('Y-m-d');
 
-    $data_hoje = (new DateTime())->format('Y-m-d');
+        $data_hoje = (new DateTime())->format('Y-m-d');
 
-    if ($data_hoje >= $data_inicio && $data_hoje <= $data_fim) {
-        return true;
+        if ($data_hoje >= $data_inicio && $data_hoje <= $data_fim) {
+            return true;
+        }else{
+            return false;
+        }   
     }else{
         return false;
     }
