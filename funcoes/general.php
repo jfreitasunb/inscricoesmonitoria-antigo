@@ -528,7 +528,7 @@ function preenche_template_monitoria(){
         
     }
 
-    $monitoria_horarios = pega_horario_monitoria();
+    // $monitoria_horarios = pega_horario_monitoria();
 
     // $i=0;
     // foreach ($monitoria_horarios as $key) {
