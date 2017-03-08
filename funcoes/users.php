@@ -663,22 +663,28 @@ function finaliza_escolhas($id_user, $id_monitoria,$disciplinas_escolhidas){
     GLOBAL $PDO;
     GLOBAL $errors;
 
-    $escolheu_hora = horarios_escolhidos_candidato($disciplinas_escolhidas);
-    $hora_escolhida ="";
-    foreach ($escolheu_hora as $key) {
-        $hora_escolhida .= $disciplinas_escolhidas[$key];
-    }
+    // $escolheu_hora = horarios_escolhidos_candidato($disciplinas_escolhidas);
+    // $hora_escolhida ="";
+    // foreach ($escolheu_hora as $key) {
+    //     $hora_escolhida .= $disciplinas_escolhidas[$key];
+    // }
  
     $finaliza_escolhas = TRUE;
  
-    $campos_update = 'id_user=:id_user, tipo_monitoria=:tipo_monitoria, hora_escolhida=:hora_escolhida, concordatermos=:concordatermos, id_monitoria=:id_monitoria, finaliza_escolhas=:finaliza_escolhas';
+    $campos_update = 'id_user=:id_user, tipo_monitoria=:tipo_monitoria, monitor_projeto=:monitor_projeto, nome_professor=:nome_professor,concordatermos=:concordatermos, id_monitoria=:id_monitoria, finaliza_escolhas=:finaliza_escolhas';
  
     $query_insere_escolha_finais = "UPDATE finaliza_escolhas SET $campos_update WHERE id_user=:id_user";
      
     $stmt = $PDO->prepare( $query_insere_escolha_finais );
     $stmt -> bindParam(':id_user', $id_user);
     $stmt -> bindParam(':tipo_monitoria', $disciplinas_escolhidas['tipo_monitoria']);
-    $stmt -> bindParam(':hora_escolhida', $hora_escolhida);
+    $stmt -> bindParam(':monitor_projeto', $disciplinas_escolhidas['monitor_projeto']);
+
+    if (!empty($disciplinas_escolhidas['nome_professor'])) {
+        
+    }
+
+    $stmt -> bindParam(':nome_professor', $disciplinas_escolhidas['nome_professor']);
     $stmt -> bindParam(':concordatermos', $disciplinas_escolhidas['concordatermos']);
     $stmt -> bindParam(':id_monitoria', $id_monitoria);
     $stmt -> bindParam(':finaliza_escolhas', $finaliza_escolhas);
