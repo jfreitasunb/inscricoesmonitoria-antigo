@@ -605,6 +605,8 @@ function grava_escolhas_monitoria($id_user, $id_monitoria,$disciplinas_escolhida
 
     $escolheu_hora = horarios_escolhidos_candidato($disciplinas_escolhidas);
 
+    // print_r($disciplinas_escolhidas);
+
     $query_insere_escolha_aluno = "INSERT INTO escolhas_candidatos ($campos) VALUES($bind_valores)";
     
     $stmt = $PDO->prepare( $query_insere_escolha_aluno );
@@ -626,6 +628,31 @@ function grava_escolhas_monitoria($id_user, $id_monitoria,$disciplinas_escolhida
                 $errors[] = "Erro durante a gravação da escolha.".($i+1);
             }
         }
+    }
+
+    $campos_horas = 'id_user, horario_monitoria, dia_semana, id_monitoria';
+
+    $bind_valores_horas = ':id_user, :horario_monitoria, :dia_semana, :id_monitoria';
+
+    $query_insere_escolha_horas = "INSERT INTO horario_escolhido_monitoria ($campos_horas) VALUES($bind_valores_horas)";
+    
+    $stmt_horas = $PDO->prepare( $query_insere_escolha_horas );
+
+    $stmt_horas -> bindParam(':id_user', $id_user);
+    $stmt_horas -> bindParam(':id_monitoria', $id_monitoria);
+
+    for ($j=0; $j < 4; $j++) { 
+        $hora_escolhida = explode('_', $disciplinas_escolhidas['nome_hora_monitoria_'.$j]);
+
+        $stmt_horas -> bindParam(':horario_monitoria', sanitize($hora_escolhida[0]));
+        $stmt_horas -> bindParam(':dia_semana', sanitize($hora_escolhida[1]));
+        
+        $result = $stmt_horas->execute();
+
+            if (!$result) {
+                $errors[] = "Erro durante a gravação da escolha do horário.";
+            }
+
     }
 
     return $errors;

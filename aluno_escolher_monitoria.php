@@ -2,7 +2,7 @@
 require_once "config/init.php";
 protect_page();
 
-// var_dump($_POST);
+ // var_dump($_POST);
 
 $tpl_main = new HTML_Template_Sigma($PATH_TEMPLATES);
 
