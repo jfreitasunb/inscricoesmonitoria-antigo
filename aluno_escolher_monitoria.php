@@ -30,7 +30,7 @@ if (autoriza_inscricao()) {
             }else{
                 $id_user = $_SESSION['id_user'];
                 $id_monitoria = $_SESSION['id_monitoria'];
-                // $resultado = grava_escolhas_monitoria($id_user, $id_monitoria,$disciplinas_escolhidas);
+                $resultado = grava_escolhas_monitoria($id_user, $id_monitoria,$disciplinas_escolhidas);
 
                 // if ($resultado) {
                 //         $tpl = carrega_mensagem_sucesso();

@@ -42,6 +42,8 @@ function grava_dados_basicos_usuario($id_user,$nome){
 
     GLOBAL $PDO;
 
+    $id_user = (int)$id_user;
+
     $query_insere_nome_usuario = "INSERT INTO dados_pessoais (id_user,nome) VALUES(:id_user,:nome)";
 
     $stmt = $PDO->prepare( $query_insere_nome_usuario );
@@ -590,6 +592,7 @@ function grava_escolhas_monitoria($id_user, $id_monitoria,$disciplinas_escolhida
     
     GLOBAL $PDO;
     GLOBAL $numero_escolhas_possiveis;
+    GLOBAL $errors;
 
     $campos = 'id_user, escolha_aluno, mencao_aluno, id_monitoria';
 
@@ -602,28 +605,30 @@ function grava_escolhas_monitoria($id_user, $id_monitoria,$disciplinas_escolhida
 
     $escolheu_hora = horarios_escolhidos_candidato($disciplinas_escolhidas);
 
+    $query_insere_escolha_aluno = "INSERT INTO escolhas_candidatos ($campos) VALUES($bind_valores)";
+    
+    $stmt = $PDO->prepare( $query_insere_escolha_aluno );
 
-    for ($i=0; $i < $numero_escolhas_possiveis; $i++) { 
+    $stmt -> bindParam(':id_user', $id_user);
+    $stmt -> bindParam(':id_monitoria', $id_monitoria);
+
+    for ($i=0; $i < $numero_escolhas_possiveis; $i++) {
         if ($disciplinas_escolhidas['escolha_aluno_'.$i] !== 'disciplina_vazia') {
             
-            $query_insere_escolha_aluno = "INSERT INTO escolhas_candidatos ($campos) VALUES($bind_valores)";
-            
-            $stmt = $PDO->prepare( $query_insere_escolha_aluno );
-            $stmt -> bindParam(':id_user', $id_user);
             $stmt -> bindParam(':escolha_aluno', $disciplinas_escolhidas['escolha_aluno_'.$i]);
             $stmt -> bindParam(':mencao_aluno', $disciplinas_escolhidas['mencao_aluno_'.$i]);
             // $stmt -> bindParam(':ano_cursado', $disciplinas_escolhidas['ano_cursado_'.$i]);
             // $stmt -> bindParam(':semestre_cursado', $disciplinas_escolhidas['semestre_cursado_'.$i]);
-            // $stmt -> bindParam(':id_monitoria', $id_monitoria);
+            
             $result = $stmt->execute();
 
-            if ($result) {
-                return true;
-            }else{
-                return false;
+            if (!$result) {
+                $errors[] = "Erro durante a gravação da escolha.".$i;
             }
         }
     }
+
+    return $errors;
 }
 
 function finaliza_escolhas($id_user, $id_monitoria,$disciplinas_escolhidas){
