@@ -65,7 +65,6 @@ if (!empty($_POST)) {
                         grava_dados_basicos_usuario($id_user,$nome);    
                     }
                     
-
                     if (empty($errors)) {
                         $validation_code = $dados_usuario_novo['validation_code'];
                         $email = $dados_usuario_novo['email'];
@@ -78,7 +77,6 @@ if (!empty($_POST)) {
                             $tpl->setVariable('mensagem_sucesso', $mensagem_sucesso);
                             $tpl_main -> parse('exibe_mensagens');
                             $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
-
                         }
                     }
                 }
