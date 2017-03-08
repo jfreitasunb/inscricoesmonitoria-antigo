@@ -514,7 +514,7 @@ function grava_usuario_novo($dados_usuario){
         if (strpos($e, 'users_email_key') !== FALSE){
             $errors[] = "Já existe um usuário cadastrado com esse e-mail.";
         }
-        if (strpos($e, 'users_login_ke') !== FALSE){
+        if (strpos($e, 'users_login_key') !== FALSE){
             $errors[] = "Já existe um usuário cadastrado com essa matrícula.";
         }
     }
