@@ -41,16 +41,16 @@
           <div class="form-horizontal">
             <div class="row">
               <div class="radio">
-                <label for="convidado">
-                  <input type="radio" name="convidado" id="convidado" value="nao">
+                <label for="monitor_projeto">
+                  <input type="radio" name="monitor_projeto" id="monitor_projeto" value="nao">
                   Não
                 </label>
               </div>
             </div>
             <div class="row">
               <div class="radio">
-                <label for="convidado">
-                  <input type="radio" name="convidado" id="convidado" value="sim">
+                <label for="monitor_projeto">
+                  <input type="radio" name="monitor_projeto" id="monitor_projeto" value="sim">
                   Sim. Por favor, digite abaixo o nome do professor que será responsável por sua monitoria. Neste caso, apenas será possível matrícula na opção de monitoria voluntária.
                 </label>
               </div>
