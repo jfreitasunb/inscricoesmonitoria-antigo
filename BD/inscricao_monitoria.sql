@@ -286,7 +286,8 @@ ALTER TABLE public.escolhas_candidatos OWNER TO monitoria;
 CREATE TABLE finaliza_escolhas (
     id_user integer NOT NULL,
     tipo_monitoria character varying(32),
-    hora_escolhida character varying(7),
+    monitor_projeto character varying(3),
+    nome_professor character varying(255),
     concordatermos boolean,
     id_monitoria integer,
     finaliza_escolhas boolean
@@ -302,32 +303,12 @@ ALTER TABLE public.finaliza_escolhas OWNER TO monitoria;
 CREATE TABLE horario_escolhido_monitoria (
     id_user integer NOT NULL,
     horario_monitoria character varying(100) NOT NULL,
-    dia_semana character varying(50)
+    dia_semana character varying(100) NOT NULL,
+    id_monitoria integer NOT NULL
 );
 
 
 ALTER TABLE public.horario_escolhido_monitoria OWNER TO monitoria;
-
---
--- Name: horario_monitoria_id_horario_seq; Type: SEQUENCE; Schema: public; Owner: monitoria
---
-
-CREATE SEQUENCE horario_monitoria_id_horario_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE public.horario_monitoria_id_horario_seq OWNER TO monitoria;
-
---
--- Name: horario_monitoria_id_horario_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monitoria
---
-
-ALTER SEQUENCE horario_monitoria_id_horario_seq OWNED BY horario_escolhido_monitoria.id_user;
-
 
 --
 -- Name: users; Type: TABLE; Schema: public; Owner: monitoria; Tablespace: 
@@ -406,13 +387,6 @@ ALTER TABLE ONLY disciplinas_disponiveis ALTER COLUMN id SET DEFAULT nextval('di
 -- Name: id_user; Type: DEFAULT; Schema: public; Owner: monitoria
 --
 
-ALTER TABLE ONLY horario_escolhido_monitoria ALTER COLUMN id_user SET DEFAULT nextval('horario_monitoria_id_horario_seq'::regclass);
-
-
---
--- Name: id_user; Type: DEFAULT; Schema: public; Owner: monitoria
---
-
 ALTER TABLE ONLY users ALTER COLUMN id_user SET DEFAULT nextval('users_id_user_seq'::regclass);
 
 
@@ -451,7 +425,7 @@ COPY configura_monitoria (id_monitoria, ano_monitoria, semestre_monitoria, inici
 -- Name: configura_monitoria_id_monitoria_seq; Type: SEQUENCE SET; Schema: public; Owner: monitoria
 --
 
-SELECT pg_catalog.setval('configura_monitoria_id_monitoria_seq', 1, false);
+SELECT pg_catalog.setval('configura_monitoria_id_monitoria_seq', 1, true);
 
 
 --
@@ -585,7 +559,7 @@ COPY escolhas_candidatos (id_user, escolha_aluno, mencao_aluno, id_monitoria) FR
 -- Data for Name: finaliza_escolhas; Type: TABLE DATA; Schema: public; Owner: monitoria
 --
 
-COPY finaliza_escolhas (id_user, tipo_monitoria, hora_escolhida, concordatermos, id_monitoria, finaliza_escolhas) FROM stdin;
+COPY finaliza_escolhas (id_user, tipo_monitoria, monitor_projeto, nome_professor, concordatermos, id_monitoria, finaliza_escolhas) FROM stdin;
 \.
 
 
@@ -593,15 +567,8 @@ COPY finaliza_escolhas (id_user, tipo_monitoria, hora_escolhida, concordatermos,
 -- Data for Name: horario_escolhido_monitoria; Type: TABLE DATA; Schema: public; Owner: monitoria
 --
 
-COPY horario_escolhido_monitoria (id_user, horario_monitoria, dia_semana) FROM stdin;
+COPY horario_escolhido_monitoria (id_user, horario_monitoria, dia_semana, id_monitoria) FROM stdin;
 \.
-
-
---
--- Name: horario_monitoria_id_horario_seq; Type: SEQUENCE SET; Schema: public; Owner: monitoria
---
-
-SELECT pg_catalog.setval('horario_monitoria_id_horario_seq', 1, false);
 
 
 --
@@ -617,7 +584,7 @@ COPY users (id_user, login, password, email, validation_code, user_type, ativo) 
 -- Name: users_id_user_seq; Type: SEQUENCE SET; Schema: public; Owner: monitoria
 --
 
-SELECT pg_catalog.setval('users_id_user_seq', 2, true);
+SELECT pg_catalog.setval('users_id_user_seq', 6, true);
 
 
 --
@@ -658,14 +625,6 @@ ALTER TABLE ONLY dados_academicos
 
 ALTER TABLE ONLY disciplinas_disponiveis
     ADD CONSTRAINT disciplinas_disponivies_pkey PRIMARY KEY (id);
-
-
---
--- Name: horario_monitoria_pkey; Type: CONSTRAINT; Schema: public; Owner: monitoria; Tablespace: 
---
-
-ALTER TABLE ONLY horario_escolhido_monitoria
-    ADD CONSTRAINT horario_monitoria_pkey PRIMARY KEY (id_user);
 
 
 --
