@@ -459,14 +459,14 @@ SELECT pg_catalog.setval('configura_monitoria_id_monitoria_seq', 1, false);
 --
 
 COPY cursos_graduacao (id_curso_graduacao, nome_curso) FROM stdin;
-1	Matemática (Bacharelado/Licenciatura)
-2	Ciências da Computação (Bacharelado/Licenciatura)
-3	Estatística
-4	Física (Bacharelado/Licenciatura)
-5	Química (Bacharelado/Licenciatura)
-6	Geologia/Geofísica
-7	Engenharia (Mecânica/Elétrica/Civil/Redes/Mecatrônica/Química/Produção)
-8	Outros
+1   Matemática (Bacharelado/Licenciatura)
+2   Ciências da Computação (Bacharelado/Licenciatura)
+3   Estatística
+4   Física (Bacharelado/Licenciatura)
+5   Química (Bacharelado/Licenciatura)
+6   Geologia/Geofísica
+7   Engenharia (Mecânica/Elétrica/Civil/Redes/Mecatrônica/Química/Produção)
+8   Outros
 \.
 
 
@@ -528,48 +528,48 @@ SELECT pg_catalog.setval('disciplinas_disponivies_id_seq', 1, false);
 --
 
 COPY disciplinas_mat (codigo, nome, creditos, status) FROM stdin;
-113115	Teoria dos Números	4	grad
-117323	Teoria dos Números 2	4	grad
-113263	Topologia dos Espaços Métricos	4	grad
-117145	Álgebra 3	4	grad
-113123	Álgebra Linear	6	grad
-113611	Álgebra para Ensino 1 e 2	6	grad
-113212	Análise 2	4	grad
-117137	Análise 3	4	grad
-113972	Análise Combinatória	4	grad
-113859	Análise de Algorítmos	4	grad
-113506	Análise Numérica 1	4	grad
-113034	Cálculo 1	6	grad
-113042	Cálculo 2	6	grad
-113051	Cálculo 3	6	grad
-113824	Cálculo de Probabilidade 1	6	grad
-113832	Cálculo de Probabilidade 2	4	grad
-113417	Cálculo Numérico	4	grad
-113301	Equações Diferenciais 1	4	grad
-113808	Fundamentos de Matemática 1	4	grad
-117161	Geometria 1	4	grad
-117170	Geometria 2	4	grad
-113328	Geometria Diferencial 1	4	grad
-117471	Geometria para o Ensino 1	6	grad
-117480	Geometria para o Ensino 2	6	grad
-113522	Métodos Matemáticos da Física 1	6	grad
-113069	Variável Complexa 1	6	grad
-117421	Álgebra para o Ensino 1	6	grad
-117501	Álgebra para o Ensino 2	6	grad
-117412	Introdução à Teoria da Metida e Integração	4	grad
-113093	Introdução à Álgebra Linear	4	grad
-117358	Lógica Matemática e Computacional	4	grad
-117102	Métodos Matemáticos da Física 2	4	grad
-113107	Álgebra 1	4	grad
-113131	Álgebra 2	4	grad
-113204	Análise 1	4	grad
-200107	Cálculo 1 Semipresencial	6	grad
-105881	Geometria Analítica para Matemática	4	grad
-113701	Introdução à Matemática Superior	6	grad
-113018	Matemática 1	4	grad
-113026	Matemática 2	4	grad
-117510	Regência 1	8	grad
-117439	Regência 2	8	grad
+113115  Teoria dos Números  4   grad
+117323  Teoria dos Números 2    4   grad
+113263  Topologia dos Espaços Métricos  4   grad
+117145  Álgebra 3   4   grad
+113123  Álgebra Linear  6   grad
+113611  Álgebra para Ensino 1 e 2   6   grad
+113212  Análise 2   4   grad
+117137  Análise 3   4   grad
+113972  Análise Combinatória    4   grad
+113859  Análise de Algorítmos   4   grad
+113506  Análise Numérica 1  4   grad
+113034  Cálculo 1   6   grad
+113042  Cálculo 2   6   grad
+113051  Cálculo 3   6   grad
+113824  Cálculo de Probabilidade 1  6   grad
+113832  Cálculo de Probabilidade 2  4   grad
+113417  Cálculo Numérico    4   grad
+113301  Equações Diferenciais 1 4   grad
+113808  Fundamentos de Matemática 1 4   grad
+117161  Geometria 1 4   grad
+117170  Geometria 2 4   grad
+113328  Geometria Diferencial 1 4   grad
+117471  Geometria para o Ensino 1   6   grad
+117480  Geometria para o Ensino 2   6   grad
+113522  Métodos Matemáticos da Física 1 6   grad
+113069  Variável Complexa 1 6   grad
+117421  Álgebra para o Ensino 1 6   grad
+117501  Álgebra para o Ensino 2 6   grad
+117412  Introdução à Teoria da Metida e Integração  4   grad
+113093  Introdução à Álgebra Linear 4   grad
+117358  Lógica Matemática e Computacional   4   grad
+117102  Métodos Matemáticos da Física 2 4   grad
+113107  Álgebra 1   4   grad
+113131  Álgebra 2   4   grad
+113204  Análise 1   4   grad
+200107  Cálculo 1 Semipresencial    6   grad
+105881  Geometria Analítica para Matemática 4   grad
+113701  Introdução à Matemática Superior    6   grad
+113018  Matemática 1    4   grad
+113026  Matemática 2    4   grad
+117510  Regência 1  8   grad
+117439  Regência 2  8   grad
 \.
 
 
@@ -609,7 +609,7 @@ SELECT pg_catalog.setval('horario_monitoria_id_horario_seq', 1, false);
 --
 
 COPY users (id_user, login, password, email, validation_code, user_type, ativo) FROM stdin;
-1	coordgrad	$2y$10$D/mVBW7QvbOCPdPBuaGce.RHlOvpEW.A7kzEDg1NJuVvfUzJLpj5q	coordgrad@mat.unb.br	\N	1	1
+1   coordgrad   $2y$10$D/mVBW7QvbOCPdPBuaGce.RHlOvpEW.A7kzEDg1NJuVvfUzJLpj5q    coordgrad@mat.unb.br    \N  1   1
 \.
 
 
@@ -617,7 +617,7 @@ COPY users (id_user, login, password, email, validation_code, user_type, ativo) 
 -- Name: users_id_user_seq; Type: SEQUENCE SET; Schema: public; Owner: monitoria
 --
 
-SELECT pg_catalog.setval('users_id_user_seq', 1, false);
+SELECT pg_catalog.setval('users_id_user_seq', 2, true);
 
 
 --
@@ -709,11 +709,12 @@ ALTER TABLE ONLY users
 
 
 --
--- Name: public; Type: ACL; Schema: -; Owner: monitoria
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
 --
 
 REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM monitoria;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
 GRANT ALL ON SCHEMA public TO monitoria;
 GRANT ALL ON SCHEMA public TO PUBLIC;
 
