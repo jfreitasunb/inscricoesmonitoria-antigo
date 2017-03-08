@@ -605,7 +605,7 @@ function valida_escolhas_aluno($disciplinas_escolhidas){
         $errors[] = "Você deve escolher pelo menos um horário para a monitoria.";
     }
 
-    if (empty($disciplinas_escolhidas['convidado'])) {
+    if (empty($disciplinas_escolhidas['monitor_projeto'])) {
         $errors[] = "Você deve informar se participa de algum projeto de monitoria.";
     }
 
@@ -613,11 +613,11 @@ function valida_escolhas_aluno($disciplinas_escolhidas){
         $errors[] = "Você deve informar o tipo de monitoria.";
     }
 
-    if ($disciplinas_escolhidas['convidado']==='sim' AND $disciplinas_escolhidas['tipo_monitoria']!='somentevoluntaria') {
+    if ($disciplinas_escolhidas['monitor_projeto']==='sim' AND $disciplinas_escolhidas['tipo_monitoria']!='somentevoluntaria') {
         $errors[] = "Como você já participa de um projeto de monitoria, você somente pode se candidatar para a monitoria voluntária.";
     }
 
-    if ($disciplinas_escolhidas['convidado']==='sim' AND empty($disciplinas_escolhidas['nome_professor'])) {
+    if ($disciplinas_escolhidas['monitor_projeto']==='sim' AND empty($disciplinas_escolhidas['nome_professor'])) {
         $errors[] = "Por favor informe o nome do professor.";
     }
 
