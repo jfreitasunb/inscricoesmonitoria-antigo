@@ -623,7 +623,7 @@ function grava_escolhas_monitoria($id_user, $id_monitoria,$disciplinas_escolhida
             $result = $stmt->execute();
 
             if (!$result) {
-                $errors[] = "Erro durante a gravação da escolha.".$i;
+                $errors[] = "Erro durante a gravação da escolha.".($i+1);
             }
         }
     }
