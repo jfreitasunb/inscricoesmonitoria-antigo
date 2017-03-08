@@ -11,6 +11,7 @@ if (isset($_GET['email'], $_GET['email_code'])) {
 
     if (!email_exists($email)) {
         $errors[] = "O e-mail informado não está cadastrado no sistema ou já foi ativado.";
+        echo "<meta HTTP-EQUIV='Refresh' CONTENT='5;URL=index.php'>";
     }else if (!ativar_email($email, $email_code)){
         $errors[] = "Não foi possível ativar sua conta. Tente mais tarde.";
     }
@@ -30,11 +31,11 @@ if (isset($_GET['email'], $_GET['email_code'])) {
         $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
     }
 }else{
-    header('Location:index.php');
-    exit();
+    $http = new HTTP2();
+    $http->redirect("index.php");
 }
 $tpl_main->show();
-$http = new HTTP2();
-$http->redirect("index.php");
-// echo "<meta HTTP-EQUIV='Refresh' CONTENT='5;URL=index.php'>";
+// $http = new HTTP2();
+// $http->redirect("index.php");
+echo "<meta HTTP-EQUIV='Refresh' CONTENT='5;URL=index.php'>";
 ?>

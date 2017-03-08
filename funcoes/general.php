@@ -422,20 +422,20 @@ function pega_disciplinas_monitoria(){
 
 
 
-function pega_horario_monitoria(){
+// function pega_horario_monitoria(){
     
-    GLOBAL $PDO;
+//     GLOBAL $PDO;
 
-    $query_retorna_horarios_monitoria = "SELECT id_horario,horario_monitoria,dia_semana FROM disponibilidade_horario_monitoria";
-    $stmt = $PDO->prepare( $query_retorna_horarios_monitoria );
-    // $stmt->bindParam( ':id_aluno', $id_aluno );
-    // $stmt->bindParam( ':id_agenda', $id_agenda );
-    $result = $stmt->execute();
-    $rows = [];
-    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//     $query_retorna_horarios_monitoria = "SELECT id_horario,horario_monitoria,dia_semana FROM disponibilidade_horario_monitoria";
+//     $stmt = $PDO->prepare( $query_retorna_horarios_monitoria );
+//     // $stmt->bindParam( ':id_aluno', $id_aluno );
+//     // $stmt->bindParam( ':id_agenda', $id_agenda );
+//     $result = $stmt->execute();
+//     $rows = [];
+//     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    return $rows;
-}
+//     return $rows;
+// }
 
 // function pega_dias_semana(){
     
