@@ -669,6 +669,9 @@ function finaliza_escolhas($id_user, $id_monitoria,$disciplinas_escolhidas){
     //     $hora_escolhida .= $disciplinas_escolhidas[$key];
     // }
  
+    //Validar para garantir que realmente pode finalizar a inscrição.
+    //Verificar se: candidato que deseja monitoria remunerada informou dados bancários, se histórico está atualizado e se as informações acadêmicas foram salvas.
+    
     $finaliza_escolhas = TRUE;
  
     $campos_update = 'id_user=:id_user, tipo_monitoria=:tipo_monitoria, monitor_projeto=:monitor_projeto, nome_professor=:nome_professor,concordatermos=:concordatermos, id_monitoria=:id_monitoria, finaliza_escolhas=:finaliza_escolhas';
@@ -679,10 +682,6 @@ function finaliza_escolhas($id_user, $id_monitoria,$disciplinas_escolhidas){
     $stmt -> bindParam(':id_user', $id_user);
     $stmt -> bindParam(':tipo_monitoria', $disciplinas_escolhidas['tipo_monitoria']);
     $stmt -> bindParam(':monitor_projeto', $disciplinas_escolhidas['monitor_projeto']);
-
-    if (!empty($disciplinas_escolhidas['nome_professor'])) {
-        
-    }
 
     $stmt -> bindParam(':nome_professor', $disciplinas_escolhidas['nome_professor']);
     $stmt -> bindParam(':concordatermos', $disciplinas_escolhidas['concordatermos']);
