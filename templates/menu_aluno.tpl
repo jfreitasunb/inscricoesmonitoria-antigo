@@ -17,12 +17,12 @@
           <!-- BEGIN dados_bancario -->
           <li><a href="{dados_bancarios}">Dados Bancários</a></li>
           <!-- END dados_bancarios -->
-          <!-- BEGIN escolher_monitoria -->
-          <li><a href="{escolher_monitoria}">Escolher Monitoria</a></li>
-          <!-- END escolher_monitoria -->
           <!-- BEGIN dados_academicos-->
           <li><a href="{dados_academicos}">Dados Acadêmicos</a></li>
           <!-- END dados_academicos -->
+          <!-- BEGIN escolher_monitoria -->
+          <li><a href="{escolher_monitoria}">Escolher Monitoria</a></li>
+          <!-- END escolher_monitoria -->
           <li><a href="logout.php">Sair</a></li>
         </ul>
       </div>
