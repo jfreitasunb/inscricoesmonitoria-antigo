@@ -16,6 +16,11 @@
       <fieldset class="scheduler-border">
         <legend class="scheduler-border">Curso de Graduação</legend>
         <div class="form-horizontal">
+        <div class="row">
+            <div class="radio">
+             <input type="hidden" name="curso_graduacao" id="curso_graduacao" value="">
+            </div>
+          </div>
           <div class="row">
             <div class="radio">
               <label><input type="radio" name="curso_graduacao" id="curso_graduacao" value="matematica">Matemática (Bacharelado/Licenciatura)</label>

@@ -20,7 +20,9 @@ var_dump($_POST);
 
 if (!empty($_POST)) {
     
-    $errors = valida_dados_bancarios();
+    $errors = valida_dados_academicos();
+
+    print_r($errors);
 
     // if (!empty($errors)) {
     //     $tpl = carrega_mensagem_erro();
