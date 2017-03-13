@@ -15,6 +15,7 @@ $tpl_dados_bancarios = carrega_template_dados_academicos();
 
 $tpl_main -> setVariable('exibe_paginas',$tpl_dados_bancarios->get());
 
+var_dump($_POST);
 
 
 if (!empty($_POST)) {

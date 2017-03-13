@@ -750,4 +750,21 @@ function valida_dados_bancarios(){
     return $errors;
 
 }
+
+function valida_dados_academicos(){
+
+    GLOBAL $errors;
+
+    $required_fields = array('ira', 'curso_graduacao');
+    
+    foreach ($_POST as $key => $value) {
+        if (empty($value) && in_array($key, $required_fields)) {
+            $errors[] = "Os campos marcados com asterisco devem ser preenchidos.";
+            break 1;
+        }
+    }
+
+    return $errors;
+
+}
 ?>
