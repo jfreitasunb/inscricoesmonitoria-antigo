@@ -22,22 +22,13 @@ if (!empty($_POST)) {
     
     $errors = valida_dados_academicos();
 
-    print_r($errors);
-
-    // if (!empty($errors)) {
-    //     $tpl = carrega_mensagem_erro();
-    //     $tpl->setVariable('mensagem_erros', mostra_erros($errors));
-    //     $tpl_main -> parse('exibe_mensagens');
-    //     $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
-    // }else{
-    //     $dados_bancarios  = array(
-    //         'nomebanco'            => $_POST['nomebanco'],
-    //         'numerobanco'          => $_POST['numerobanco'], 
-    //         'agenciabancaria'      => $_POST['agenciabancaria'], 
-    //         'numerocontacorrente'  => $_POST['numerocontacorrente']
-    //     );
-
-    //     $dados_bancarios_sanitizados = sanitiza_dados_bancarios($dados_bancarios);
+    if (!empty($errors)) {
+        $tpl = carrega_mensagem_erro();
+        $tpl->setVariable('mensagem_erros', mostra_erros($errors));
+        $tpl_main -> parse('exibe_mensagens');
+        $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
+    }else{
+        // $dados_bancarios_sanitizados = sanitiza_dados_bancarios($dados_bancarios);
 
     //     $tabela = "dados_bancarios";
 
@@ -59,7 +50,7 @@ if (!empty($_POST)) {
     //             $tpl_main -> parse('exibe_mensagens');
     //             $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
     //         }
-    // }
+    }
 }
 
 $tpl_main->show();

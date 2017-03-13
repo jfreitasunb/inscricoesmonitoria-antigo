@@ -755,6 +755,8 @@ function valida_dados_academicos(){
 
     GLOBAL $errors;
 
+    $ira = str_replace(',', '.', $_POST['ira']);
+    
     $required_fields = array('ira', 'curso_graduacao');
     
 
@@ -763,6 +765,10 @@ function valida_dados_academicos(){
             $errors[] = "Os campos marcados com asterisco devem ser preenchidos.";
             break 1;
         }
+    }
+
+    if (!is_numeric($ira)) {
+        $errors[] = "O IRA foi informado errado.";
     }
 
     return $errors;
