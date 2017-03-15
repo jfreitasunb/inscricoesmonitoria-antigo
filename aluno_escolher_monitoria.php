@@ -39,7 +39,7 @@ if (autoriza_inscricao()) {
                         $tpl_main -> parse('exibe_mensagens');
                         $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
                         $errors = finaliza_escolhas($id_user,$id_monitoria,$disciplinas_escolhidas);
-                        // $errors = upload_historico($id_user);
+                       
 
                         if (!empty($errors)) {
                             $tpl = carrega_mensagem_erro();
