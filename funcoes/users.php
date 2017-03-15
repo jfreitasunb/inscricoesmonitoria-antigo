@@ -74,24 +74,16 @@ function grava_dados_basicos_usuario($id_user,$nome){
     
     $result = $stmt2->execute();
 
-    $query_insere_registro_banco = "INSERT INTO dados_academicos (id_user) VALUES(:id_user)";
-
-    $stmt3 = $PDO->prepare( $query_insere_registro_banco );
-
-    $stmt3->bindParam(':id_user', $id_user);
-    
-    $result = $stmt3->execute();
-
     $finaliza_escolhas = 0;
 
     $query_insere_registro_finaliza = "INSERT INTO finaliza_escolhas (id_user,finaliza_escolhas) VALUES(:id_user,:finaliza_escolhas)";
 
-    $stmt4 = $PDO->prepare( $query_insere_registro_finaliza );
+    $stmt3 = $PDO->prepare( $query_insere_registro_finaliza );
 
-    $stmt4->bindParam(':id_user', $id_user);
-    $stmt4->bindParam(':finaliza_escolhas', $finaliza_escolhas);
+    $stmt3->bindParam(':id_user', $id_user);
+    $stmt3->bindParam(':finaliza_escolhas', $finaliza_escolhas);
     
-    $result = $stmt4->execute();
+    $result = $stmt3->execute();
     
 }
 
@@ -155,42 +147,66 @@ function grava_datas_monitoria($datas_monitoria){
     }
 }
 
-function grava_dados_pessoais_usuario($id_user,$dados_pessoais, $tabela){
+function grava_dados_pessoais_usuario($id_user,$id_monitoria,$dados_pessoais, $tabela){
 
     GLOBAL $PDO;
 
-    $keys_update = array_keys($dados_pessoais);
-    $campos_update = "";
 
-    foreach ($keys_update as $key) {
-        $campos_update .= $key.'=:'.$key.', ';
-    }
+    $query_procura_dados_usuario = "SELECT COUNT(*) from $tabela where id_user=:id_user and id_monitoria=:id_monitoria";
 
-    $campos_update = rtrim($campos_update, ", ");
+    $procura_dados_usuario = $PDO->prepare($query_procura_dados_usuario);
 
-    $campos = implode(', ', array_keys($dados_pessoais));
+    $procura_dados_usuario -> bindParam(':id_user', $id_user);
+    $procura_dados_usuario -> bindParam(':id_monitoria', $id_monitoria);
 
-    $query_update_dados_usuario = "UPDATE $tabela SET $campos_update  WHERE id_user=:id_user";
-    echo $query_update_dados_usuario;
+    $procura_dados_usuario->execute();
+
+    $rowCount = $procura_dados_usuario->fetchColumn();
+
+    if ($rowCount == 0) {
+        
+        $query_insere_registro_banco = "INSERT INTO $tabela (id_user,id_monitoria) VALUES(:id_user,:id_monitoria)";
+
+        $stmt2 = $PDO->prepare( $query_insere_registro_banco );
+
+        $stmt2->bindParam(':id_user', $id_user);
+        $stmt2->bindParam(':id_monitoria', $id_monitoria);
     
-    $stmt = $PDO->prepare( $query_update_dados_usuario );
+        $result = $stmt2->execute();
+    }else{
+        $keys_update = array_keys($dados_pessoais);
+        $campos_update = "";
 
-    $stmt -> bindParam(':id_user', $id_user);
-
-    foreach ($dados_pessoais as $key => &$value) {
-        $stmt -> bindParam(':'.$key, $value);   
-    }
-    
-    try{
-        $result = $stmt->execute();
-    }
-    catch( PDOException $e ){
-        print_r($e);
-        if (strpos($e, 'users_email_key') !== FALSE){
-            $errors[] = "Já existe um usuário cadastrado com esse e-mail.";
+        foreach ($keys_update as $key) {
+            $campos_update .= $key.'=:'.$key.', ';
         }
-        if (strpos($e, 'users_login_key') !== FALSE){
-            $errors[] = "Já existe um usuário cadastrado com essa matrícula.";
+
+        $campos_update = rtrim($campos_update, ", ");
+
+        $campos = implode(', ', array_keys($dados_pessoais));
+
+        $query_update_dados_usuario = "UPDATE $tabela SET $campos_update  WHERE id_user=:id_user and id_monitoria=:id_monitoria";
+        
+        $stmt = $PDO->prepare( $query_update_dados_usuario );
+
+        $stmt -> bindParam(':id_user', $id_user);
+        $stmt -> bindParam(':id_monitoria', $id_monitoria);
+
+        foreach ($dados_pessoais as $key => &$value) {
+            $stmt -> bindParam(':'.$key, $value);   
+        }
+    
+        try{
+            $result = $stmt->execute();
+        }
+        catch( PDOException $e ){
+            print_r($e);
+            if (strpos($e, 'users_email_key') !== FALSE){
+                $errors[] = "Já existe um usuário cadastrado com esse e-mail.";
+            }
+            if (strpos($e, 'users_login_key') !== FALSE){
+                $errors[] = "Já existe um usuário cadastrado com essa matrícula.";
+            }
         }
     }
 
@@ -589,7 +605,7 @@ function upload_historico($id_user){
             }
             
             if (!move_uploaded_file($_FILES['arquivo']['tmp_name'], $_UP['pasta'].$nome_final)){
-                $errors[] = "N&atilde;o foi poss&iacute;vel enviar o arquivo, tente novamente";
+                $errors[] = "N&atilde;o foi poss&iacute;vel enviar o arquivo, tente novamente mais tarde.";
             }else{
                 $query_insere_historico = "INSERT INTO arquivos_enviados (id_user,nome_arquivo,data_envio) VALUES(:id_user, :nome_arquivo, :data)";
                 $stmt = $PDO->prepare( $query_insere_historico );
