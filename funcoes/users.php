@@ -74,16 +74,24 @@ function grava_dados_basicos_usuario($id_user,$nome){
     
     $result = $stmt2->execute();
 
+    $query_insere_registro_banco = "INSERT INTO dados_academicos (id_user) VALUES(:id_user)";
+
+    $stmt3 = $PDO->prepare( $query_insere_registro_banco );
+
+    $stmt3->bindParam(':id_user', $id_user);
+    
+    $result = $stmt3->execute();
+
     $finaliza_escolhas = 0;
 
     $query_insere_registro_finaliza = "INSERT INTO finaliza_escolhas (id_user,finaliza_escolhas) VALUES(:id_user,:finaliza_escolhas)";
 
-    $stmt3 = $PDO->prepare( $query_insere_registro_finaliza );
+    $stmt4 = $PDO->prepare( $query_insere_registro_finaliza );
 
-    $stmt3->bindParam(':id_user', $id_user);
-    $stmt3->bindParam(':finaliza_escolhas', $finaliza_escolhas);
+    $stmt4->bindParam(':id_user', $id_user);
+    $stmt4->bindParam(':finaliza_escolhas', $finaliza_escolhas);
     
-    $result = $stmt3->execute();
+    $result = $stmt4->execute();
     
 }
 
@@ -162,7 +170,8 @@ function grava_dados_pessoais_usuario($id_user,$dados_pessoais, $tabela){
 
     $campos = implode(', ', array_keys($dados_pessoais));
 
-    $query_update_dados_usuario = "UPDATE $tabela SET  $campos_update  WHERE id_user=:id_user";
+    $query_update_dados_usuario = "UPDATE $tabela SET $campos_update  WHERE id_user=:id_user";
+    echo $query_update_dados_usuario;
     
     $stmt = $PDO->prepare( $query_update_dados_usuario );
 
@@ -171,8 +180,19 @@ function grava_dados_pessoais_usuario($id_user,$dados_pessoais, $tabela){
     foreach ($dados_pessoais as $key => &$value) {
         $stmt -> bindParam(':'.$key, $value);   
     }
-        
-    $result = $stmt->execute();
+    
+    try{
+        $result = $stmt->execute();
+    }
+    catch( PDOException $e ){
+        print_r($e);
+        if (strpos($e, 'users_email_key') !== FALSE){
+            $errors[] = "Já existe um usuário cadastrado com esse e-mail.";
+        }
+        if (strpos($e, 'users_login_key') !== FALSE){
+            $errors[] = "Já existe um usuário cadastrado com essa matrícula.";
+        }
+    }
 
     if ($result) {
         return true;
