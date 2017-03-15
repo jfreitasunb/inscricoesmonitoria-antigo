@@ -341,7 +341,7 @@ function sanitiza_dados_pessoais($dados_pessoais){
     return $dados_pessoais;
 }
 
-function sanitiza_dados_bancarios($dados_bancarios){
+function sanitiza_dados($dados_bancarios){
 
     array_walk($dados_bancarios, 'array_sanitize');
 

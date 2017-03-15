@@ -34,7 +34,7 @@ if (!empty($_POST)) {
             'numerocontacorrente'  => $_POST['numerocontacorrente']
         );
 
-        $dados_bancarios_sanitizados = sanitiza_dados_bancarios($dados_bancarios);
+        $dados_bancarios_sanitizados = sanitiza_dados($dados_bancarios);
 
         $tabela = "dados_bancarios";
 

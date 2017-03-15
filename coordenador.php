@@ -34,7 +34,7 @@ $tpl_main -> setVariable('exibe_menus',$tpl_menu_coordenador->get());
 //             'numerocontacorrente'  => $_POST['numerocontacorrente']
 //         );
 
-//         $dados_bancarios_sanitizados = sanitiza_dados_bancarios($dados_bancarios);
+//         $dados_bancarios_sanitizados = sanitiza_dados($dados_bancarios);
 
 //         $tabela = "dados_bancarios";
 

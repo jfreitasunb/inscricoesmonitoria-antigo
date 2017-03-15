@@ -26,7 +26,7 @@ if (!empty($_POST)) {
         $tpl_main -> parse('exibe_mensagens');
         $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
     }else{
-        // $dados_bancarios_sanitizados = sanitiza_dados_bancarios($dados_bancarios);
+        $dados_bancarios_sanitizados = sanitiza_dados($dados_bancarios);
 
     //     $tabela = "dados_bancarios";
 

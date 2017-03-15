@@ -31,7 +31,7 @@ $tpl_main -> setVariable('exibe_paginas',$tpl_gera_relatorios->get());
 //             'semestre'     => $_POST['semestre']
 //         );
 
-//         $datas_sanitizadas = sanitiza_dados_bancarios($datas_inscricao);
+//         $datas_sanitizadas = sanitiza_dados($datas_inscricao);
 
 //         $resultado = grava_datas_monitoria($datas_sanitizadas);
 
