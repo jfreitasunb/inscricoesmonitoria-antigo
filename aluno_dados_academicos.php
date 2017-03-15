@@ -20,11 +20,11 @@ $id_monitoria = $_SESSION['id_monitoria'];
 
 
 $dados_academicos = array(
-    'ira'               => $_POST['ira'],
+    'ira'               => $ira = str_replace(',', '.', $_POST['ira']),
     'curso_graduacao'   => $_POST['curso_graduacao']);
 // var_dump($_POST);
 // 
-print_r($_SESSION);
+// print_r($_SESSION);
 
 
 if (!empty($_POST)) {
