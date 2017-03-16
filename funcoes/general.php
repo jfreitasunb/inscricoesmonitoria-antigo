@@ -650,14 +650,14 @@ function valida_usuario_registrar(){
         $errors[] = "Você deve informar um e-mail válido.";
     }
 
-    if (!($_POST['email'] === $_POST['confirm-email'])) {
+    if (!strcmp($_POST['email'],$_POST['confirm-email'])==0) {
         $errors[] = "Você deve informar o mesmo e-mail.";
     }
 
     if ($_POST['password'] !="" AND !(strlen($_POST['password']) > 7)) {
         $errors[] = "A senha deve conter pelo menos 8 caracteres.";
     }else{
-        if (!($_POST['password'] === $_POST['confirm-password'])) {
+        if (!strcmp($_POST['password'],$_POST['confirm-password'])==0) {
             $errors[] = "As senhas informadas não conferem.";
         }
     }
