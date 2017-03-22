@@ -662,7 +662,7 @@ function grava_escolhas_monitoria($id_user, $id_monitoria,$disciplinas_escolhida
 
     $escolheu_hora = horarios_escolhidos_candidato($disciplinas_escolhidas);
 
-    // print_r($disciplinas_escolhidas);
+    // print_r($escolheu_hora);
 
     $query_insere_escolha_aluno = "INSERT INTO escolhas_candidatos ($campos) VALUES($bind_valores)";
     
@@ -698,11 +698,12 @@ function grava_escolhas_monitoria($id_user, $id_monitoria,$disciplinas_escolhida
     $stmt_horas -> bindParam(':id_user', $id_user);
     $stmt_horas -> bindParam(':id_monitoria', $id_monitoria);
 
-    for ($j=0; $j < 4; $j++) { 
-        $hora_escolhida = explode('_', $disciplinas_escolhidas['nome_hora_monitoria_'.$j]);
-
-        $stmt_horas -> bindParam(':horario_monitoria', sanitize($hora_escolhida[0]));
-        $stmt_horas -> bindParam(':dia_semana', sanitize($hora_escolhida[1]));
+    foreach ($escolheu_hora as $key => &$value) {
+        $hora_escolhida = explode('_',$disciplinas_escolhidas[$value]);
+        $horario_monitoria = sanitize($hora_escolhida[0]);
+        $dia_semana = sanitize($hora_escolhida[1]);
+        $stmt_horas -> bindParam(':horario_monitoria', $horario_monitoria);
+        $stmt_horas -> bindParam(':dia_semana', $dia_semana);
         
         $result = $stmt_horas->execute();
 
@@ -711,6 +712,20 @@ function grava_escolhas_monitoria($id_user, $id_monitoria,$disciplinas_escolhida
             }
 
     }
+
+    // for ($j=0; $j < 4; $j++) { 
+    //     $hora_escolhida = explode('_', $disciplinas_escolhidas['nome_hora_monitoria_'.$j]);
+
+    //     $stmt_horas -> bindParam(':horario_monitoria', sanitize($hora_escolhida[0]));
+    //     $stmt_horas -> bindParam(':dia_semana', sanitize($hora_escolhida[1]));
+        
+    //     $result = $stmt_horas->execute();
+
+    //         if (!$result) {
+    //             $errors[] = "Erro durante a gravação da escolha do horário.";
+    //         }
+
+    // }
 
     return $errors;
 }
