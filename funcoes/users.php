@@ -147,9 +147,35 @@ function grava_datas_monitoria($datas_monitoria){
     }
 }
 
+function grava_atuacao_anterior($id_user,$atuou_monitoria){
+
+    GLOBAL $PDO;
+    GLOBAL $errors;
+
+    $query_insere_atuacao = "INSERT INTO atuou_monitoria (id_user,atuou_disciplina) VALUES(:id_user,:atuou_disciplina)";
+
+    $stmt_atuacao = $PDO->prepare( $query_insere_atuacao );
+
+    $stmt_atuacao->bindParam(':id_user', $id_user);
+
+    foreach ($atuou_monitoria as $key => &$value) {
+        $stmt_atuacao -> bindParam(':atuou_disciplina', $value); 
+        
+        $result = $stmt_atuacao->execute();
+
+        if (!$result) {
+            $errors[] = "Houve um erro na hora de grava as informações sobre sua atuação em monitoria anteriormente. Tente novamente mais tarde.";
+        }
+    }
+
+    return $errors;
+
+}
+
 function grava_dados_pessoais_usuario($id_user,$id_monitoria,$dados_pessoais, $tabela){
 
     GLOBAL $PDO;
+    GLOBAL $errors;
 
 
     $query_procura_dados_usuario = "SELECT COUNT(*) from $tabela where id_user=:id_user and id_monitoria=:id_monitoria";
@@ -200,7 +226,6 @@ function grava_dados_pessoais_usuario($id_user,$id_monitoria,$dados_pessoais, $t
             $result = $stmt->execute();
         }
         catch( PDOException $e ){
-            print_r($e);
             if (strpos($e, 'users_email_key') !== FALSE){
                 $errors[] = "Já existe um usuário cadastrado com esse e-mail.";
             }
@@ -210,11 +235,7 @@ function grava_dados_pessoais_usuario($id_user,$id_monitoria,$dados_pessoais, $t
         }
     }
 
-    if ($result) {
-        return true;
-    }else{
-        return false;
-    }
+    return $errors;
 
 }
 
