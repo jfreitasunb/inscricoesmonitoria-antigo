@@ -783,40 +783,52 @@ function finaliza_escolhas($id_user, $id_monitoria,$disciplinas_escolhidas){
     return $errors;
 }
 
-function finaliza_inscricao($id_user, $id_monitoria,$disciplinas_escolhidas){
+function finaliza_inscricao($id_user, $id_monitoria){
 
     GLOBAL $PDO;
     GLOBAL $errors;
 
-    // $escolheu_hora = horarios_escolhidos_candidato($disciplinas_escolhidas);
-    // $hora_escolhida ="";
-    // foreach ($escolheu_hora as $key) {
-    //     $hora_escolhida .= $disciplinas_escolhidas[$key];
-    // }
+    //Validar para garantir que realmente pode finalizar a inscrição.
+    //Verificar se: candidato que deseja monitoria remunerada informou dados bancários, se histórico está atualizado e se as informações acadêmicas foram salvas.
+    //
+    
+    $query_seleciona_tipo_monitoria = "SELECT tipo_monitoria FROM finaliza_escolhas WHERE id_user=:id_user AND id_monitoria=:id_monitoria";
+
+    $stmt_tipo_monitoria = $PDO->prepare( $query_seleciona_tipo_monitoria );
+
+    $stmt_tipo_monitoria -> bindParam(':id_user', $id_user);
+    $stmt_tipo_monitoria -> bindParam(':id_monitoria', $id_monitoria);
+
+    $result = $stmt_tipo_monitoria->execute();
+
+    $tipo_monitoria = $stmt_tipo_monitoria->fetchColumn();
+
+    echo $tipo_monitoria;
+
 
     
-    $finaliza_escolhas = TRUE;
+    // $finaliza_escolhas = TRUE;
  
-    $campos_update = 'id_user=:id_user, tipo_monitoria=:tipo_monitoria, monitor_projeto=:monitor_projeto, nome_professor=:nome_professor,concordatermos=:concordatermos, id_monitoria=:id_monitoria, finaliza_escolhas=:finaliza_escolhas';
+    // $campos_update = 'id_user=:id_user, tipo_monitoria=:tipo_monitoria, monitor_projeto=:monitor_projeto, nome_professor=:nome_professor,concordatermos=:concordatermos, id_monitoria=:id_monitoria, finaliza_escolhas=:finaliza_escolhas';
  
-    $query_insere_escolha_finais = "UPDATE finaliza_escolhas SET $campos_update WHERE id_user=:id_user";
+    // $query_insere_escolha_finais = "UPDATE finaliza_escolhas SET $campos_update WHERE id_user=:id_user";
      
-    $stmt = $PDO->prepare( $query_insere_escolha_finais );
-    $stmt -> bindParam(':id_user', $id_user);
-    $stmt -> bindParam(':tipo_monitoria', $disciplinas_escolhidas['tipo_monitoria']);
-    $stmt -> bindParam(':monitor_projeto', $disciplinas_escolhidas['monitor_projeto']);
+    // $stmt = $PDO->prepare( $query_insere_escolha_finais );
+    // $stmt -> bindParam(':id_user', $id_user);
+    // $stmt -> bindParam(':tipo_monitoria', $disciplinas_escolhidas['tipo_monitoria']);
+    // $stmt -> bindParam(':monitor_projeto', $disciplinas_escolhidas['monitor_projeto']);
 
-    $stmt -> bindParam(':nome_professor', $disciplinas_escolhidas['nome_professor']);
-    $stmt -> bindParam(':concordatermos', $disciplinas_escolhidas['concordatermos']);
-    $stmt -> bindParam(':id_monitoria', $id_monitoria);
-    $stmt -> bindParam(':finaliza_escolhas', $finaliza_escolhas);
-    $result = $stmt->execute();
+    // $stmt -> bindParam(':nome_professor', $disciplinas_escolhidas['nome_professor']);
+    // $stmt -> bindParam(':concordatermos', $disciplinas_escolhidas['concordatermos']);
+    // $stmt -> bindParam(':id_monitoria', $id_monitoria);
+    // $stmt -> bindParam(':finaliza_escolhas', $finaliza_escolhas);
+    // $result = $stmt->execute();
 
-    if (!$result) {
-        $errors[] = "Não foi possível finalizar suas escolhas.";
-    }
+    // if (!$result) {
+    //     $errors[] = "Não foi possível finalizar suas escolhas.";
+    // }
 
-    return $errors;
+    // return $errors;
 }
 
 ?>

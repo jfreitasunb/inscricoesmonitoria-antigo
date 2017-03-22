@@ -28,10 +28,10 @@ if (!empty($_POST)) {
         $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
     }else{
         $dados_bancarios  = array(
-            'nomebanco'            => $_POST['nomebanco'],
-            'numerobanco'          => $_POST['numerobanco'], 
-            'agenciabancaria'      => $_POST['agenciabancaria'], 
-            'numerocontacorrente'  => $_POST['numerocontacorrente']
+            'nome_banco'            => $_POST['nome_banco'],
+            'numero_banco'          => $_POST['numero_banco'], 
+            'agencia_bancaria'      => $_POST['agencia_bancaria'], 
+            'numero_conta_corrente'  => $_POST['numero_conta_corrente']
         );
 
         $dados_bancarios_sanitizados = sanitiza_dados($dados_bancarios);

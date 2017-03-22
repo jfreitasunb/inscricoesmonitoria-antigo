@@ -258,7 +258,7 @@ function carrega_template_dados_bancarios(){
 
     $tabela = 'dados_bancarios';
 
-    $dados_bancarios_usuario=user_data($_SESSION['id_user'],$tabela,'nomebanco','numerobanco','agenciabancaria','numerocontacorrente');
+    $dados_bancarios_usuario=user_data($_SESSION['id_user'],$tabela,'nome_banco','numero_banco','agencia_bancaria','numero_conta_corrente');
 
     $tpl->loadTemplatefile("dados_bancarios.tpl");
 
@@ -280,17 +280,9 @@ function carrega_template_dados_academicos(){
 
     $tabela = 'dados_academicos';
 
-
-
-    // $dados_bancarios_usuario=user_data($_SESSION['id_user'],$tabela,'nomebanco','numerobanco','agenciabancaria','numerocontacorrente');
-
     $tpl->loadTemplatefile("dados_academicos.tpl");
     $tpl->setVariable('ano_semestre_ira',$ano_semestre_ira);
 
-    // foreach ($dados_bancarios_usuario as $key => $value) {
-    //     $tpl->setVariable($key,'value="'.$value.'"');    
-    // }
-    
     return $tpl;
 
 }
@@ -738,7 +730,7 @@ function valida_dados_bancarios(){
 
     GLOBAL $errors;
 
-    $required_fields = array('nomebanco', 'numerobanco', 'agenciabancaria','numerocontacorrente');
+    $required_fields = array('nome_banco', 'numero_banco', 'agencia_bancaria','numero_conta_corrente');
     
     foreach ($_POST as $key => $value) {
         if (empty($value) && in_array($key, $required_fields)) {

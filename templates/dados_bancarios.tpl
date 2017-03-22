@@ -9,7 +9,7 @@
             <label class="col-md-4 control-label" for="nomebanco">Banco</label>  
             <div class="col-md-4">
               <!-- BEGIN nomebanco -->
-              <input id="nomebanco" name="nomebanco" type="text" class="form-control input-md" required="required" {nomebanco}>
+              <input id="nome_banco" name="nome_banco" type="text" class="form-control input-md" required="required" {nomebanco}>
               <!-- END nomebanco -->
             </div>
           </div>
@@ -17,10 +17,10 @@
 
         <div class="form-group">
           <div class="row">
-            <label class="col-md-4 control-label" for="numerobanco">Número do banco</label>  
+            <label class="col-md-4 control-label" for="numero_banco">Número do banco</label>  
             <div class="col-md-4">
               <!-- BEGIN numerobanco -->
-              <input id="numerobanco" name="numerobanco" type="text" class="form-control input-md" required="required" {numerobanco}>
+              <input id="numero_banco" name="numero_banco" type="text" class="form-control input-md" required="required" {numerobanco}>
               <!-- END numerobanco -->
             </div>
           </div>
@@ -28,10 +28,10 @@
 
         <div class="form-group">
           <div class="row">
-            <label class="col-md-4 control-label" for="agenciabancaria">Agência</label>  
+            <label class="col-md-4 control-label" for="agencia_bancaria">Agência</label>  
             <div class="col-md-4">
               <!-- BEGIN agenciabancaria -->
-              <input id="agenciabancaria" name="agenciabancaria" type="text" placeholder="" class="form-control input-md" required="required" {agenciabancaria}>
+              <input id="agencia_bancaria" name="agencia_bancaria" type="text" placeholder="" class="form-control input-md" required="required" {agenciabancaria}>
               <!-- END agenciabancaria -->
             </div>
           </div>
@@ -39,10 +39,10 @@
 
         <div class="form-group">
           <div class="row">
-            <label class="col-md-4 control-label" for="numerocontacorrente">Conta corrente</label>  
+            <label class="col-md-4 control-label" for="numero_conta_corrente">Conta corrente</label>  
             <div class="col-md-4">
               <!-- BEGIN numerocontacorrente -->
-              <input id="numerocontacorrente" name="numerocontacorrente" type="text" placeholder="" class="form-control input-md" required="" {numerocontacorrente}>    
+              <input id="numero_conta_corrente" name="numero_conta_corrente" type="text" placeholder="" class="form-control input-md" required="" {numerocontacorrente}>    
               <!-- END numerocontacorrente -->
             </div>
           </div>
