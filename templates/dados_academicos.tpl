@@ -84,7 +84,7 @@
           </div>
           <div class="row">
             <div class="checkbox">
-              <label><input type="checkbox" name="checkbox_foi_monitor[]" id="checkbox_foi_monitor" value="outras">Sim, de Introdução à Álgebra Linear ou Álgebra Linear</label>
+              <label><input type="checkbox" name="checkbox_foi_monitor[]" id="checkbox_foi_monitor" value="ial_algebra-linear">Sim, de Introdução à Álgebra Linear ou Álgebra Linear</label>
             </div>
           </div>
           <div class="row">
