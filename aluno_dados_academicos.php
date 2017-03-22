@@ -18,12 +18,10 @@ $tpl_main -> setVariable('exibe_paginas',$tpl_dados_bancarios->get());
 $id_user = $_SESSION['id_user'];
 $id_monitoria = $_SESSION['id_monitoria'];
 
-// var_dump($_POST);
-// 
-// print_r($_SESSION);
-
 
 if (!empty($_POST)) {
+
+    $atuou_monitoria = $_POST['checkbox_foi_monitor'];
     
     $dados_academicos = array(
         'ira'               => $ira = str_replace(',', '.', $_POST['ira']),
@@ -41,9 +39,12 @@ if (!empty($_POST)) {
 
         $tabela = "dados_academicos";
 
-        $resultado = grava_dados_pessoais_usuario($id_user,$id_monitoria,$dados_academicos_sanitizados,$tabela);
+        $errors = grava_dados_pessoais_usuario($id_user,$id_monitoria,$dados_academicos_sanitizados,$tabela);
 
-        if ($resultado) {
+        if (empty($errors)) {
+
+                $errors = grava_atuacao_anterior($id_user,$atuou_monitoria);
+
                 $tpl = carrega_mensagem_sucesso();
                 $mensagem_sucesso = "Seus dados acadêmicos foram atualizados em nosso sitemas. Em breve você será redirecionando para a próxima etapa da inscrição.";
                 $tpl->setVariable('mensagem_sucesso', $mensagem_sucesso);
