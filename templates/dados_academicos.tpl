@@ -104,7 +104,6 @@
         <legend class="scheduler-border">Histórico</legend>
         <div class="form-horizontal">
           <div class="row">
-            <input type="text" class="form-control image-preview-filename" required="required"> <!-- don't give a name === doesn't send on POST/GET -->
             <span class="input-group-btn">
                 <!-- image-preview-clear button -->
                 <button type="button" class="btn btn-primary" style="display:none;">
