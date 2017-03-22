@@ -2,8 +2,6 @@
 require_once "config/init.php";
 protect_page();
 
- // var_dump($_POST);
-
 $tpl_main = new HTML_Template_Sigma($PATH_TEMPLATES);
 
 $tpl_main->loadTemplatefile("cabecalho_rodape.tpl");
@@ -13,7 +11,7 @@ $tpl_menu = carrega_menu_aluno();
 $tpl_main -> setVariable('exibe_menus',$tpl_menu->get());
 
 if (autoriza_inscricao()) {
-    if (!inscricao_finalizada()) {
+    // if (!inscricao_finalizada()) {
         $tpl_dados_monitoria = preenche_template_monitoria();
 
         $tpl_main -> setVariable('exibe_paginas',$tpl_dados_monitoria->get());
@@ -33,20 +31,24 @@ if (autoriza_inscricao()) {
                 $errors = grava_escolhas_monitoria($id_user, $id_monitoria,$disciplinas_escolhidas);
 
                 if (empty($errors)) {
-                        $tpl = carrega_mensagem_sucesso();
-                        $mensagem_sucesso = "Seus escolhas para monitoria foram gravadas em nosso sitemas.";
-                        $tpl->setVariable('mensagem_sucesso', $mensagem_sucesso);
-                        $tpl_main -> parse('exibe_mensagens');
-                        $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
-                        $errors = finaliza_escolhas($id_user,$id_monitoria,$disciplinas_escolhidas);
-                       
 
-                        if (!empty($errors)) {
-                            $tpl = carrega_mensagem_erro();
-                            $tpl->setVariable('mensagem_erros', mostra_erros($errors));
+                        $errors = grava_monitor_convidado($id_user,$id_monitoria);
+
+                        if (empty($errors)) {
+                            $tpl = carrega_mensagem_sucesso();
+                            $mensagem_sucesso = "Seus escolhas para monitoria foram gravadas em nosso sitemas.";
+                            $tpl->setVariable('mensagem_sucesso', $mensagem_sucesso);
                             $tpl_main -> parse('exibe_mensagens');
                             $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
-                        }
+                            $errors = finaliza_escolhas($id_user,$id_monitoria,$disciplinas_escolhidas);
+
+                            if (!empty($errors)) {
+                                $tpl = carrega_mensagem_erro();
+                                $tpl->setVariable('mensagem_erros', mostra_erros($errors));
+                                $tpl_main -> parse('exibe_mensagens');
+                                $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
+                            }
+                        }   
                     }else{
                         $errors[] = "Houve um problema durante a atualização dos seus dados. Tente novamente mais tarde.";
                         $tpl = carrega_mensagem_erro();
@@ -56,15 +58,15 @@ if (autoriza_inscricao()) {
                     }
             }
         }
-    }else{
-        $errors[] = "Você já efetuou suas escolhas. Não é possível realizar nenhuma mudança.";
-        $tpl = carrega_mensagem_erro();
-        $tpl->setVariable('mensagem_erros', mostra_erros($errors));
-        $tpl_main -> parse('exibe_mensagens');
-        $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
-    } 
+    // }else{
+    //     $errors[] = "Você já efetuou suas escolhas. Não é possível realizar nenhuma mudança.";
+    //     $tpl = carrega_mensagem_erro();
+    //     $tpl->setVariable('mensagem_erros', mostra_erros($errors));
+    //     $tpl_main -> parse('exibe_mensagens');
+    //     $tpl_main -> setVariable('exibe_mensagens',$tpl->get());
+    // } 
 }else{
-    $errors[] = "O período de inscrição para ser monitor do MAT já se encerrou. Tente novamente no próximo semestre.";
+    $errors[] = "O período de inscrição para a monitoria do MAT já se encerrou. Tente novamente no próximo semestre.";
     $tpl = carrega_mensagem_erro();
     $tpl->setVariable('mensagem_erros', mostra_erros($errors));
     $tpl_main -> parse('exibe_mensagens');
