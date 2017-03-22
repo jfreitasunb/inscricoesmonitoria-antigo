@@ -18,13 +18,6 @@ $tpl_main -> setVariable('exibe_paginas',$tpl_dados_bancarios->get());
 $id_user = $_SESSION['id_user'];
 $id_monitoria = $_SESSION['id_monitoria'];
 
-
-if (!empty($_POST)) {
-    $dados_academicos = array(
-        'ira'               => $ira = str_replace(',', '.', $_POST['ira']),
-        'curso_graduacao'   => $_POST['curso_graduacao']);    
-}
-
 // var_dump($_POST);
 // 
 // print_r($_SESSION);
@@ -32,6 +25,10 @@ if (!empty($_POST)) {
 
 if (!empty($_POST)) {
     
+    $dados_academicos = array(
+        'ira'               => $ira = str_replace(',', '.', $_POST['ira']),
+        'curso_graduacao'   => $_POST['curso_graduacao']);
+
     $errors = valida_dados_academicos();
 
     if (!empty($errors)) {
