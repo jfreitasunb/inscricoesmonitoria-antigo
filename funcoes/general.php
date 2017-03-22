@@ -758,6 +758,8 @@ function valida_dados_academicos(){
     $ira = str_replace(',', '.', $_POST['ira']);
     
     $required_fields = array('ira', 'curso_graduacao');
+
+    $atuou_monitoria = $_POST['checkbox_foi_monitor'];
     
 
     foreach ($_POST as $key => $value) {
@@ -765,6 +767,10 @@ function valida_dados_academicos(){
             $errors[] = "Os campos marcados com asterisco devem ser preenchidos.";
             break 1;
         }
+    }
+
+    if ($atuou_monitoria===null) {
+        $errors[] = "Os campos marcados com asterisco devem ser preenchidos.";
     }
 
     if (!is_numeric($ira)) {
