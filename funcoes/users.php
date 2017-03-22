@@ -659,18 +659,18 @@ function grava_escolhas_monitoria($id_user, $id_monitoria,$disciplinas_escolhida
 
     $query_insere_escolha_aluno = "INSERT INTO escolhas_candidatos ($campos) VALUES($bind_valores)";
     
-    $stmt = $PDO->prepare( $query_insere_escolha_aluno );
+    $stmt_escolhas_aluno = $PDO->prepare( $query_insere_escolha_aluno );
 
-    $stmt -> bindParam(':id_user', $id_user);
-    $stmt -> bindParam(':id_monitoria', $id_monitoria);
+    $stmt_escolhas_aluno -> bindParam(':id_user', $id_user);
+    $stmt_escolhas_aluno -> bindParam(':id_monitoria', $id_monitoria);
 
     for ($i=0; $i < $numero_escolhas_possiveis; $i++) {
         if ($disciplinas_escolhidas['escolha_aluno_'.$i] !== 'disciplina_vazia') {
             
-            $stmt -> bindParam(':escolha_aluno', $disciplinas_escolhidas['escolha_aluno_'.$i]);
-            $stmt -> bindParam(':mencao_aluno', $disciplinas_escolhidas['mencao_aluno_'.$i]);
+            $stmt_escolhas_aluno -> bindParam(':escolha_aluno', $disciplinas_escolhidas['escolha_aluno_'.$i]);
+            $stmt_escolhas_aluno -> bindParam(':mencao_aluno', $disciplinas_escolhidas['mencao_aluno_'.$i]);
             
-            $result = $stmt->execute();
+            $result = $stmt_escolhas_aluno->execute();
 
             if (!$result) {
                 $errors[] = "Erro durante a gravação da escolha.".($i+1);
@@ -702,6 +702,22 @@ function grava_escolhas_monitoria($id_user, $id_monitoria,$disciplinas_escolhida
                 $errors[] = "Erro durante a gravação da escolha do horário.";
             }
 
+    }
+
+    $campos_update = 'id_user=:id_user, tipo_monitoria=:tipo_monitoria,concordatermos=:concordatermos, id_monitoria=:id_monitoria';
+ 
+    $query_insere_dados_finais = "UPDATE finaliza_escolhas SET $campos_update WHERE id_user=:id_user";
+     
+    $stmt_dados_finais = $PDO->prepare( $query_insere_dados_finais );
+    $stmt_dados_finais -> bindParam(':id_user', $id_user);
+    $stmt_dados_finais -> bindParam(':tipo_monitoria', $disciplinas_escolhidas['tipo_monitoria']);
+    $stmt_dados_finais -> bindParam(':concordatermos', $disciplinas_escolhidas['concordatermos']);
+    $stmt_dados_finais -> bindParam(':id_monitoria', $id_monitoria);
+
+    $result = $stmt_dados_finais->execute();
+
+    if (!$result) {
+        $errors[] = "Não foi possível finalizar suas escolhas.";
     }
 
     return $errors;
@@ -744,15 +760,40 @@ function finaliza_escolhas($id_user, $id_monitoria,$disciplinas_escolhidas){
 
     GLOBAL $PDO;
     GLOBAL $errors;
+ 
+    $campos_update = 'id_user=:id_user, tipo_monitoria=:tipo_monitoria, monitor_projeto=:monitor_projeto, nome_professor=:nome_professor,concordatermos=:concordatermos, id_monitoria=:id_monitoria';
+ 
+    $query_insere_escolha_finais = "UPDATE finaliza_escolhas SET $campos_update WHERE id_user=:id_user";
+     
+    $stmt = $PDO->prepare( $query_insere_escolha_finais );
+    $stmt -> bindParam(':id_user', $id_user);
+    $stmt -> bindParam(':tipo_monitoria', $disciplinas_escolhidas['tipo_monitoria']);
+    $stmt -> bindParam(':monitor_projeto', $disciplinas_escolhidas['monitor_projeto']);
+
+    $stmt -> bindParam(':nome_professor', $disciplinas_escolhidas['nome_professor']);
+    $stmt -> bindParam(':concordatermos', $disciplinas_escolhidas['concordatermos']);
+    $stmt -> bindParam(':id_monitoria', $id_monitoria);
+
+    $result = $stmt->execute();
+
+    if (!$result) {
+        $errors[] = "Não foi possível finalizar suas escolhas.";
+    }
+
+    return $errors;
+}
+
+function finaliza_inscricao($id_user, $id_monitoria,$disciplinas_escolhidas){
+
+    GLOBAL $PDO;
+    GLOBAL $errors;
 
     // $escolheu_hora = horarios_escolhidos_candidato($disciplinas_escolhidas);
     // $hora_escolhida ="";
     // foreach ($escolheu_hora as $key) {
     //     $hora_escolhida .= $disciplinas_escolhidas[$key];
     // }
- 
-    //Validar para garantir que realmente pode finalizar a inscrição.
-    //Verificar se: candidato que deseja monitoria remunerada informou dados bancários, se histórico está atualizado e se as informações acadêmicas foram salvas.
+
     
     $finaliza_escolhas = TRUE;
  
