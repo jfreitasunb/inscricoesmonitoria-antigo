@@ -89,12 +89,12 @@
           </div>
           <div class="row">
             <div class="checkbox">
-              <label><input type="checkbox" name="checkbox_foi_monitor[]" id="checkbox_foi_monitor" value="nao">Sim, de outras disciplinas</label>
+              <label><input type="checkbox" name="checkbox_foi_monitor[]" id="checkbox_foi_monitor" value="outras">Sim, de outras disciplinas</label>
             </div>
           </div>
           <div class="row">
             <div class="checkbox">
-              <label><input type="checkbox" name="checkbox_foi_monitor" id="checkbox_foi_monitor" value="">Não</label>
+              <label><input type="checkbox" name="checkbox_foi_monitor" id="checkbox_foi_monitor" value="nao">Não</label>
             </div>
           </div>
         </div>
