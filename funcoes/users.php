@@ -707,6 +707,39 @@ function grava_escolhas_monitoria($id_user, $id_monitoria,$disciplinas_escolhida
     return $errors;
 }
 
+function grava_monitor_convidado($id_user,$id_monitoria){
+
+    GLOBAL $PDO;
+    GLOBAL $errors;
+
+    $monitor_convidado  = $_POST['monitor_projeto'];
+    $nome_professor     = sanitize($_POST['nome_professor']);
+
+    $query_monitor_projeto = "UPDATE dados_academicos SET monitor_convidado=:monitor_convidado, nome_professor=:nome_professor WHERE id_user=:id_user AND id_monitoria=:id_monitoria";
+
+    $stmt_monitor_projeto = $PDO->prepare( $query_monitor_projeto );
+
+    $stmt_monitor_projeto->bindParam(':id_user', $id_user);
+    $stmt_monitor_projeto->bindParam(':id_monitoria', $id_monitoria);
+    $stmt_monitor_projeto->bindParam(':monitor_convidado', $monitor_convidado);
+    $stmt_monitor_projeto->bindParam(':nome_professor', $nome_professor);
+
+    $result = $stmt_monitor_projeto->execute();
+
+    if (!$result) {
+        $errors = "Não foi possível gravar as informações sobre participação em projeto. Tente novamente mais tarde.";
+    }
+
+    // try{
+    //     $result = $stmt_monitor_projeto->execute();
+    // }
+    // catch( PDOException $e ){
+    //     print_r($e);
+    // }
+
+    return $errors;
+}
+
 function finaliza_escolhas($id_user, $id_monitoria,$disciplinas_escolhidas){
 
     GLOBAL $PDO;
