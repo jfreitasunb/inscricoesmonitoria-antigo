@@ -788,10 +788,6 @@ function finaliza_inscricao($id_user, $id_monitoria){
     GLOBAL $PDO;
     GLOBAL $errors;
 
-    //Validar para garantir que realmente pode finalizar a inscrição.
-    //Verificar se: candidato que deseja monitoria remunerada informou dados bancários, se histórico está atualizado e se as informações acadêmicas foram salvas.
-    //
-    
     $query_seleciona_tipo_monitoria = "SELECT tipo_monitoria FROM finaliza_escolhas WHERE id_user=:id_user AND id_monitoria=:id_monitoria";
 
     $stmt_tipo_monitoria = $PDO->prepare( $query_seleciona_tipo_monitoria );
@@ -803,32 +799,73 @@ function finaliza_inscricao($id_user, $id_monitoria){
 
     $tipo_monitoria = $stmt_tipo_monitoria->fetchColumn();
 
-    echo $tipo_monitoria;
+    if ($tipo_monitoria !== "somentevoluntaria") {
+        
+        $dados_bancarios = user_data($id_user,'dados_bancarios','nome_banco','numero_banco','agencia_bancaria','numero_conta_corrente');
 
+        foreach ($dados_bancarios as $key) {
+            if ($key === null) {
+                $errors[] = "Você não informou todos os dados bancários necessários.";
+            }
+        }  
+    }
 
+    $dados_academicos_candidato = user_data($id_user,'dados_academicos','ira','monitor_convidado','nome_professor','curso_graduacao');
+
+    if ($dados_academicos_candidato['ira'] === null) {
+        $errors[] = "Você não informou seu IRA.";
+    }
+
+    if ($dados_academicos_candidato['monitor_convidado'] === 'sim' AND strlen($dados_academicos_candidato['nome_professor']) == 0) {
+        $errors[] = "Você não informou o nome do professor responsável por sua monitoria.";
+    }
+
+    if (strlen($dados_academicos_candidato['curso_graduacao']) == 0) {
+        $errors[] = "Você não informou seu curso de graduação.";
+    }
+
+    $query_historico_enviado = "SELECT data_envio FROM arquivos_enviados WHERE id_user=:id_user ORDER BY data_envio DESC LIMIT 1";
     
-    // $finaliza_escolhas = TRUE;
- 
-    // $campos_update = 'id_user=:id_user, tipo_monitoria=:tipo_monitoria, monitor_projeto=:monitor_projeto, nome_professor=:nome_professor,concordatermos=:concordatermos, id_monitoria=:id_monitoria, finaliza_escolhas=:finaliza_escolhas';
- 
-    // $query_insere_escolha_finais = "UPDATE finaliza_escolhas SET $campos_update WHERE id_user=:id_user";
+
+    $stmt_historico_enviado = $PDO->prepare( $query_historico_enviado );
+
+    $stmt_historico_enviado -> bindParam(':id_user', $id_user);
+    
+    $result = $stmt_historico_enviado->execute();
+
+    $data_historico_recente = $stmt_historico_enviado->fetchColumn();
+
+    var_dump($data_historico_recente);
+
+    $historico_recente = DateTime::createFromFormat('Y-m-d H:i:s', $data_historico_recente);
+    
+    $data = $historico_recente->format('d/m/Y');
+
+    $data_hoje = new DateTime;
+    
+    $validade = $data_hoje->diff($historico_recente);
+
+    if ($validade->format('%m') > 4) {
+        $errors = "Envie um histórico atualizado.";
+    }
+    
+
+    if (empty($errors)) {
+        
+        $query_finaliza_inscricao = "UPDATE finaliza_escolhas SET finaliza_escolhas='TRUE' WHERE id_user=:id_user AND id_monitoria=:id_monitoria";
      
-    // $stmt = $PDO->prepare( $query_insere_escolha_finais );
-    // $stmt -> bindParam(':id_user', $id_user);
-    // $stmt -> bindParam(':tipo_monitoria', $disciplinas_escolhidas['tipo_monitoria']);
-    // $stmt -> bindParam(':monitor_projeto', $disciplinas_escolhidas['monitor_projeto']);
+        $stmt_finaliza_inscricao = $PDO->prepare( $query_finaliza_inscricao );
+        $stmt_finaliza_inscricao -> bindParam(':id_user', $id_user);
+        $stmt_finaliza_inscricao -> bindParam(':id_monitoria', $id_monitoria);
+        $result = $stmt_finaliza_inscricao->execute();
 
-    // $stmt -> bindParam(':nome_professor', $disciplinas_escolhidas['nome_professor']);
-    // $stmt -> bindParam(':concordatermos', $disciplinas_escolhidas['concordatermos']);
-    // $stmt -> bindParam(':id_monitoria', $id_monitoria);
-    // $stmt -> bindParam(':finaliza_escolhas', $finaliza_escolhas);
-    // $result = $stmt->execute();
+        if (!$result) {
+            $errors[] = "Não foi possível finalizar sua inscrição. Tente novamente mais tarde.";
+        }
 
-    // if (!$result) {
-    //     $errors[] = "Não foi possível finalizar suas escolhas.";
-    // }
-
-    // return $errors;
+    }
+    
+    return $errors;
 }
 
 ?>
